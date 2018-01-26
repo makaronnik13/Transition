@@ -24,7 +24,7 @@ public class ParamsManager : Singleton<ParamsManager>
 		{
 			paramsValues.Add (param, param.defaultValue);
 		}
-		paramsValues [param] = value;
+		paramsValues [param] = Mathf.Clamp(value, param.minValue, param.maxValue);
 	}
 
 	public float GetParam(GameParameter param)
@@ -41,4 +41,5 @@ public class ParamsManager : Singleton<ParamsManager>
 	{
 		ChangeParam (effect.parameter, effect.value);
 	}
+		
 }

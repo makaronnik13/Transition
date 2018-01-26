@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class ParamsVisualiser : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public GameParameter[] visibleParameters;
+	public GameObject linePrefab;
+
+	void Start()
+	{
+		foreach(GameParameter visualisedParam in visibleParameters)
+		{
+			GameObject newLine = Instantiate (linePrefab, transform);
+			newLine.transform.localScale = Vector3.one;
+			newLine.GetComponent<ParamPanel> ().Init (visualisedParam);
+		}
 	}
 }

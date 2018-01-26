@@ -1,7 +1,8 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Model/Symbol")]
+[System.Serializable]
 public class Symbol : ScriptableObject
 {
     [InlineEditor(InlineEditorModes.LargePreview)]

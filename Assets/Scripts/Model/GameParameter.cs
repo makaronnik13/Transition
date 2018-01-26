@@ -1,7 +1,8 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Model/Parameter")]
+[System.Serializable]
 public class GameParameter : ScriptableObject
 {
     public bool displayed;

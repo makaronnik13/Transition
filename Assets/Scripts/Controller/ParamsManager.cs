@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using HoloToolkit.Unity;
+using System.Linq;
+using System;
 
 public class ParamsManager : Singleton<ParamsManager>
 {
-	//public Action<GameParameter, float> OnParamChanged = (null, null)=>{};
+	public Action<GameParameter, float> OnParamChanged = (GameParameter a, float b)=>{};
 
-	private Dictionary<GameParameter, float, float> paramsValues = new Dictionary<GameParameter, float, float>();
+	private Dictionary<GameParameter, float> paramsValues = new Dictionary<GameParameter, float>();
 
 	private void ChangeParam(GameParameter param, float value)
 	{
 		float v = GetParam (param) + value;
-		OnParamChanged.Invoke (param, value, v);
+		OnParamChanged.Invoke (param, value);
 		SetParam (param, v);
 	}
 
@@ -32,7 +34,7 @@ public class ParamsManager : Singleton<ParamsManager>
 			paramsValues.Add (param, param.defaultValue);
 		}
 
-		return paramsValues (param);
+		return paramsValues [param];
 	}
 
 	public void ApplyEffect(ParamEffect effect)

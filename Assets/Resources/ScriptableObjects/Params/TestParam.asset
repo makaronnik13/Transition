@@ -8,7 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7a1a29212558425485fed9ea85b48f3, type: 3}
-  m_Name: New Symbol
+  m_Script: {fileID: 11500000, guid: 0c27e4d91826243b198406c1b4778e87, type: 3}
+  m_Name: TestParam
   m_EditorClassIdentifier: 
-  image: {fileID: 21300024, guid: 71ae9cf2cbddbbf46afcc9b7c0ab1d27, type: 3}
+  displayed: 0
+  image: {fileID: 0}
+  minValue: 0
+  maxValue: 0
+  defaultValue: 0

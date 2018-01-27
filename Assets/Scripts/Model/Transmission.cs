@@ -5,6 +5,15 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu(menuName = "Model/Transmission")]
 public class Transmission : ScriptableObject
 {
-    public Symbol[] content;
-    public Choice[] choices;
+	#if UNITY_EDITOR
+	[HideInInspector]
+	public float X, Y;
+	public void Drag(Vector2 p)
+	{
+		X = p.x;
+		Y = p.y;
+	}
+	#endif
+	public Symbol[] content = new Symbol[0];
+	public Choice[] choices = new Choice[0];
 }

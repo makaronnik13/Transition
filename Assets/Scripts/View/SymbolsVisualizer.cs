@@ -9,7 +9,7 @@ public class SymbolsVisualizer : MonoBehaviour
     private void Start()
     {
         TransmissionManager.Instance.OnTransmissionRecieved += DrawTransmission;
-        TransmissionManager.Instance.OnTransmissionClosed += Hide;
+		TransmissionManager.Instance.OnChoiceApplied += Hide;
     }
 
     //[Button]
@@ -30,11 +30,11 @@ public class SymbolsVisualizer : MonoBehaviour
         }
     }
 
-    private void Hide (Transmission transmission, Choice choice)
+    private void Hide (Choice choice)
     {
         foreach (Transform symbolChild in transform)
         {
-            Destroy(symbolChild);
+			Destroy(symbolChild.gameObject);
         }
     }
 }

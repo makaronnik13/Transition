@@ -12,12 +12,7 @@ public class FeedbackVisualizer : MonoBehaviour {
 	void Start () 
 	{
 		button = GetComponent<Button> ();
-		button.onClick.AddListener (()=>{
-			TransmissionManager.Instance.CloseTransmission();
-			button.enabled = false;
-			text.enabled = false;
-			GetComponent<Image> ().enabled = false;
-		});
+		button.onClick.AddListener (PushTheButton);
 		button.enabled = false;
 		text.enabled = false;
 		GetComponent<Image> ().enabled = false;
@@ -26,12 +21,20 @@ public class FeedbackVisualizer : MonoBehaviour {
 
 	private void ShowFeedback(Choice choice)
 	{
-		if(choice.textContent!="")
+		if(choice.textFeedback!="")
 		{
 			text.text = choice.textFeedback;
 			button.enabled = true;
 			text.enabled = true;
 			GetComponent<Image> ().enabled = true;
 		}
+	}
+
+	private void PushTheButton()
+	{
+		TransmissionManager.Instance.CloseTransmission();
+		button.enabled = false;
+		text.enabled = false;
+		GetComponent<Image> ().enabled = false;
 	}
 }

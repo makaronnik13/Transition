@@ -14,8 +14,8 @@ public class ParamsManager : Singleton<ParamsManager>
 	private void ChangeParam(GameParameter param, float value)
 	{
 		float v = GetParam (param) + value;
-		OnParamChanged.Invoke (param, value);
 		SetParam (param, v);
+		OnParamChanged.Invoke (param, value);
 	}
 
 	private void SetParam(GameParameter param, float value)

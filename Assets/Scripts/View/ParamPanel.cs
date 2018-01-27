@@ -24,7 +24,10 @@ public class ParamPanel : MonoBehaviour {
 
 	private void ParamChanged(GameParameter p, float value)
 	{
-		slider.value += value;
-		valueText.text = ParamsManager.Instance.GetParam (parameter)+"/"+parameter.maxValue;
+		if (p == parameter) 
+		{
+			slider.value += value;
+			valueText.text = ParamsManager.Instance.GetParam (parameter)+"/"+parameter.maxValue;
+		}
 	}
 }

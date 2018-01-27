@@ -7,7 +7,7 @@ public class DictionaryVisualizer : MonoBehaviour {
 	public Transform content;
 	public GameObject dictionaryEntery;
 
-	private List<Symbol> knownSymbols = new List<Symbol>();
+	private HashSet<Symbol> knownSymbols = new HashSet<Symbol>();
 
 	// Use this for initialization
 	void Start () {
@@ -16,16 +16,19 @@ public class DictionaryVisualizer : MonoBehaviour {
 
 	private void AddSymbols(Transmission transmission)
 	{
-		GameObject newEntery = Instantiate (dictionaryEntery);
-		newEntery.transform.SetParent (content);
-		newEntery.transform.localScale = Vector3.one;
+
+		Debug.Log (transmission.content.Length);
 		foreach(Symbol s in transmission.content)
 		{
+			//Debug.Log ();
 			if(!knownSymbols.Contains(s))
 			{
-				knownSymbols.Add (s);
+				GameObject newEntery = Instantiate (dictionaryEntery);
+				newEntery.transform.SetParent (content);
+				newEntery.transform.localScale = Vector3.one;
 				newEntery.GetComponent<DictionaryEntery> ().Init (s);
 			}
+			knownSymbols.Add (s);
 		}
 	}
 }

@@ -12,7 +12,7 @@ public class TransmissionManager : Singleton<TransmissionManager>
     public Action<Choice> OnChoiceApplied = (Choice t) => { };
 	public Action<Transmission, Choice> OnTransmissionClosed = (Transmission t, Choice c) => { };
 
-    Queue<Transmission> TransmissionQueue;
+	Queue<Transmission> TransmissionQueue = new Queue<Transmission>();
 
     Transmission currentTransmission;
     Choice currentChoice;
@@ -58,7 +58,10 @@ public class TransmissionManager : Singleton<TransmissionManager>
             TransmissionQueue.Enqueue(transmission);
         }
 
-        TransmissionQueue = new Queue<Transmission>(TransmissionQueue.OrderBy(a=>Guid.NewGuid()));
+		if(TransmissionQueue.Count>0)
+		{
+        	TransmissionQueue = new Queue<Transmission>(TransmissionQueue.OrderBy(a=>Guid.NewGuid()));
+		}
 
         OnTransmissionClosed(currentTransmission, currentChoice);
 

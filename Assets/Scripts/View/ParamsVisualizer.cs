@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParamsVisualiser : MonoBehaviour {
+public class ParamsVisualizer : MonoBehaviour {
 
 	public GameParameter[] visibleParameters;
 	public GameObject linePrefab;

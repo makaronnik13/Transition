@@ -16,6 +16,7 @@ public class ChoiceButton : MonoBehaviour {
 			{
 				GameObject symbol = new GameObject ();
 				symbol.transform.SetParent (symbolsPanel);
+				symbol.transform.localScale = Vector3.one;
 				symbol.AddComponent<Image> ().sprite = s.image;
 			}
 		} else 
@@ -26,7 +27,7 @@ public class ChoiceButton : MonoBehaviour {
 
 		GetComponent<Button> ().onClick.AddListener (()=>
 		{
-				//TransitionsManager.Instance.	
+				TransmissionManager.Instance.ApplyChoice(transform.GetSiblingIndex());
 		});
 	}
 }

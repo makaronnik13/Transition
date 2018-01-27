@@ -8,9 +8,9 @@ public class TransmissionManager : Singleton<TransmissionManager>
 {
     public Transmission startingTransmission;
 
-    Action<Transmission> OnTransmissionRecieved = (Transmission t) => { };
-    Action<Choice> OnChoiceApplied = (Choice t) => { };
-    Action<Transmission, Choice> OnTransmissionClosed = (Transmission t, Choice c) => { };
+    public Action<Transmission> OnTransmissionRecieved = (Transmission t) => { };
+    public Action<Choice> OnChoiceApplied = (Choice t) => { };
+	public Action<Transmission, Choice> OnTransmissionClosed = (Transmission t, Choice c) => { };
 
     Queue<Transmission> TransmissionQueue;
 

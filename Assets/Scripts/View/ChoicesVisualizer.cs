@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class ChoicesVisualizer : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public GameObject choicePrefab;
+
+	public void Start()
+	{
+		TransmissionManager.Instance.OnTransmissionRecieved += DrawTransmission;
+		TransmissionManager.Instance.OnChoiceApplied += Hide;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	private void DrawTransmission(Transmission transmission)
+	{
+		foreach(Choice c in transmission.choices)
+		{
+			GameObject newChoice = Instantiate (choicePrefab);
+			newChoice.transform.SetParent (transform);
+			newChoice.transform.localScale = Vector3.one;
+			newChoice.GetComponent<ChoiceButton> ().Init (c);
+		}
+	}
+
+	private void Hide(Choice c)
+	{
+		foreach(Transform t in transform)
+		{
+			Destroy (t.gameObject);
+		}
 	}
 }

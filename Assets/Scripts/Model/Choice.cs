@@ -8,7 +8,7 @@ public class Choice
 
     public String textFeedback;
 
-    public ParamEffect[] paramEffect;
+    public ParamEffect[] paramEffects;
     public Transmission nextTransmission;
     public Transmission[] addTransmissions;
     public Transmission[] discardTransmissions;

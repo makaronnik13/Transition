@@ -34,7 +34,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e0b7bf9755adb4aa18e200c4495df73a, type: 2}
     textContent: 
     emotion: 0
-    textFeedback: Just go on repeating an you will be fine, right?
+    textFeedback: Was it their name?
     paramEffects: []
     nextTransmission: {fileID: 0}
     addTransmissions: []
@@ -45,7 +45,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 353316a58047b4713bd75f0155beb8b4, type: 2}
     textContent: 
     emotion: 3
-    textFeedback: Unexepected combination?!
+    textFeedback: Hmm, they didn't quite like it...
     paramEffects: []
     nextTransmission: {fileID: 11400000, guid: 3ede2fd9f5d2f4c70851e2e8ae3f13bb, type: 2}
     addTransmissions: []

@@ -26,7 +26,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 939230e1b1eb5496ba9cdde15a39886f, type: 2}
     textContent: 
     emotion: 0
-    textFeedback: 
+    textFeedback: Politely confirmed?
     paramEffects: []
     nextTransmission: {fileID: 0}
     addTransmissions: []
@@ -37,7 +37,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0bc5ec8be27fc457c837ad0df8c125d3, type: 2}
     textContent: 
     emotion: 0
-    textFeedback: 
+    textFeedback: What is "I" and what is "you"?
     paramEffects: []
     nextTransmission: {fileID: 11400000}
     addTransmissions: []

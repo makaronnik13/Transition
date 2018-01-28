@@ -4258,7 +4258,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: afff25a0b148e492884c291d971eea8f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7dbee8d57dc7a49b6821d1ff6bdb7a85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4556,7 +4556,7 @@ Prefab:
     - target: {fileID: 224041015949397250, guid: e76da30f166cc498d8d9c99311d57194,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -1062
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224041015949397250, guid: e76da30f166cc498d8d9c99311d57194,
         type: 2}
@@ -4865,8 +4865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5f92c8de1064aacb1aba94556b5850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingTransmission: {fileID: 11400000, guid: b2bf035997ead404990dc7b4d4c91a82,
-    type: 2}
+  startingTransmission: {fileID: 0}
 --- !u!114 &951292482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5942,10 +5941,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emotions:
-  - {fileID: 21300000, guid: afff25a0b148e492884c291d971eea8f, type: 3}
-  - {fileID: 21300000, guid: c1f5f1dce072148d49dabaddf23dda0d, type: 3}
-  - {fileID: 21300000, guid: 0f5fb71195b4c4ce186569e7045d1510, type: 3}
-  - {fileID: 21300000, guid: 56f748a6dfda441a0bb49fac40889aa8, type: 3}
+  - {fileID: 21300000, guid: 7dbee8d57dc7a49b6821d1ff6bdb7a85, type: 3}
+  - {fileID: 21300000, guid: b598517fa6adb4804b13d2166f78bab9, type: 3}
+  - {fileID: 21300000, guid: 7f7439152de7e4d9aab44e3124ebc69a, type: 3}
+  - {fileID: 21300000, guid: aa124be85cade4b889732a6f44ed654c, type: 3}
   id: 0
 --- !u!95 &1501705611
 Animator:
@@ -7040,7 +7039,7 @@ Prefab:
     - target: {fileID: 224821662554412100, guid: b143a8f3fcf114a7084f6865217fbe87,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 18
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b143a8f3fcf114a7084f6865217fbe87, type: 2}

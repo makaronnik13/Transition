@@ -491,7 +491,11 @@ public class NodeEditor : EditorWindow
 
 				foreach(Transmission tr in c.addTransmissions)
 				{
-					KeyValuePair<Transmission, GUIDraggableObject> ending = StatesPositions.Find (k => k.Key == tr);
+                    if (tr == null)
+                    {
+                        continue;
+                    }
+                    KeyValuePair<Transmission, GUIDraggableObject> ending = StatesPositions.Find (k => k.Key == tr);
 					Vector2 end = new Vector2 (5 + ending.Value.Position.x + ending.Key.content.Count () * 35f / 2, ending.Value.Position.y);
 					DrawNodeCurve (screenDelta + start + Vector2.right * (i-1) * width / state.Key.choices.Count(), screenDelta + end, Color.gray, 1);
 

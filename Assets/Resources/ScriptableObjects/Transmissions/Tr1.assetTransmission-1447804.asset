@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a6015496e044a039bc79c22ede0ccc, type: 3}
   m_Name: Tr1.assetTransmission-1447804
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 0
+  X: -37
+  Y: 54
   personId: 1
   content:
   - {fileID: 11400000, guid: f5712d3bcde8b42fe886a2e8added56b, type: 2}

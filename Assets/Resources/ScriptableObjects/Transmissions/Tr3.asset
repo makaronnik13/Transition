@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a6015496e044a039bc79c22ede0ccc, type: 3}
   m_Name: Tr3
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 0
+  X: 469
+  Y: -77
   personId: 0
   content:
   - {fileID: 11400000, guid: 4547143342ad94775b146e646a27a7ac, type: 2}
@@ -43,5 +43,5 @@ MonoBehaviour:
     emotion: 3
     textFeedback: 
     paramEffects: []
-    nextTransmission: {fileID: 11400000, guid: b2bf035997ead404990dc7b4d4c91a82, type: 2}
+    nextTransmission: {fileID: 11400000, guid: 8b8065cf89e2f4e449d9798e775099f3, type: 2}
     addTransmissions: []

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a6015496e044a039bc79c22ede0ccc, type: 3}
   m_Name: Tr1
   m_EditorClassIdentifier: 
-  X: 186
-  Y: 176
+  X: 327
+  Y: 268
   personId: 2
   content:
   - {fileID: 11400000, guid: 20cb7424b23294eabb08055506d409e5, type: 2}

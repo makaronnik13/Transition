@@ -125,23 +125,6 @@ public class NodeEditor : EditorWindow
 
 	private void DrawCreatingLine()
 	{
-
-/*
-		if (selectedPath!=null && Event.current.type == EventType.keyDown && Event.current.keyCode == KeyCode.Delete)
-		{
-
-			foreach (KeyValuePair<Transmission, GUIDraggableObject> p in StatesPositions)
-			{
-				if (p.Key.Combinations.Contains(selectedPath))
-				{
-					p.Key.RemoveCombination(p.Key.Combinations.ToList().IndexOf(selectedPath));
-				}
-			}
-
-			selectedPath= null;
-			Repaint();
-		}
-*/
 		if (selectedPath != null)
 		{
 
@@ -159,7 +142,7 @@ public class NodeEditor : EditorWindow
 					}
 					if (c== selectedPath)
 					{         
-						start = new Rect(p.Value.Position.x + screenDelta.x - 100f / 2 + 5 + offset, p.Value.Position.y + screenDelta.y + 115 / 2f, 100.0f, 115.0f);
+						start = new Rect(p.Value.Position.x + screenDelta.x - 100f / 2 + 15f + offset, p.Value.Position.y + screenDelta.y, 100.0f, 115.0f);
 					}
 
 					i++;
@@ -291,7 +274,7 @@ public class NodeEditor : EditorWindow
 			Repaint ();
 		}
 		EditorGUILayout.EndHorizontal ();
-		EditorGUILayout.LabelField ("", GUILayout.Height (position.height - 89));
+		EditorGUILayout.LabelField ("", GUILayout.Height (position.height - 135));
 		scrollPosition = EditorGUILayout.BeginScrollView (scrollPosition, GUIStyle.none, GUIStyle.none, GUILayout.Height (110), GUILayout.Width (position.width));
 		EditorGUILayout.BeginHorizontal ();
 		foreach (Symbol s in Symbols()) {
@@ -365,6 +348,23 @@ public class NodeEditor : EditorWindow
 
 
 		Rect drawRect = new Rect (state.Value.Position.x + screenDelta.x, state.Value.Position.y + screenDelta.y, 35f * state.Key.content.Count () + 10, 45f);//, dragRect;
+
+
+		if (Event.current.type == EventType.MouseUp && drawRect.Contains (Event.current.mousePosition) && selectedPath!=null) 
+		{
+			if(Event.current.button == 0 )
+			{
+				List<Transmission> old = selectedPath.addTransmissions.ToList ();
+				old.Add (state.Key);
+				selectedPath.addTransmissions = old.ToArray ();
+				selectedPath = null;
+			}
+			if(Event.current.button == 1)
+			{
+				selectedPath.nextTransmission = state.Key;
+				selectedPath = null;
+			}
+		}
 
 		if (Event.current.type == EventType.MouseUp && Event.current.button == 0 && drawRect.Contains (Event.current.mousePosition) && draggingSymbol) 
 		{
@@ -493,11 +493,11 @@ public class NodeEditor : EditorWindow
 				{
 					KeyValuePair<Transmission, GUIDraggableObject> ending = StatesPositions.Find (k => k.Key == tr);
 					Vector2 end = new Vector2 (5 + ending.Value.Position.x + ending.Key.content.Count () * 35f / 2, ending.Value.Position.y);
-					DrawNodeCurve (screenDelta + start + Vector2.right * i * width / state.Key.choices.Count(), screenDelta + end, Color.gray, 1);
-					i++;
+					DrawNodeCurve (screenDelta + start + Vector2.right * (i-1) * width / state.Key.choices.Count(), screenDelta + end, Color.gray, 1);
+
 				}
 
-				Rect startt = new Rect(screenDelta + start + Vector2.right * i * width / state.Key.choices.Count() + 7.5f*Vector2.one, Vector2.one*15);
+				Rect startt = new Rect(screenDelta + start + Vector2.right * (i-1.5f) * width / state.Key.choices.Count() + 7.5f*Vector2.one, Vector2.one*30);
 
 				GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, 1);
 

@@ -18,6 +18,7 @@ public class ChoiceButton : MonoBehaviour {
 				symbol.transform.SetParent (symbolsPanel);
 				symbol.transform.localScale = Vector3.one;
 				symbol.AddComponent<Image> ().sprite = s.image;
+				symbol.GetComponent<Image> ().color = Color.black;
 			}
 		} else 
 		{

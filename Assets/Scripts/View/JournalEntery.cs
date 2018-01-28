@@ -24,6 +24,7 @@ public class JournalEntery : MonoBehaviour {
 				symbol.transform.SetParent (answer);
 				symbol.transform.localScale = Vector3.one;
 				symbol.AddComponent<Image> ().sprite = symbolValue.image;
+				symbol.GetComponent<Image> ().color = Color.black;
 			}
 		}
 
@@ -33,6 +34,7 @@ public class JournalEntery : MonoBehaviour {
 			symbol.transform.SetParent (symbols);
 			symbol.transform.localScale = Vector3.one;
 			symbol.AddComponent<Image> ().sprite = symbolValue.image;
+			symbol.GetComponent<Image> ().color = Color.black;
 		}
 	}
 }

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b6541fa5b9ad24de3887306e64b45332
+timeCreated: 1517078795
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Gant
+  fontNames:
+  - Gant
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

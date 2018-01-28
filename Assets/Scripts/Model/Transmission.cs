@@ -14,6 +14,9 @@ public class Transmission : ScriptableObject
 		Y = p.y;
 	}
 	#endif
+
+	public int personId = 0;
+
 	public Symbol[] content = new Symbol[0];
 	public Choice[] choices = new Choice[0];
 }

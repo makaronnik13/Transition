@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class SymbolsVisualizer : MonoBehaviour
 {
-    //public Transmission testTransmission;
+	private Image background;
+	public Transform[] pivots;
 
     private void Start()
     {
+		background = transform.GetChild (0).GetComponent<Image> ();
         TransmissionManager.Instance.OnTransmissionRecieved += DrawTransmission;
 		TransmissionManager.Instance.OnChoiceApplied += Hide;
     }
@@ -27,14 +29,23 @@ public class SymbolsVisualizer : MonoBehaviour
 			symbolGObj.transform.localScale = Vector3.one;
 			symbolGObj.AddComponent<Image>();
 			symbolGObj.GetComponent<Image>().sprite = symbol.image;
+			symbolGObj.GetComponent<Image> ().color = Color.black;
+			symbolGObj.GetComponent<RectTransform> ().sizeDelta = new Vector2 (55f, 55f);
         }
+		transform.SetParent(pivots[transmission.personId]);
+		transform.localPosition = Vector3.zero;
+		background.enabled = true;
     }
 
     private void Hide (Choice choice)
     {
         foreach (Transform symbolChild in transform)
         {
-			Destroy(symbolChild.gameObject);
+			if(symbolChild!=background.transform)
+			{
+				Destroy(symbolChild.gameObject);	
+			}
         }
+		background.enabled = false;
     }
 }

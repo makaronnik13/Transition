@@ -7,6 +7,7 @@ public class FeedbackVisualizer : MonoBehaviour {
 
 	public Text text;
 	private Button button;
+	private Choice currentChoice;
 
 	// Use this for initialization
 	void Start () 
@@ -21,13 +22,26 @@ public class FeedbackVisualizer : MonoBehaviour {
 
 	private void ShowFeedback(Choice choice)
 	{
-		if(choice.textFeedback!="")
+		if (choice.textFeedback != "") {
+			currentChoice = choice;
+			Invoke ("Show", 1.5f);
+		} else 
 		{
-			text.text = choice.textFeedback;
-			button.enabled = true;
-			text.enabled = true;
-			GetComponent<Image> ().enabled = true;
+			Invoke ("Skip", 1.5f);
 		}
+	}
+
+	private void Skip()
+	{
+		TransmissionManager.Instance.CloseTransmission();
+	}
+
+	private void Show()
+	{
+		text.text = currentChoice.textFeedback;
+		button.enabled = true;
+		text.enabled = true;
+		GetComponent<Image> ().enabled = true;
 	}
 
 	private void PushTheButton()

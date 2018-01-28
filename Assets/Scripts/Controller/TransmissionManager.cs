@@ -24,6 +24,8 @@ public class TransmissionManager : Singleton<TransmissionManager>
 
     public void ApplyChoice(int choiceIndex)
     {
+		Debug.Log ("apply choice");
+
         currentChoice = currentTransmission.choices[choiceIndex];
         foreach (ParamEffect effect in currentChoice.paramEffects)
         {
@@ -64,6 +66,8 @@ public class TransmissionManager : Singleton<TransmissionManager>
 		}
 
         OnTransmissionClosed(currentTransmission, currentChoice);
+
+
 
         if(currentChoice.nextTransmission)
         {

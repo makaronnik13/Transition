@@ -17,7 +17,7 @@ public class TransmissionManager : Singleton<TransmissionManager>
     Transmission currentTransmission;
     Choice currentChoice;
 
-    private void Start()
+    public void StartGame()
     {
         RunTransmission(startingTransmission);
     }
@@ -40,15 +40,25 @@ public class TransmissionManager : Singleton<TransmissionManager>
             RunTransmission(TransmissionQueue.Dequeue());     
         }
         catch{
-            Debug.Log("transmission queue is out"); 
+            Debug.Log("transmission queue is out");
+            Debug.Log("StartVisualizer.Instance.ShowEnd(3);");
+            //StartVisualiser.Instance.ShowEnd(3);
         }
        
     }
 
     public void RunTransmission (Transmission newTransmission)
     {
-        currentTransmission = newTransmission;
-        OnTransmissionRecieved(currentTransmission);
+        if (newTransmission.isEnding)
+        {
+            Debug.Log("StartVisualizer.Instance.ShowEnd(newTransmission.personId);");
+            StartVisualiser.Instance.ShowEnd(newTransmission.personId);
+        }
+        else
+        {         
+			currentTransmission = newTransmission;
+			OnTransmissionRecieved(currentTransmission);
+        }
     }
 
     public void CloseTransmission ()
@@ -57,7 +67,10 @@ public class TransmissionManager : Singleton<TransmissionManager>
 
         foreach (Transmission transmission in currentChoice.addTransmissions)
         {
-            TransmissionQueue.Enqueue(transmission);
+            if (!TransmissionQueue.Contains(transmission))
+            {
+                TransmissionQueue.Enqueue(transmission);
+            }
         }
 
 		if(TransmissionQueue.Count>0)

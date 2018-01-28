@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a6015496e044a039bc79c22ede0ccc, type: 3}
+  m_Name: 03_1_YouStranger
+  m_EditorClassIdentifier: 
+  X: -148
+  Y: 234
+  personId: 1
+  isEnding: 0
+  content:
+  - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
+  - {fileID: 11400000, guid: 305d8151120704c428918099f3db2f7d, type: 2}
+  - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
+  - {fileID: 11400000, guid: 0bc5ec8be27fc457c837ad0df8c125d3, type: 2}
+  choices:
+  - symbolContent:
+    - {fileID: 11400000, guid: f0a69fe9c9fce49468f8a8d8d041ad59, type: 2}
+    - {fileID: 11400000, guid: 939230e1b1eb5496ba9cdde15a39886f, type: 2}
+    textContent: 
+    emotion: 0
+    textFeedback: 
+    paramEffects: []
+    nextTransmission: {fileID: 0}
+    addTransmissions: []
+  - symbolContent:
+    - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
+    - {fileID: 11400000, guid: 305d8151120704c428918099f3db2f7d, type: 2}
+    - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
+    - {fileID: 11400000, guid: 0bc5ec8be27fc457c837ad0df8c125d3, type: 2}
+    textContent: 
+    emotion: 0
+    textFeedback: 
+    paramEffects: []
+    nextTransmission: {fileID: 11400000}
+    addTransmissions: []

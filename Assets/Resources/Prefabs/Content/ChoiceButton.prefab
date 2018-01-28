@@ -94,13 +94,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 10
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 3
   m_StartCorner: 0
-  m_StartAxis: 0
+  m_StartAxis: 1
   m_CellSize: {x: 35, y: 35}
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 0
@@ -118,6 +118,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   symbolsPanel: {fileID: 224153039506300184}
   textPanel: {fileID: 114740178934020306}
+  specialSymbols:
+  - {fileID: 11400000, guid: 91c2ad864c918436688ffaa0cc559b2d, type: 2}
+  - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
+  - {fileID: 11400000, guid: f0a69fe9c9fce49468f8a8d8d041ad59, type: 2}
+  symbolsRaw: {fileID: 1641312953268480, guid: b6635a2e3dc064e3fa937f214d267ef3, type: 2}
 --- !u!114 &114333541733133092
 MonoBehaviour:
   m_ObjectHideFlags: 1

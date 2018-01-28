@@ -9,6 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7a1a29212558425485fed9ea85b48f3, type: 3}
-  m_Name: Another
+  m_Name: Stranger-Other
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: c8b97ed36d80146a8b6858cc86aa6c55, type: 3}

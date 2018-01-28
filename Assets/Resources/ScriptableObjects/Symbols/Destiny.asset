@@ -9,6 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7a1a29212558425485fed9ea85b48f3, type: 3}
-  m_Name: Desteny
+  m_Name: Destiny
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: d658de61889294a35b467c9855c34bbf, type: 3}

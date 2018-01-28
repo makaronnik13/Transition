@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 40610336d432f41e1a44aba4bc3e88cd, type: 3}
   minValue: 0
-  maxValue: 100
-  defaultValue: 50
+  maxValue: 10
+  defaultValue: 5

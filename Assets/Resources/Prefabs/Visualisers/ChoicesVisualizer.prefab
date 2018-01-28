@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288363f09474a42e5a283d8b4272b702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choicePrefab: {fileID: 1831435657673394, guid: 3d8d426c9308c44afb56e22cebd6495d,
+  choicePrefab: {fileID: 1831435657673394, guid: 6571bdeec6fc74816b892fd6b2f70405,
     type: 2}
 --- !u!114 &114688468884158780
 MonoBehaviour:
@@ -61,9 +61,9 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 175, y: 50}
+  m_CellSize: {x: 200, y: 150}
   m_Spacing: {x: 0, y: 0}
-  m_Constraint: 1
+  m_Constraint: 2
   m_ConstraintCount: 1
 --- !u!222 &222813574274488668
 CanvasRenderer:
@@ -84,8 +84,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000095367, y: -69}
-  m_SizeDelta: {x: -637.1, y: -445}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0.000015258789, y: 100}
+  m_SizeDelta: {x: 162.90002, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}

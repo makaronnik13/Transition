@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a1a29212558425485fed9ea85b48f3, type: 3}
   m_Name: Bad
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 28fadf16b864549e591c2a168b9da525, type: 3}
+  image: {fileID: 21300000, guid: 5aee06064f43b47bd9fdb1dcaf17e473, type: 3}

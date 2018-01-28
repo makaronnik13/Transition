@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c27e4d91826243b198406c1b4778e87, type: 3}
   m_Name: TestParam3
   m_EditorClassIdentifier: 
-  image: {fileID: 21300206, guid: 71ae9cf2cbddbbf46afcc9b7c0ab1d27, type: 3}
+  image: {fileID: 21300000, guid: 40610336d432f41e1a44aba4bc3e88cd, type: 3}
   minValue: 0
   maxValue: 100
-  defaultValue: 25
+  defaultValue: 50

@@ -27,7 +27,7 @@ public class ParamPanel : MonoBehaviour {
 		if (p == parameter) 
 		{
 			slider.value += value;
-			valueText.text = ParamsManager.Instance.GetParam (parameter)+"/"+parameter.maxValue;
+			valueText.text = ParamsManager.Instance.GetParam (parameter)+"";
 		}
 	}
 }

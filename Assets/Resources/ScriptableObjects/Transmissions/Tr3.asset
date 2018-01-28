@@ -14,5 +14,34 @@ MonoBehaviour:
   X: 0
   Y: 0
   personId: 0
-  content: []
-  choices: []
+  content:
+  - {fileID: 11400000, guid: 4547143342ad94775b146e646a27a7ac, type: 2}
+  - {fileID: 11400000, guid: 4df0e47ff20c74499879e3cbac4101da, type: 2}
+  - {fileID: 11400000, guid: 8cec36f03c35741be81d11427955b71a, type: 2}
+  choices:
+  - symbolContent:
+    - {fileID: 11400000, guid: 939230e1b1eb5496ba9cdde15a39886f, type: 2}
+    textContent: 
+    emotion: 2
+    textFeedback: 
+    paramEffects: []
+    nextTransmission: {fileID: 11400000, guid: b2bf035997ead404990dc7b4d4c91a82, type: 2}
+    addTransmissions: []
+  - symbolContent:
+    - {fileID: 11400000, guid: 4df0e47ff20c74499879e3cbac4101da, type: 2}
+    - {fileID: 11400000, guid: 8cec36f03c35741be81d11427955b71a, type: 2}
+    textContent: 
+    emotion: 1
+    textFeedback: 
+    paramEffects: []
+    nextTransmission: {fileID: 11400000, guid: b2bf035997ead404990dc7b4d4c91a82, type: 2}
+    addTransmissions: []
+  - symbolContent:
+    - {fileID: 11400000, guid: 8cec36f03c35741be81d11427955b71a, type: 2}
+    - {fileID: 11400000, guid: 305d8151120704c428918099f3db2f7d, type: 2}
+    textContent: 
+    emotion: 3
+    textFeedback: 
+    paramEffects: []
+    nextTransmission: {fileID: 11400000, guid: b2bf035997ead404990dc7b4d4c91a82, type: 2}
+    addTransmissions: []

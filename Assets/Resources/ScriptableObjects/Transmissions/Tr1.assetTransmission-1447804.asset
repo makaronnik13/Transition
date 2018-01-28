@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   X: 0
   Y: 0
-  personId: 0
+  personId: 1
   content:
   - {fileID: 11400000, guid: f5712d3bcde8b42fe886a2e8added56b, type: 2}
   - {fileID: 11400000, guid: 20cb7424b23294eabb08055506d409e5, type: 2}
@@ -24,5 +24,5 @@ MonoBehaviour:
     emotion: 1
     textFeedback: 
     paramEffects: []
-    nextTransmission: {fileID: 11400000, guid: b2bf035997ead404990dc7b4d4c91a82, type: 2}
+    nextTransmission: {fileID: 11400000, guid: 0427aee6efdc847ec8253d705b48575a, type: 2}
     addTransmissions: []

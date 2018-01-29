@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
@@ -18,7 +17,6 @@ public class SymbolsVisualizer : MonoBehaviour
 		TransmissionManager.Instance.OnChoiceApplied += Hide;
     }
 
-    //[Button]
     //private void TestDraw ()
     //{
     //    DrawTransmission(testTransmission);

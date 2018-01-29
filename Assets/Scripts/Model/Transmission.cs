@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Sirenix.OdinInspector;
 
 [System.Serializable]
 [CreateAssetMenu(menuName = "Model/Transmission")]

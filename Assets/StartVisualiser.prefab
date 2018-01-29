@@ -140,18 +140,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 1218475991840476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70733bfb7ad2b44b79a5ce09539627a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c597b081f0b34a6c96581a0635d0ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 114060189882625912}
   endImage: {fileID: 114223741511042516}
   startTexts:
-  - "\u0422\u044B \u0447\u0443\u0432\u0430\u043A"
-  - "\u041A\u043E\u0440\u0430\u0431\u043B\u044C \u0440\u0430\u0437\u0431\u0438\u043B\u0441\u044F"
-  - "\u0412\u0438\u0434\u0438\u0448\u044C \u043F\u0440\u0438\u0448\u0435\u043B\u044C\u0446\u0435\u0432"
+  - After a long journey through space I landed on Planet42.
+  - The touchdown was rather harsh. It looks like I'm stranded here untill I find
+    the way to fix the main enigine.
+  - As the alarm goes on and the ship's computer announces system check results,  I
+    make out three peculiar creautres approaching.
+  - I better get ready for... Communication. Fortunately, I have a device which allows
+    me to record voices and play them back.
+  - I'm in luck, because this device was made on this exact planet, Planet 42, and
+    it has speech recognition.
+  - If only I could understand their language...
+  endTexts1:
+  - I was in luck! After figuring out the basic language of the natives
+  - ' I was able to fly away far from this crazy planet.'
+  - A generous man of a noble appearance has helped me tremendously, he gave me just
+    what I needed to repair my spaceship.
+  - 'I will keep his beautiful photograph under my heart. '
+  endTexts2:
+  - Little did I know, when I crashed on this strange planet.
+  - 'At first I thought I was gonna die there, but then I met natives, learned their
+    language and found my best friend. '
+  - 'This place turned out to be just what I was looking for all my life. '
+  endTexts3:
+  - After crashing on an unknown planet, I met natives, who spoke language I didn't
+    understand at first, but quickly learned the basics.
+  - ' I decided to become a citizen of a powerful Snot Empire.'
+  - Don't believe everything you will hear about me.
+  endTexts4:
+  - Alone
   endImages: []
   gameContent:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

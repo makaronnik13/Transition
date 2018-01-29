@@ -6,7 +6,7 @@ public class Choice
     public Symbol[] symbolContent;
     public String textContent;
 
-	public PersonEmotionController.Emotion emotion = PersonEmotionController.Emotion.Defaul;
+	public PersonEmotionController.Emotion emotion = PersonEmotionController.Emotion.Default;
     public String textFeedback;
 
 	public ParamEffect[] paramEffects = new ParamEffect[0];

@@ -9,9 +9,9 @@ public class PersonEmotionController : MonoBehaviour {
 	private bool active = false;
 	public enum Emotion
 	{
-		Defaul,
+		Default,
 		Angry,
-		Hapy,
+        Happy,
 		Sad
 	}
 

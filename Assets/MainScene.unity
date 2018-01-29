@@ -302,7 +302,7 @@ Prefab:
     - target: {fileID: 224372492541103712, guid: c413f049d8e144d9b8e85321eb67f198,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -58.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1771114039431756, guid: c413f049d8e144d9b8e85321eb67f198, type: 2}
       propertyPath: m_IsActive
@@ -4041,7 +4041,7 @@ GameObject:
   - component: {fileID: 251576863}
   - component: {fileID: 251576864}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Snail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4519,7 +4519,7 @@ GameObject:
   - component: {fileID: 580675652}
   - component: {fileID: 580675653}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5070,7 +5070,7 @@ Prefab:
     - target: {fileID: 224041015949397250, guid: e7e4e03b089db46368ece6a7e0311f17,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -1072
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224041015949397250, guid: e7e4e03b089db46368ece6a7e0311f17,
         type: 2}
@@ -7590,7 +7590,7 @@ GameObject:
   - component: {fileID: 2128246907}
   - component: {fileID: 2128246908}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

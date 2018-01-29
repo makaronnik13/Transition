@@ -22,6 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 91c2ad864c918436688ffaa0cc559b2d, type: 2}
   - {fileID: 11400000, guid: 838b32ea180dc433d8735389dd14aaff, type: 2}
   - {fileID: 11400000, guid: 414ea376a38514eb6abb2a93b9207b00, type: 2}
+  text: 
   choices:
   - symbolContent:
     - {fileID: 11400000, guid: 91c2ad864c918436688ffaa0cc559b2d, type: 2}

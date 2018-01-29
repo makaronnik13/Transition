@@ -18,5 +18,6 @@ public class Transmission : ScriptableObject
     public bool isEnding;
 
 	public Symbol[] content = new Symbol[0];
+    public string text;
 	public Choice[] choices = new Choice[0];
 }

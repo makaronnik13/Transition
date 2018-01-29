@@ -16,4 +16,5 @@ MonoBehaviour:
   personId: 2
   isEnding: 1
   content: []
+  text: 
   choices: []

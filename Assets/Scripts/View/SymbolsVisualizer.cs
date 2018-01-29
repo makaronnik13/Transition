@@ -17,11 +17,6 @@ public class SymbolsVisualizer : MonoBehaviour
 		TransmissionManager.Instance.OnChoiceApplied += Hide;
     }
 
-    //private void TestDraw ()
-    //{
-    //    DrawTransmission(testTransmission);
-    //}
-
     private void DrawTransmission (Transmission transmission)
     {
 		Transform currentRaw = null;

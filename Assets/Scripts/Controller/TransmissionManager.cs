@@ -6,9 +6,10 @@ using System.Linq;
 
 public class TransmissionManager : Singleton<TransmissionManager>
 {
-    public Transmission startingTransmission;
+    private Person talkingPerson;
 
-    public Action<Transmission> OnTransmissionRecieved = (Transmission t) => { };
+    public Transmission startingTransmission;
+    public Action<Transmission, Person> OnTransmissionRecieved = (Transmission t, Person p) => { };
     public Action<Choice> OnChoiceApplied = (Choice t) => { };
 	public Action<Transmission, Choice> OnTransmissionClosed = (Transmission t, Choice c) => { };
 
@@ -17,11 +18,8 @@ public class TransmissionManager : Singleton<TransmissionManager>
     Transmission currentTransmission;
     Choice currentChoice;
 
-    public void StartGame()
-    {
-        RunTransmission(startingTransmission);
-    }
 
+    /*
     public void ApplyChoice(int choiceIndex)
     {
 		Debug.Log ("apply choice");
@@ -33,7 +31,15 @@ public class TransmissionManager : Singleton<TransmissionManager>
         }
         OnChoiceApplied(currentChoice);
     }
+    */
 
+    public void SetTalkablePerson(Person person)
+    {
+        talkingPerson = person;
+        RunTransmission(person.CurrentTransmission);
+    }
+
+    /*
     public void DrawTransmission ()
     {
         try{
@@ -46,25 +52,17 @@ public class TransmissionManager : Singleton<TransmissionManager>
         }
        
     }
+    */
 
     public void RunTransmission (Transmission newTransmission)
     {
-        if (newTransmission.isEnding)
-        {
-            Debug.Log("StartVisualizer.Instance.ShowEnd(newTransmission.personId);");
-            StartVisualiser.Instance.ShowEnd(newTransmission.personId);
-        }
-        else
-        {         
 			currentTransmission = newTransmission;
-			OnTransmissionRecieved(currentTransmission);
-        }
+			OnTransmissionRecieved(currentTransmission, talkingPerson);
     }
 
+    /*
     public void CloseTransmission ()
     {
-        
-
         foreach (Transmission transmission in currentChoice.addTransmissions)
         {
             if (!TransmissionQueue.Contains(transmission))
@@ -91,5 +89,5 @@ public class TransmissionManager : Singleton<TransmissionManager>
             Debug.Log("Next random transmission");
             DrawTransmission();   
         }
-    }
+    }*/
 }

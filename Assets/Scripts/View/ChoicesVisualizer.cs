@@ -12,7 +12,7 @@ public class ChoicesVisualizer : MonoBehaviour {
 		TransmissionManager.Instance.OnChoiceApplied += Hide;
 	}
 
-	private void DrawTransmission(Transmission transmission)
+	private void DrawTransmission(Transmission transmission, Person p)
 	{
 		foreach(Choice c in transmission.choices)
 		{

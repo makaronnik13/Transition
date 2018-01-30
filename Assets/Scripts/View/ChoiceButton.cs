@@ -45,7 +45,7 @@ public class ChoiceButton : MonoBehaviour {
 
 		GetComponent<Button> ().onClick.AddListener (()=>
 		{
-				TransmissionManager.Instance.ApplyChoice(transform.GetSiblingIndex());
+				//TransmissionManager.Instance.ApplyChoice(transform.GetSiblingIndex());
 		});
 	}
 }

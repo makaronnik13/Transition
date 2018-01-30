@@ -12,11 +12,9 @@ public class Transmission : ScriptableObject
 		X = p.x;
 		Y = p.y;
 	}
-	#endif
+#endif
 
-	public int personId = 0;
-    public bool isEnding;
-
+    public PersonEmotionController.Emotion emotion = PersonEmotionController.Emotion.Default;
 	public Symbol[] content = new Symbol[0];
     public string text;
 	public Choice[] choices = new Choice[0];

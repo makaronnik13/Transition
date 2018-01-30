@@ -104,7 +104,7 @@ public class StartVisualiser : Singleton <StartVisualiser>
 			{
 				go.SetActive (true);
 			}
-			TransmissionManager.Instance.StartGame ();
+
 		}
 	}
 

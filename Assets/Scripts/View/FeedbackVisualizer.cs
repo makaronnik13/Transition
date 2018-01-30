@@ -33,7 +33,7 @@ public class FeedbackVisualizer : MonoBehaviour {
 
 	private void Skip()
 	{
-		TransmissionManager.Instance.CloseTransmission();
+		//TransmissionManager.Instance.CloseTransmission();
 	}
 
 	private void Show()
@@ -46,7 +46,7 @@ public class FeedbackVisualizer : MonoBehaviour {
 
 	private void PushTheButton()
 	{
-		TransmissionManager.Instance.CloseTransmission();
+		//TransmissionManager.Instance.CloseTransmission();
 		button.enabled = false;
 		text.enabled = false;
 		GetComponent<Image> ().enabled = false;

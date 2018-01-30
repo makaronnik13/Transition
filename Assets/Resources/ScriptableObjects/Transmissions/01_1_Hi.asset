@@ -13,25 +13,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   X: 67
   Y: -350
-  personId: 1
-  isEnding: 0
+  emotion: 0
   content:
-  - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
   - {fileID: 11400000, guid: 939230e1b1eb5496ba9cdde15a39886f, type: 2}
-  text: The creature keeps eyeing me out with cheerful curiousity and performs a squat
-    in a weird fashion
+  text: 
   choices:
   - symbolContent:
     - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
     - {fileID: 11400000, guid: 939230e1b1eb5496ba9cdde15a39886f, type: 2}
     textContent: 
-    emotion: 2
-    textFeedback: They seem quite friendly.
-    paramEffects:
-    - parameter: {fileID: 11400000, guid: 6f70ece8be690465f814590161c49d9d, type: 2}
-      value: 1
+    emotion: 1
+    textFeedback: Hi
+    paramEffects: []
     nextTransmission: {fileID: 0}
-    addTransmissions:
-    - {fileID: 11400000, guid: 1f4d6835b334c4a9a8fb66d3cd272836, type: 2}
-    - {fileID: 11400000, guid: d57448543c8b64bfa92b6f42d6457170, type: 2}
-    - {fileID: 11400000, guid: 2bd9f923192e142f3bdd666cd31a525c, type: 2}
+  - symbolContent:
+    - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
+    - {fileID: 11400000, guid: 939230e1b1eb5496ba9cdde15a39886f, type: 2}
+    textContent: What?
+    emotion: 2
+    textFeedback: 
+    paramEffects: []
+    nextTransmission: {fileID: 0}

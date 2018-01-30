@@ -15,14 +15,14 @@ public class TextVisualizer : MonoBehaviour
 		TransmissionManager.Instance.OnChoiceApplied += Hide;
     }
 
-    private void DrawTransmission (Transmission transmission)
+    private void DrawTransmission (Transmission transmission, Person p)
     {
         if (transmission.text != "")
         {
 			text.enabled = true;
 			text.text = transmission.text;
 			
-			transform.SetParent(pivots[transmission.personId]);
+			//transform.SetParent(pivots[transmission.personId]);
 			transform.localPosition = new Vector3 (850f, 0f, 0f);
 			background.enabled = true;
         }

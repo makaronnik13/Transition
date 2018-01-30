@@ -8,9 +8,6 @@ public class Choice
 
 	public PersonEmotionController.Emotion emotion = PersonEmotionController.Emotion.Default;
     public String textFeedback;
-
 	public ParamEffect[] paramEffects = new ParamEffect[0];
     public Transmission nextTransmission;
-	public Transmission[] addTransmissions = new Transmission[0];
-    //public Transmission[] discardTransmissions;
 }

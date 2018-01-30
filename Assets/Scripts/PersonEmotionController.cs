@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class PersonEmotionController : MonoBehaviour {
 
-	public Sprite[] emotions;
+    public PersonObject person;
 	public int id;
 	private bool active = false;
 	public enum Emotion
 	{
 		Default,
-		Angry,
+        Question,
         Happy,
-		Sad
+		Sad,
+        Angry,
+        Scary
 	}
 
 	public void SetEmotion(Emotion em)
 	{
-		GetComponentInChildren<SpriteRenderer>().sprite = emotions[(int)em];
+		GetComponentInChildren<SpriteRenderer>().sprite = person.GetEmotionSprite(em);
 	}
 
 	void Start()
@@ -36,9 +38,9 @@ public class PersonEmotionController : MonoBehaviour {
 		}
 
 
-	private void Animate(Transmission t)
+	private void Animate(Transmission t, Person p)
 	{
-		if (t.personId == id) {
+		if (p.person == person) {
 			GetComponent<Animator> ().SetTrigger ("Action");
 			active = true;
 		}
@@ -47,7 +49,7 @@ public class PersonEmotionController : MonoBehaviour {
 	private void Reset(Transmission t, Choice c)
 	{
 		if (active) {
-			GetComponentInChildren<SpriteRenderer> ().sprite = emotions [0];
+			GetComponentInChildren<SpriteRenderer> ().sprite = person.GetEmotionSprite(Emotion.Default);
 			active = false;
 		}
 	}

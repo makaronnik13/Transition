@@ -14,10 +14,8 @@ public class DictionaryVisualizer : MonoBehaviour {
 		TransmissionManager.Instance.OnTransmissionRecieved += AddSymbols;	
 	}
 
-	private void AddSymbols(Transmission transmission)
+	private void AddSymbols(Transmission transmission, Person p)
 	{
-
-		Debug.Log (transmission.content.Length);
 		foreach(Symbol s in transmission.content)
 		{
 			//Debug.Log ();

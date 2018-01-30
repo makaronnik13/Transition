@@ -213,7 +213,7 @@ public class NodeEditor : EditorWindow
 		visitedNodes.Add (tr);
 		foreach (Transmission tra in ProjectStates()) {
 			foreach (Choice c in tra.choices) {
-				if (c.nextTransmission == tr || c.addTransmissions.Contains (tr)) {
+				if (c.nextTransmission == tr) {
 					foreach (Symbol oldLearnedSymbol in LearnedSymbols(tra, visitedNodes)) {
 						learnedSymbols.Add (oldLearnedSymbol);
 					}
@@ -232,7 +232,7 @@ public class NodeEditor : EditorWindow
 
 		foreach (Transmission tra in ProjectStates()) {
 			foreach (Choice c in tra.choices) {
-				if (c.nextTransmission == tr || c.addTransmissions.Contains (tr)) {
+				if (c.nextTransmission == tr ) {
 					foreach (Symbol oldLearnedSymbol in LearnedSymbols(tra, new List<Transmission>())) {
 						learnedSymbols.Add (oldLearnedSymbol);
 					}
@@ -352,13 +352,6 @@ public class NodeEditor : EditorWindow
 
 		if (Event.current.type == EventType.MouseUp && drawRect.Contains (Event.current.mousePosition) && selectedPath!=null) 
 		{
-			if(Event.current.button == 0 )
-			{
-				List<Transmission> old = selectedPath.addTransmissions.ToList ();
-				old.Add (state.Key);
-				selectedPath.addTransmissions = old.ToArray ();
-				selectedPath = null;
-			}
 			if(Event.current.button == 1)
 			{
 				selectedPath.nextTransmission = state.Key;
@@ -416,12 +409,7 @@ public class NodeEditor : EditorWindow
 							c.nextTransmission = null;
 						}
 
-						if(c.addTransmissions.ToList().Contains(state.Key))
-						{
-							List<Transmission> old = c.addTransmissions.ToList();
-							old.RemoveAll(t=>t==state.Key);
-							c.addTransmissions = old.ToArray();
-						}
+						
 					}
 				}
 
@@ -489,17 +477,7 @@ public class NodeEditor : EditorWindow
 				}
 				i++;
 
-				foreach(Transmission tr in c.addTransmissions)
-				{
-                    if (tr == null)
-                    {
-                        continue;
-                    }
-                    KeyValuePair<Transmission, GUIDraggableObject> ending = StatesPositions.Find (k => k.Key == tr);
-					Vector2 end = new Vector2 (5 + ending.Value.Position.x + ending.Key.content.Count () * 35f / 2, ending.Value.Position.y);
-					DrawNodeCurve (screenDelta + start + Vector2.right * (i-1) * width / state.Key.choices.Count(), screenDelta + end, Color.gray, 1);
-
-				}
+				
 
 				Rect startt = new Rect(screenDelta + start + Vector2.right * (i-1.5f) * width / state.Key.choices.Count() + 7.5f*Vector2.one, Vector2.one*30);
 

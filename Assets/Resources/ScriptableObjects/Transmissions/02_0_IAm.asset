@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 20cb7424b23294eabb08055506d409e5, type: 2}
   - {fileID: 11400000, guid: 9466111ec8f214a28b3046833277b84f, type: 2}
   - {fileID: 11400000, guid: e0b7bf9755adb4aa18e200c4495df73a, type: 2}
-  text: 
+  text: The alien points at themself.
   choices:
   - symbolContent:
     - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
@@ -33,7 +33,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e0b7bf9755adb4aa18e200c4495df73a, type: 2}
     textContent: 
     emotion: 0
-    textFeedback: Are they trying to introduce themselves?
+    textFeedback: It looks like each symbol represents a syllable.
     paramEffects: []
     nextTransmission: {fileID: 11400000, guid: a41aae57f83e04b1990e5ad203d0fb99, type: 2}
     addTransmissions:

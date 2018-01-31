@@ -19,12 +19,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0a69fe9c9fce49468f8a8d8d041ad59, type: 2}
   - {fileID: 11400000, guid: 353316a58047b4713bd75f0155beb8b4, type: 2}
   - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
-  - {fileID: 11400000, guid: 20cb7424b23294eabb08055506d409e5, type: 2}
+  - {fileID: 11400000, guid: 305d8151120704c428918099f3db2f7d, type: 2}
   - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
-  - {fileID: 11400000, guid: 20cb7424b23294eabb08055506d409e5, type: 2}
-  - {fileID: 11400000, guid: 414ea376a38514eb6abb2a93b9207b00, type: 2}
-  - {fileID: 11400000, guid: e0b7bf9755adb4aa18e200c4495df73a, type: 2}
-  text: 
+  - {fileID: 11400000, guid: 0bc5ec8be27fc457c837ad0df8c125d3, type: 2}
+  text: Alien being giggles and spins their head, looking at me with disapproval and
+    pointing in my direction.
   choices:
   - symbolContent:
     - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
@@ -35,7 +34,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e0b7bf9755adb4aa18e200c4495df73a, type: 2}
     textContent: 
     emotion: 0
-    textFeedback: It looks like each symbol represents a syllable.
+    textFeedback: They hop cheerfully as I finish the phrase.
     paramEffects: []
     nextTransmission: {fileID: 0}
     addTransmissions: []

@@ -21,15 +21,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 91c2ad864c918436688ffaa0cc559b2d, type: 2}
   - {fileID: 11400000, guid: 305d8151120704c428918099f3db2f7d, type: 2}
   - {fileID: 11400000, guid: 838b32ea180dc433d8735389dd14aaff, type: 2}
-  text: They push a plate with bright pink  goo-ish substance my way. Is this some
-    kind of food?
+  text: They push a plate filled with bright pink  goo-ish substance towards me and
+    bow in refined manner.
   choices:
   - symbolContent:
     - {fileID: 11400000, guid: f0a69fe9c9fce49468f8a8d8d041ad59, type: 2}
     - {fileID: 11400000, guid: 939230e1b1eb5496ba9cdde15a39886f, type: 2}
     textContent: 
     emotion: 2
-    textFeedback: 
+    textFeedback: Yay for alien food!
     paramEffects:
     - parameter: {fileID: 11400000, guid: ec254737b37e54a679caf11192c9542c, type: 2}
       value: 1
@@ -43,7 +43,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 353316a58047b4713bd75f0155beb8b4, type: 2}
     textContent: 
     emotion: 3
-    textFeedback: 
+    textFeedback: Thank you very much, I would rather not.
     paramEffects:
     - parameter: {fileID: 11400000, guid: ec254737b37e54a679caf11192c9542c, type: 2}
       value: -1

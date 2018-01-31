@@ -35,7 +35,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e0b7bf9755adb4aa18e200c4495df73a, type: 2}
     textContent: 
     emotion: 0
-    textFeedback: Was it their name?
+    textFeedback: It looks like each symbol represents a syllable.
     paramEffects: []
     nextTransmission: {fileID: 0}
     addTransmissions: []

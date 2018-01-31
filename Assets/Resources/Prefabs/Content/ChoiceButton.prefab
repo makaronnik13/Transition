@@ -44,7 +44,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1831435657673394
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +122,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 91c2ad864c918436688ffaa0cc559b2d, type: 2}
   - {fileID: 11400000, guid: c16ab256764d2437895d900fbc161483, type: 2}
   - {fileID: 11400000, guid: f0a69fe9c9fce49468f8a8d8d041ad59, type: 2}
-  symbolsRaw: {fileID: 1641312953268480, guid: b6635a2e3dc064e3fa937f214d267ef3, type: 2}
 --- !u!114 &114333541733133092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,7 +229,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: b6541fa5b9ad24de3887306e64b45332, type: 3}
+    m_Font: {fileID: 12800000, guid: 4c6d2407e2b2628489cd1c51898106a2, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
@@ -358,7 +357,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931722085100416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.56, y: 2.1900003, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224472992491048588}

@@ -19,7 +19,7 @@ public class TransmissionManager : Singleton<TransmissionManager>
     Choice currentChoice;
 
 
-    /*
+    
     public void ApplyChoice(int choiceIndex)
     {
 		Debug.Log ("apply choice");
@@ -31,12 +31,12 @@ public class TransmissionManager : Singleton<TransmissionManager>
         }
         OnChoiceApplied(currentChoice);
     }
-    */
+    
 
     public void SetTalkablePerson(Person person)
     {
         talkingPerson = person;
-        RunTransmission(person.CurrentTransmission);
+        RunTransmission(person.CurrentNode.transmission);
     }
 
     /*

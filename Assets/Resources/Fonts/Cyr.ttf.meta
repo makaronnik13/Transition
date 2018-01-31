@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4c6d2407e2b2628489cd1c51898106a2
+timeCreated: 1517406645
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Comic Nefors
+  fontNames:
+  - Comic Nefors
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

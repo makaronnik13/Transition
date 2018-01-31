@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(menuName ="Model/Transmission")]
 [System.Serializable]
-[CreateAssetMenu(menuName = "Model/Transmission")]
 public class Transmission : ScriptableObject
 {
 	#if UNITY_EDITOR

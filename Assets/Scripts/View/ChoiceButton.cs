@@ -9,7 +9,6 @@ public class ChoiceButton : MonoBehaviour {
 	public Transform symbolsPanel;
 	public Text textPanel;
     public Symbol[] specialSymbols;
-    public GameObject symbolsRaw;
 
 	public void Init(Choice choise)
 	{
@@ -17,20 +16,10 @@ public class ChoiceButton : MonoBehaviour {
         {
 			Destroy (textPanel.gameObject);
 
-            Transform currentRaw = null;
             foreach (Symbol symbol in choise.symbolContent)
             {
-                if (specialSymbols.ToList().Contains(symbol))
-                {
-                    currentRaw = Instantiate(symbolsRaw).transform;
-                    currentRaw.transform.SetParent(symbolsPanel, false);
-                    // Set height to 30
-                    currentRaw.GetComponent<RectTransform>().sizeDelta = new Vector2(30, 30);
-                    currentRaw.transform.localScale = Vector3.one;
-                }
-
                 GameObject symbolGObj = new GameObject();
-                symbolGObj.transform.SetParent(currentRaw, false);
+                symbolGObj.transform.SetParent(symbolsPanel, false);
                 symbolGObj.transform.localScale = Vector3.one;
                 symbolGObj.AddComponent<Image>();
                 symbolGObj.GetComponent<Image>().sprite = symbol.image;
@@ -40,12 +29,13 @@ public class ChoiceButton : MonoBehaviour {
 		} else 
 		{
 			Destroy (symbolsPanel.gameObject);
+            textPanel.enabled = true;
 			textPanel.text = choise.textContent;
 		}
 
 		GetComponent<Button> ().onClick.AddListener (()=>
 		{
-				//TransmissionManager.Instance.ApplyChoice(transform.GetSiblingIndex());
+				TransmissionManager.Instance.ApplyChoice(transform.GetSiblingIndex());
 		});
 	}
 }

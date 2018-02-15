@@ -9,7 +9,7 @@ public class JournalAniamtor : Singleton<JournalAniamtor> {
     {
         foreach (Person p in FindObjectsOfType<Person>())
         {
-            p.SwitchCollider();
+            //p.SwitchCollider();
         }
         GetComponent<Animator>().SetBool("Open", !GetComponent<Animator>().GetBool("Open"));
     }

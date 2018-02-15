@@ -7,21 +7,25 @@ using UnityEngine.UI;
 
 public class PlayerThoughtsVisualizer : MonoBehaviour {
 
-    public Text text1, text2;
-    public Image background, buttonImage;
-    private Button button;
+    public Text text1;
+    public Transform player;
+
     private Queue<string> phrases = new Queue<string>();
+
+    private void Update()
+    {
+        RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+        Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(player.position);
+        Vector2 WorldObject_ScreenPosition = new Vector2(
+        ((ViewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+        ((ViewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
+        GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
+    }
 
     // Use this for initialization
     void Start()
     {
-        button = GetComponent<Button>();
-        button.onClick.AddListener(PushTheButton);
-        button.enabled = false;
         text1.enabled = false;
-        text2.enabled = false;
-        background.enabled = false;
-        buttonImage.enabled = false;
         InvestigationManager.Instance.OnInvestigate += ShowFeedback;
     }
 
@@ -44,12 +48,8 @@ public class PlayerThoughtsVisualizer : MonoBehaviour {
     private void Show(string s)
     {
         text1.text = s;
-        text2.text = s;
-        button.enabled = true;
         text1.enabled = true;
-        text2.enabled = true;
-        background.enabled = true;
-        buttonImage.enabled = true;
+        Invoke("PushTheButton", s.Length/8);
     }
 
     private void PushTheButton()
@@ -57,15 +57,11 @@ public class PlayerThoughtsVisualizer : MonoBehaviour {
         if (phrases.Count > 0)
         {
             text1.text = phrases.Dequeue();
-            text2.text = text1.text;
+            Invoke("PushTheButton", text1.text.Length / 8);
         }
         else
-        {
-            button.enabled = false;
-            text1.enabled = false;
-            text2.enabled = false;
-            background.enabled = false;
-            buttonImage.enabled = false;
+        {     
+            text1.enabled = false;     
         }
     }
 }

@@ -8,8 +8,13 @@ public class InvestigationManager : Singleton<InvestigationManager> {
 
     public Action<string> OnInvestigate = (string s) => { };
 
-	public void Invectigate(InvestigatedItem item)
+	public void Invectigate(InteractableObject obj)
     {
-        OnInvestigate.Invoke(item.Description);
+        OnInvestigate.Invoke(obj.descripion);
+    }
+
+    public void Invectigate(PointAndClickItem item)
+    {
+        OnInvestigate.Invoke(item.description);
     }
 }

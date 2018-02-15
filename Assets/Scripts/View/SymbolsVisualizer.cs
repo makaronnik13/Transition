@@ -20,7 +20,7 @@ public class SymbolsVisualizer : MonoBehaviour
     {
         foreach (Person pperson in FindObjectsOfType<Person>())
         {
-            pperson.DisableCollider();
+            //pperson.DisableCollider();
         }
 
         foreach (Symbol symbol in transmission.content)

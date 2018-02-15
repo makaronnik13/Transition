@@ -26,19 +26,51 @@ public class CursorController : Singleton<CursorController> {
         Default,
         Look,
         LookAndTalk,
-        LookAndUse
+        LookAndUse,
+        Move
     }
 
     private CursorMode mode = CursorMode.Default;
+    public CursorMode Mode
+    {
+        get
+        {
+            return mode;
+        }
+        set
+        {
+            mode = value;
+            Cursor.SetCursor(Cursors[(int)mode], Vector2.zero, UnityEngine.CursorMode.Auto);
+        }
+    }
 
     private void Start()
     {
-        SetMode(CursorMode.Default);
+        Mode = CursorMode.Default;
     }
     
-    public void SetMode(CursorMode mode)
-    {
-        Cursor.SetCursor(Cursors[(int)mode], Vector2.zero, UnityEngine.CursorMode.Auto);
-    }
 
+    public void SetMode(InteractableObject.InteractableObjectType objType, bool interactable = true)
+    {
+        switch (objType)
+        {
+            case InteractableObject.InteractableObjectType.MoveTrigger:
+                Mode = CursorMode.Move;
+                break;
+            case InteractableObject.InteractableObjectType.Person:
+                Mode = CursorMode.LookAndTalk;
+                break;
+            case InteractableObject.InteractableObjectType.Item:
+                if (interactable)
+                {
+                    Mode = CursorMode.LookAndUse;
+                }
+                else
+                {
+                    Mode = CursorMode.Look;
+                }
+                break;
+        }
+        
+    }
 }

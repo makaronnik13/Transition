@@ -32,7 +32,6 @@ public class ItemHab : MonoBehaviour {
 
     public void Drop()
     {
-		Debug.Log ("Drop");
-		Inventory.Instance.DropItem (this);
+		//Inventory.Instance.DropItem (this);
     }
 }

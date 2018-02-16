@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Tooltip : Singleton<Tooltip> {
 
     private Text text;
+    private PointAndClickObject pointingObject;
 
     void OnEnable()
     {
@@ -18,6 +19,12 @@ public class Tooltip : Singleton<Tooltip> {
         transform.position = Input.mousePosition;	
 	}
 
+    public void ShowTooltip(PointAndClickObject pointingObject)
+    {
+        this.pointingObject = pointingObject;
+        ShowTooltip(pointingObject.objectAsset.objectName);
+    }
+
     public void ShowTooltip(string s)
     {
         text.text = s;
@@ -25,6 +32,7 @@ public class Tooltip : Singleton<Tooltip> {
 
     public void HideTooltip()
     {
+        this.pointingObject = null;
         text.text = "";
     }
 }

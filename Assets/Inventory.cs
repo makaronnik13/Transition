@@ -9,6 +9,8 @@ public class Inventory : Singleton<Inventory>
 {
     public PointAndClickItem[] startingItems;
 
+    public GameObject habPrefab;
+
 	public PointAndClickItem DraggingItem { get
 		{ 
 			if(visual)
@@ -31,6 +33,11 @@ public class Inventory : Singleton<Inventory>
 
     public void AddItem(PointAndClickItem item)
     {
+        if (GetComponentsInChildren<ItemHab>().Where(h => h.Item == null).ToList().Count == 0)
+        {
+            Instantiate(habPrefab, transform, false);
+        }
+
         GetComponentsInChildren<ItemHab>().Where(h=>h.Item == null).ToList()[0].Item = item;
     }
 
@@ -46,7 +53,17 @@ public class Inventory : Singleton<Inventory>
 		visual.transform.SetParent (GetComponentInParent<Canvas>().transform);
 	}
 
-	public void DropItem(ItemHab hab)
+    public void DropItem()
+    {
+        if (visual)
+        {
+            AddItem(visual.Item);
+            Destroy(visual.gameObject);
+            visual = null;
+        }
+    }
+
+    public void DropItem(ItemHab hab)
 	{
 		if(visual)
 		{
@@ -62,5 +79,9 @@ public class Inventory : Singleton<Inventory>
 		{
 			visual.transform.position = Input.mousePosition;
 		}
+        if (Input.GetMouseButtonUp(0))
+        {
+            DropItem();
+        }
 	}
 }

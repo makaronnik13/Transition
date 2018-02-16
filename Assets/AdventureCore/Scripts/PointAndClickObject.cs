@@ -20,7 +20,7 @@ public class PointAndClickObject : MonoBehaviour
             return;
         }
 
-        Tooltip.Instance.ShowTooltip(objectAsset.objectName);
+        Tooltip.Instance.ShowTooltip(this);
         focused = true;
         CursorController.Instance.SetMode(objectAsset.objType, objectAsset.interactable);
     }
@@ -65,5 +65,10 @@ public class PointAndClickObject : MonoBehaviour
         {
             TransmissionManager.Instance.SetTalkablePerson(GetComponent<Person>());
         }
+    }
+
+    public void UseItem(PointAndClickItem item)
+    {
+    
     }
 }

@@ -35,7 +35,6 @@ public class TasksManager : Singleton<TasksManager> {
 
     private void ClearObject()
     {
-        Debug.Log("clear");
         activeAim = null;
     }
 

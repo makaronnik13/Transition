@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CursorController : Singleton<CursorController> {
 
+	public bool changeCursor = true;
+
     private List<Texture2D> cursors;
     private List<Texture2D> Cursors
     {
@@ -37,11 +39,12 @@ public class CursorController : Singleton<CursorController> {
         {
             return mode;
         }
-        set
-        {
-            mode = value;
-            Cursor.SetCursor(Cursors[(int)mode], Vector2.zero, UnityEngine.CursorMode.Auto);
-        }
+        set {
+			mode = value;
+			if (changeCursor) {
+				Cursor.SetCursor (Cursors [(int)mode], Vector2.zero, UnityEngine.CursorMode.ForceSoftware);
+			}
+		}
     }
 
     private void Start()

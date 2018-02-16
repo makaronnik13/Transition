@@ -7,6 +7,13 @@ public class ItemVisual : MonoBehaviour
 {
 
     private PointAndClickItem item;
+	public PointAndClickItem Item
+	{
+		get
+		{
+			return item;
+		}
+	}
 
     public void Init(PointAndClickItem item)
     {
@@ -26,7 +33,7 @@ public class ItemVisual : MonoBehaviour
 
     public void OnMouseOver()
     {
-        if (EventSystem.current.IsPointerOverGameObject() || focused || !item)
+        if (focused || !item)
         {
             // we're over a UI element... peace out
             return;
@@ -67,4 +74,11 @@ public class ItemVisual : MonoBehaviour
             OnMouseExit();
         }
     }
+
+	public void BeginDrag()
+	{
+		GetComponentInParent<Inventory> ().DragItem (this);
+		GetComponent<Image> ().raycastTarget = false;
+	}
+
 }

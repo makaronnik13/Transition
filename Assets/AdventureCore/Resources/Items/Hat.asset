@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\u0428\u043B\u044F\u043F\u0430"
   description: "\u041E\u043D\u0430 \u043B\u044E\u0431\u043E\u043C\u0443 \u0431\u0443\u0434\u0435\u0442
-    \u043A\u0430\u043A \u0440\u0430\u0437"
+    \u043A\u0430\u043A \u0440\u0430\u0437."
   sprite: {fileID: 21300000, guid: 4c3885736a4738342b7075015f746bed, type: 3}

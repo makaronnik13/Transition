@@ -30,11 +30,9 @@ public class ItemHab : MonoBehaviour {
         }
     }
 
-    void OnMouseUp()
+    public void Drop()
     {
-        if (Inventory.Instance.DraggingItem)
-        {
-            Item = Inventory.Instance.DraggingItem;
-        }
+		Debug.Log ("Drop");
+		Inventory.Instance.DropItem (this);
     }
 }

@@ -12,7 +12,25 @@ MonoBehaviour:
   m_Name: New Person Dialogs
   m_EditorClassIdentifier: 
   nodes:
+  - {fileID: 114361919184340540}
+  - {fileID: 114617496177142230}
   - {fileID: 114582548584074128}
+--- !u!114 &114361919184340540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676fb7e4afea14d4388ea27eafde4909, type: 3}
+  m_Name: New NarrativeNode
+  m_EditorClassIdentifier: 
+  X: 75
+  Y: 324
+  transmission: {fileID: 0}
+  pathes: []
+  Description: 
 --- !u!114 &114582548584074128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,12 +42,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676fb7e4afea14d4388ea27eafde4909, type: 3}
   m_Name: New NarrativeNode
   m_EditorClassIdentifier: 
-  X: 321
-  Y: 119
+  X: 236
+  Y: 167
   transmission: {fileID: 0}
   pathes:
   - node: {fileID: 0}
   - node: {fileID: 0}
   - node: {fileID: 0}
   - node: {fileID: 0}
+  - node: {fileID: 114361919184340540}
+  Description: 
+--- !u!114 &114617496177142230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676fb7e4afea14d4388ea27eafde4909, type: 3}
+  m_Name: New NarrativeNode
+  m_EditorClassIdentifier: 
+  X: 381
+  Y: 326
+  transmission: {fileID: 0}
+  pathes: []
   Description: 

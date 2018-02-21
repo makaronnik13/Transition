@@ -31,9 +31,19 @@ public class MovementNet : MonoBehaviour {
     public List<Vector3> ShortestPath(Vector3 from, Vector3 aim)
     {
         List<Vector3> result = new List<Vector3>();
-
-        foreach (NetNode nn in ShortestPath(GetNearestPoint(from), GetNearestPoint(aim), nodes.ToArray()))
+        List<NetNode> nnList = ShortestPath(GetNearestPoint(from), GetNearestPoint(aim), nodes.ToArray());
+        if (nnList.Count>1)
         {
+            if (Vector3.Distance(GetNodeWorldPosition(nnList[0]), aim)> Vector3.Distance(GetNodeWorldPosition(nnList[1]), aim))
+            {
+                nnList.RemoveAt(0);
+            }
+        }
+
+        foreach (NetNode nn in nnList)
+        {
+            
+
             result.Add(GetNodeWorldPosition(nn));
         }
         return result;

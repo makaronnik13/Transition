@@ -7,6 +7,7 @@ using UnityEngine;
 public class TasksManager : Singleton<TasksManager> {
 
     private PointAndClickObject activeAim;
+    private PointAndClickItem activeItem;
 
 	public void Activate(InteractableObject obj)
     {
@@ -15,7 +16,6 @@ public class TasksManager : Singleton<TasksManager> {
 
     public void SetAim(PointAndClickObject pointAndClickObject)
     {
-        Debug.Log("set");
         activeAim = pointAndClickObject;
     }
 
@@ -29,18 +29,34 @@ public class TasksManager : Singleton<TasksManager> {
     {
         if (activeAim)
         {
-            activeAim.Activate();
+            if (activeItem)
+            {
+                activeAim.ApplyItem(activeItem);
+                activeItem = null;
+            }
+            else
+            {
+
+                activeAim.Activate();
+            }
         }
     }
+    
 
     private void ClearObject()
     {
         activeAim = null;
+        activeItem = null;
     }
 
     public void StopListen(NetWalker netWalker)
     {
         netWalker.OnStartedPath -= ClearObject;
         netWalker.OnFinishedPath -= ActivateObject;
+    }
+
+    public void SetItem(PointAndClickItem item)
+    {
+        activeItem = item;
     }
 }

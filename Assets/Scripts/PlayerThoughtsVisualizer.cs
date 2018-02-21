@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerThoughtsVisualizer : MonoBehaviour {
 
-    public Text text1;
+    public TextMeshProUGUI text1;
     public Transform player;
 
     private Queue<string> phrases = new Queue<string>();
@@ -31,8 +32,8 @@ public class PlayerThoughtsVisualizer : MonoBehaviour {
 
     private void ShowFeedback(string description)
     {
-        List<string> ph = Regex.Split(description, @"(?<=[.!?])").ToList();
-        ph.RemoveAt(ph.Count-1);
+        List<string> ph = description.Split(new char[] {'|'}).ToList();
+
 
         foreach (string s in  ph)
         {
@@ -47,6 +48,7 @@ public class PlayerThoughtsVisualizer : MonoBehaviour {
 
     private void Show(string s)
     {
+        CancelInvoke("PushTheButton");
         text1.text = s;
         text1.enabled = true;
         Invoke("PushTheButton", s.Length/8);

@@ -49,18 +49,35 @@ public class Inventory : Singleton<Inventory>
 
 	public void DragItem(ItemVisual visual)
 	{
-		this.visual = visual;
+        ItemHab hab = visual.GetComponentInParent<ItemHab>();
+        this.visual = visual;
 		visual.transform.SetParent (GetComponentInParent<Canvas>().transform);
-	}
+        hab.Item = null;
+        Destroy(hab.gameObject);
+    }
 
     public void DropItem()
     {
+        //Combine item with object
+        if (Tooltip.Instance.PointingObject)
+        {
+            if (visual)
+            {
+                AddItem(visual.Item);
+                Tooltip.Instance.PointingObject.UseItem(visual.Item);
+                Destroy(visual.gameObject);
+                visual = null;
+            }
+        }
+
         if (visual)
         {
             AddItem(visual.Item);
             Destroy(visual.gameObject);
             visual = null;
         }
+
+        Tooltip.Instance.HideTooltip();
     }
 
     public void DropItem(ItemHab hab)

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NetWalker : MonoBehaviour {
 
@@ -28,6 +29,11 @@ public class NetWalker : MonoBehaviour {
         }
     }
 
+    public void GoTo(Transform t)
+    {
+        MoveByPath(net.ShortestPath(transform.position, t.position));
+    }
+
     void Awake()
     {
         currentAimPoint = net.GetNodeWorldPosition(net.GetNearestPoint(transform.position));
@@ -36,7 +42,7 @@ public class NetWalker : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             Vector3 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             MoveByPath(net.ShortestPath(transform.position, clickPosition));

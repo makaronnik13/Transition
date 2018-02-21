@@ -1,0 +1,5 @@
+﻿АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯЬЪЫ
+абвгдеёжзийклмнопрстуфхцчшщэюяьъы
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+1234567890«»;:?!@#$%&()[]{}-=+<>Э'/\

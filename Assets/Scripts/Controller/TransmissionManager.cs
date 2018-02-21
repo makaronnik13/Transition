@@ -8,7 +8,6 @@ public class TransmissionManager : Singleton<TransmissionManager>
 {
     private Person talkingPerson;
 
-    public Transmission startingTransmission;
     public Action<Transmission, Person> OnTransmissionRecieved = (Transmission t, Person p) => { };
     public Action<Choice> OnChoiceApplied = (Choice t) => { };
 	public Action<Transmission, Choice> OnTransmissionClosed = (Transmission t, Choice c) => { };

@@ -41,7 +41,7 @@ public class PointAndClickObjectInspector : Editor
     public override void OnInspectorGUI()
     {
         item.objectName = EditorGUILayout.TextField("Name", item.objectName);
-        item.descripion = EditorGUILayout.TextArea("Description", item.descripion, GUILayout.Height(EditorGUIUtility.singleLineHeight*4));
+        item.descripion = EditorGUILayout.TextField("Description", item.descripion, GUILayout.Height(EditorGUIUtility.singleLineHeight));
         item.objType = (InteractableObject.InteractableObjectType)EditorGUILayout.EnumPopup("Type", item.objType);
         item.interactable = EditorGUILayout.Toggle("Interactable", item.interactable);
         if (item.objType == InteractableObject.InteractableObjectType.MoveTrigger)

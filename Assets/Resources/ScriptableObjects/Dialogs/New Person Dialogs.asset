@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Name: New Person Dialogs
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 114361919184340540}
-  - {fileID: 114617496177142230}
-  - {fileID: 114582548584074128}
---- !u!114 &114361919184340540
+  - {fileID: 114526723851985112}
+  - {fileID: 114460711302605904}
+  - {fileID: 114697746544974582}
+  - {fileID: 114641464078501544}
+--- !u!114 &114460711302605904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -24,35 +25,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 676fb7e4afea14d4388ea27eafde4909, type: 3}
-  m_Name: New NarrativeNode
+  m_Name: 1
   m_EditorClassIdentifier: 
-  X: 75
-  Y: 324
-  transmission: {fileID: 0}
-  pathes: []
-  Description: 
---- !u!114 &114582548584074128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 676fb7e4afea14d4388ea27eafde4909, type: 3}
-  m_Name: New NarrativeNode
-  m_EditorClassIdentifier: 
-  X: 236
-  Y: 167
+  X: 192
+  Y: 204
   transmission: {fileID: 0}
   pathes:
-  - node: {fileID: 0}
-  - node: {fileID: 0}
-  - node: {fileID: 0}
-  - node: {fileID: 0}
-  - node: {fileID: 114361919184340540}
+  - node: {fileID: 114697746544974582}
+  - node: {fileID: 114641464078501544}
   Description: 
---- !u!114 &114617496177142230
+--- !u!114 &114526723851985112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -61,10 +43,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 676fb7e4afea14d4388ea27eafde4909, type: 3}
-  m_Name: New NarrativeNode
+  m_Name: 4
   m_EditorClassIdentifier: 
-  X: 381
-  Y: 326
+  X: -86
+  Y: 457
+  transmission: {fileID: 0}
+  pathes: []
+  Description: awfawfawfa
+--- !u!114 &114641464078501544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676fb7e4afea14d4388ea27eafde4909, type: 3}
+  m_Name: 2
+  m_EditorClassIdentifier: 
+  X: 389
+  Y: 311
   transmission: {fileID: 0}
   pathes: []
   Description: 
+--- !u!114 &114697746544974582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676fb7e4afea14d4388ea27eafde4909, type: 3}
+  m_Name: 3
+  m_EditorClassIdentifier: 
+  X: 47
+  Y: 310
+  transmission: {fileID: 0}
+  pathes:
+  - node: {fileID: 114526723851985112}
+  Description: dsgesgesgesgesgesg

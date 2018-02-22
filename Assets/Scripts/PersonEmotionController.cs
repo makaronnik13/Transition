@@ -40,10 +40,10 @@ public class PersonEmotionController : MonoBehaviour {
 
 	private void Animate(Transmission t, Person p)
 	{
-		if (p.person == person) {
+		/*if (p.person == person) {
 			GetComponent<Animator> ().SetTrigger ("Action");
 			active = true;
-		}
+		}*/
 	}
 
 	private void Reset(Transmission t, Choice c)

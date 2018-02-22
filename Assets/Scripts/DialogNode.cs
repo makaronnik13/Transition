@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class NarrativeNode: ScriptableObject {
+public class DialogNode : ScriptableObject
+{
 
 #if UNITY_EDITOR
     [HideInInspector]
@@ -15,12 +16,8 @@ public class NarrativeNode: ScriptableObject {
     }
 #endif
 
-    public Transmission transmission;
 
     [HideInInspector]
-    public List<NarrativePath> pathes = new List<NarrativePath>();
-
-    public List<DialogNode> dialogStates = new List<DialogNode>();
-
-    public string Description = "";
+    public List<DialogPath> pathes = new List<DialogPath>();
+    public string replic = "";
 }

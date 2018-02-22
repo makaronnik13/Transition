@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Person : MonoBehaviour
 {
-    public PersonObject person;
+    public PersonDialogs dialog;
 
     private NarrativeNode currentNode = null;
     public NarrativeNode CurrentNode
@@ -15,7 +15,7 @@ public class Person : MonoBehaviour
         {
             if (currentNode!=null)
             {
-                currentNode = person.Dialogs.nodes[0];
+                currentNode = dialog.nodes[0];
             }
             return currentNode;
         }

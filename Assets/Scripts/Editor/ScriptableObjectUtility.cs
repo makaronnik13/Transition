@@ -35,8 +35,6 @@ public static class ScriptableObjectUtility
         path = path.Replace(parent.name,"");
         path = path.Replace(".asset", "");
 
-        Debug.Log(path);
-
         ScriptableObject so = ScriptableObject.CreateInstance<T>();
         so.name = "New " +  typeof(T);
         AssetDatabase.AddObjectToAsset(so, parent);

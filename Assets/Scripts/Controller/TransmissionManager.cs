@@ -6,87 +6,54 @@ using System.Linq;
 
 public class TransmissionManager : Singleton<TransmissionManager>
 {
-    private Person talkingPerson;
+    public Action OnDialogFinished = () => { };
+    public Action<DialogStateNode> OnNodeIn = (DialogStateNode node) => { };
+    public Action<DialogStatePath> OnPathGo = (DialogStatePath path) => { };
+    public Action<Person> OnPersonChanged = (Person person) => { };
+    private DialogStateNode currentState;
+    private Person talkablePerson;
 
-    public Action<Transmission, Person> OnTransmissionRecieved = (Transmission t, Person p) => { };
-    public Action<Choice> OnChoiceApplied = (Choice t) => { };
-	public Action<Transmission, Choice> OnTransmissionClosed = (Transmission t, Choice c) => { };
-
-	Queue<Transmission> TransmissionQueue = new Queue<Transmission>();
-
-    Transmission currentTransmission;
-    Choice currentChoice;
-
-
-    
-    public void ApplyChoice(int choiceIndex)
+    public void RunNode (DialogNode node)
     {
-		Debug.Log ("apply choice");
-
-        currentChoice = currentTransmission.choices[choiceIndex];
-        foreach (ParamEffect effect in currentChoice.paramEffects)
-        {
-            ParamsManager.Instance.ApplyEffect(effect);
-        }
-        OnChoiceApplied(currentChoice);
+        RunState(node.dialogState.StartNode);
     }
-    
+
+    private void RunState(DialogStateNode node)
+    {
+        OnNodeIn.Invoke(node);
+        currentState = node;
+    }
 
     public void SetTalkablePerson(Person person)
     {
-        talkingPerson = person;
-        RunTransmission(person.CurrentNode.transmission);
+        talkablePerson = person;
+        OnPersonChanged.Invoke(talkablePerson);
+        RunNode(person.CurrentNode);
     }
 
-    /*
-    public void DrawTransmission ()
+    public void SelectDialogVariant(int i)
     {
-        try{
-            RunTransmission(TransmissionQueue.Dequeue());     
-        }
-        catch{
-            Debug.Log("transmission queue is out");
-            Debug.Log("StartVisualizer.Instance.ShowEnd(3);");
-            //StartVisualiser.Instance.ShowEnd(3);
-        }
-       
-    }
-    */
+        DialogStatePath path = (DialogStatePath)currentState.pathes[i];
 
-    public void RunTransmission (Transmission newTransmission)
-    {
-			currentTransmission = newTransmission;
-			OnTransmissionRecieved(currentTransmission, talkingPerson);
+        OnPathGo.Invoke(path);
+
+        DialogStateNode aimNode = (DialogStateNode)path.End;
+
+        if (aimNode.nodeType == DialogStateNode.StateNodeType.exit)
+        {
+            FinishDialog();
+        }
+        if (aimNode.nodeType == DialogStateNode.StateNodeType.narrativeExit)
+        {
+            talkablePerson.CurrentNode = (DialogNode)aimNode.exitPath.End;
+            RunNode(talkablePerson.CurrentNode);
+        }
     }
 
-    /*
-    public void CloseTransmission ()
+    private void FinishDialog()
     {
-        foreach (Transmission transmission in currentChoice.addTransmissions)
-        {
-            if (!TransmissionQueue.Contains(transmission))
-            {
-                TransmissionQueue.Enqueue(transmission);
-            }
-        }
-
-		if(TransmissionQueue.Count>0)
-		{
-        	TransmissionQueue = new Queue<Transmission>(TransmissionQueue.OrderBy(a=>Guid.NewGuid()));
-		}
-
-        OnTransmissionClosed(currentTransmission, currentChoice);
-
-
-
-        if(currentChoice.nextTransmission)
-        {
-            RunTransmission(currentChoice.nextTransmission);    
-        }
-        else
-        {
-            Debug.Log("Next random transmission");
-            DrawTransmission();   
-        }
-    }*/
+        OnDialogFinished.Invoke();
+        talkablePerson = null;
+        currentState = null;
+    }
 }

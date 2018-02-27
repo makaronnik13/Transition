@@ -9,9 +9,10 @@ public class JournalVisualizer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		TransmissionManager.Instance.OnTransmissionClosed += AddEntery;	
+		//TransmissionManager.Instance.OnTransmissionClosed += AddEntery;	
 	}
 
+    /*
 	private void AddEntery(Transmission transmission, Choice choice)
 	{
 		GameObject newEntery = Instantiate (enteryPrefab);
@@ -19,4 +20,5 @@ public class JournalVisualizer : MonoBehaviour {
 		newEntery.transform.localScale = Vector3.one;
 		newEntery.GetComponent<JournalEntery> ().Init (transmission, choice);
 	}
+    */
 }

@@ -9,7 +9,7 @@ public class JournalEntery : MonoBehaviour {
 	public Text answerText;
 	public Text feedbackText;
 
-
+    /*
 	public void Init(Transmission transmission, Choice choise)
 	{
 		feedbackText.text = choise.textFeedback;
@@ -37,4 +37,5 @@ public class JournalEntery : MonoBehaviour {
 			symbol.GetComponent<Image> ().color = Color.black;
 		}
 	}
+    */
 }

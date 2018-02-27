@@ -12,13 +12,13 @@ public class Follower : MonoBehaviour
 	[SerializeField]
 	protected Graph m_Graph;
 	[SerializeField]
-	protected Node m_Start;
+	protected MovementNode m_Start;
 	[SerializeField]
-	protected Node m_End;
+	protected MovementNode m_End;
 	[SerializeField]
 	protected float m_Speed = 0.01f;
-	protected Path m_Path = new Path ();
-	protected Node m_Current;
+	protected MovementPath m_Path = new MovementPath();
+	protected MovementNode m_Current;
 
 	void Start ()
 	{
@@ -30,7 +30,7 @@ public class Follower : MonoBehaviour
 	/// Follow the specified path.
 	/// </summary>
 	/// <param name="path">Path.</param>
-	public void Follow ( Path path )
+	public void Follow (MovementPath path )
 	{
 		StopCoroutine ( "FollowPath" );
 		m_Path = path;

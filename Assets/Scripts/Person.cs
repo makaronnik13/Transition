@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GraphEditor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +7,16 @@ using UnityEngine.EventSystems;
 
 public class Person : MonoBehaviour
 {
-    public PersonDialogs dialog;
+    public Dialog dialog;
 
-    private NarrativeNode currentNode = null;
-    public NarrativeNode CurrentNode
+    private DialogNode currentNode = null;
+    public DialogNode CurrentNode
     {
         get
         {
             if (currentNode!=null)
             {
-                currentNode = dialog.nodes[0];
+                currentNode = (DialogNode)dialog.nodes[0];
             }
             return currentNode;
         }
@@ -23,5 +24,10 @@ public class Person : MonoBehaviour
         {
             currentNode = value;
         }
+    }
+
+    public void Talk()
+    {
+        TransmissionManager.Instance.SetTalkablePerson(this);
     }
 }

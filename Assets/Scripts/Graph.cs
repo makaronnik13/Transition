@@ -14,13 +14,13 @@ public class Graph : MonoBehaviour
 	/// The nodes.
 	/// </summary>
 	[SerializeField]
-	protected List<Node> m_Nodes = new List<Node> ();
+	protected List<MovementNode> m_Nodes = new List<MovementNode> ();
 
 	/// <summary>
 	/// Gets the nodes.
 	/// </summary>
 	/// <value>The nodes.</value>
-	public virtual List<Node> nodes
+	public virtual List<MovementNode> nodes
 	{
 		get
 		{
@@ -34,7 +34,7 @@ public class Graph : MonoBehaviour
 	/// <returns>The shortest path.</returns>
 	/// <param name="start">Start Node.</param>
 	/// <param name="end">End Node.</param>
-	public virtual Path GetShortestPath ( Node start, Node end )
+	public virtual MovementPath GetShortestPath (MovementNode start, MovementNode end )
 	{
 		
 		// We don't accept null arguments
@@ -42,9 +42,9 @@ public class Graph : MonoBehaviour
 		{
 			throw new ArgumentNullException ();
 		}
-		
-		// The final path
-		Path path = new Path ();
+
+        // The final path
+        MovementPath path = new MovementPath();
 
 		// If the start and end are same node, we can return the start node
 		if ( start == end )
@@ -54,17 +54,17 @@ public class Graph : MonoBehaviour
 		}
 		
 		// The list of unvisited nodes
-		List<Node> unvisited = new List<Node> ();
+		List<MovementNode> unvisited = new List<MovementNode> ();
 		
 		// Previous nodes in optimal path from source
-		Dictionary<Node, Node> previous = new Dictionary<Node, Node> ();
+		Dictionary<MovementNode, MovementNode> previous = new Dictionary<MovementNode, MovementNode> ();
 		
 		// The calculated distances, set all to Infinity at start, except the start Node
-		Dictionary<Node, float> distances = new Dictionary<Node, float> ();
+		Dictionary<MovementNode, float> distances = new Dictionary<MovementNode, float> ();
 		
 		for ( int i = 0; i < m_Nodes.Count; i++ )
 		{
-			Node node = m_Nodes [ i ];
+            MovementNode node = m_Nodes [ i ];
 			unvisited.Add ( node );
 			
 			// Setting the node distance to Infinity
@@ -78,9 +78,9 @@ public class Graph : MonoBehaviour
 			
 			// Ordering the unvisited list by distance, smallest distance at start and largest at end
 			unvisited = unvisited.OrderBy ( node => distances [ node ] ).ToList ();
-			
-			// Getting the Node with smallest distance
-			Node current = unvisited [ 0 ];
+
+            // Getting the Node with smallest distance
+            MovementNode current = unvisited [ 0 ];
 			
 			// Remove the current node from unvisisted list
 			unvisited.Remove ( current );
@@ -108,7 +108,7 @@ public class Graph : MonoBehaviour
 			// Looping through the Node connections (neighbors) and where the connection (neighbor) is available at unvisited list
 			for ( int i = 0; i < current.connections.Count; i++ )
 			{
-				Node neighbor = current.connections [ i ];
+                MovementNode neighbor = current.connections [ i ];
 				
 				// Getting the distance between the current node and the connection (neighbor)
 				float length = Vector3.Distance ( current.transform.position, neighbor.transform.position );

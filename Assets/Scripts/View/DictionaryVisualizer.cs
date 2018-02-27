@@ -11,9 +11,10 @@ public class DictionaryVisualizer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		TransmissionManager.Instance.OnTransmissionRecieved += AddSymbols;	
+		//TransmissionManager.Instance.OnTransmissionRecieved += AddSymbols;	
 	}
 
+    /*
 	private void AddSymbols(Transmission transmission, Person p)
 	{
 		foreach(Symbol s in transmission.content)
@@ -29,4 +30,5 @@ public class DictionaryVisualizer : MonoBehaviour {
 			knownSymbols.Add (s);
 		}
 	}
+    */
 }

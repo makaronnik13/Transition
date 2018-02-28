@@ -58,7 +58,7 @@ public class PointAndClickObject : MonoBehaviour
 
     public void ApplyItem(PointAndClickItem item)
     {
-        if (objectAsset.combinqations.ToList().Find(co => co.item == item).destroyItemAfterCombination)
+        if (objectAsset.combinations.ToList().Find(co => co.item == item).destroyItemAfterCombination)
         {
             Inventory.Instance.RemoveItem(item);
         }

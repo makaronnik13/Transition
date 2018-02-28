@@ -12,9 +12,35 @@ public class PersonInspector : Editor {
 
 	void OnEnable () 
 	{
-		person = (Person)target;	
+		person = (Person)target;
+		ResetEvents ();
 	}
-	
+
+	private void ResetEvents()
+	{
+		if(person.dialog)
+		{
+			foreach(DialogNode node in person.dialog.nodes)
+			{
+				foreach(DialogStateNode subNode in node.dialogState.nodes)
+				{
+					if(subNode.withEvent && person.nodeEvents.Find(ne=>ne.node==subNode)== null)
+					{
+						person.nodeEvents.Add (new StateEvent(subNode));
+					}
+
+					foreach(DialogStatePath path in subNode.pathes)
+					{
+						if(path.withEvent && person.pathEvents.Find(ne=>ne.path==path)== null)
+						{
+							person.pathEvents.Add (new PathEvent(path));
+						}
+					}
+				}	
+			}
+		}
+	}
+
 	public override void OnInspectorGUI()
 	{
 		Dialog newDialog = (Dialog)EditorGUILayout.ObjectField ("Dialog: ",person.dialog, typeof(Dialog), false);
@@ -23,27 +49,8 @@ public class PersonInspector : Editor {
 		if (newDialog != person.dialog)
 		{
 			person.dialog = newDialog;
-			person.pathEvents = new List<PathEvent>();
-			person.nodeEvents = new List<StateEvent>();
 
-			if(newDialog)
-			{
-				foreach(DialogNode node in newDialog.nodes)
-			{
-					foreach(DialogStateNode subNode in node.dialogState.nodes)
-					{
-						if(subNode.withEvent)
-						{
-							person.nodeEvents.Add (new StateEvent(subNode));
-						}
-
-						foreach(DialogStatePath path in subNode.pathes)
-						{
-							person.pathEvents.Add (new PathEvent(path));
-						}
-					}	
-			}
-			}
+			ResetEvents ();
 		}
 
 		if (person.dialog) {

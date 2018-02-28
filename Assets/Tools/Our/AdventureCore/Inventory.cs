@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class Inventory : Singleton<Inventory>
 {
+
+	public Action<PointAndClickItem> OnAddItem = (PointAndClickItem i)=>{};
+	public Action<PointAndClickItem> OnRemoveItem = (PointAndClickItem i)=>{};
+
     public PointAndClickItem[] startingItems;
 
     public GameObject habPrefab;
@@ -27,11 +31,24 @@ public class Inventory : Singleton<Inventory>
     {
         foreach (PointAndClickItem item in startingItems)
         {
-            AddItem(item);
+            AddItemToPlayer(item);
         }
     }
 
-    public void AddItem(PointAndClickItem item)
+	public void AddItemToPlayer(PointAndClickItem item)
+	{
+		OnAddItem.Invoke (item);
+		AddItem (item);
+	}
+
+	public void RemoveItemFromPlayer(PointAndClickItem item)
+	{
+		OnRemoveItem.Invoke (item);
+		RemoveItem (item);
+	}
+
+
+	public void AddItem(PointAndClickItem item)
     {
         if (GetComponentsInChildren<ItemHab>().Where(h => h.Item == null).ToList().Count == 0)
         {
@@ -41,7 +58,7 @@ public class Inventory : Singleton<Inventory>
         GetComponentsInChildren<ItemHab>().Where(h=>h.Item == null).ToList()[0].Item = item;
     }
 
-    public void RemoveItem(PointAndClickItem item)
+	public void RemoveItem(PointAndClickItem item)
     {
         ItemHab hab = GetComponentsInChildren<ItemHab>().Where(h => h.Item == item).ToList()[0];
         hab.Item = null;

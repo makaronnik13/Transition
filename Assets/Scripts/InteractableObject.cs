@@ -19,6 +19,6 @@ public class InteractableObject : ScriptableObject {
     public string objectName;
     public string descripion;
 
-    public Combinations[] combinqations;
+    public Combinations[] combinations;
     public int sceneId;
 }

@@ -14,7 +14,7 @@ public class PointAndClickObjectInspector : Editor
     {
         item = (InteractableObject)target;
         list = new ReorderableList(serializedObject,
-               serializedObject.FindProperty("combinqations"),
+               serializedObject.FindProperty("combinations"),
                true, true, true, true);
 
         list.drawElementCallback =

@@ -18,7 +18,7 @@ public class PointAndClickObjectIngameInspector : Editor
         item = (PointAndClickObject)target;
         if (item.objectAsset)
         {
-            foreach (Combinations combo in item.objectAsset.combinqations)
+            foreach (Combinations combo in item.objectAsset.combinations)
             {
                 ItemEvent pair = item.itemsEvents.Find(ie => ie.item == combo.item);
                 if (pair == null)
@@ -30,7 +30,7 @@ public class PointAndClickObjectIngameInspector : Editor
             List<ItemEvent> removingevents = new List<ItemEvent>();
             foreach (ItemEvent ie in item.itemsEvents)
             {
-                if (item.objectAsset.combinqations.ToList().Find(c=>c.item == ie.item)==null)
+                if (item.objectAsset.combinations.ToList().Find(c=>c.item == ie.item)==null)
                 {
                     removingevents.Add(ie);
                 }
@@ -54,7 +54,7 @@ public class PointAndClickObjectIngameInspector : Editor
             item.itemsEvents = new List<ItemEvent>();
             if (item.objectAsset)
             {
-                foreach (Combinations comb in item.objectAsset.combinqations)
+                foreach (Combinations comb in item.objectAsset.combinations)
                 {
                     item.itemsEvents.Add(new ItemEvent(comb.item));
                 }
@@ -73,7 +73,7 @@ public class PointAndClickObjectIngameInspector : Editor
             }
 
 
-            foreach (Combinations combo in item.objectAsset.combinqations)
+            foreach (Combinations combo in item.objectAsset.combinations)
             {           
                 if (!combo.withEvent)
                 {

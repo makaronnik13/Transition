@@ -447,7 +447,7 @@ MonoBehaviour:
   - position: {x: 1.2038769, y: -0.50769025, z: 0}
   - position: {x: 0.9059272, y: -0.7256863, z: 0}
   - position: {x: 0.43694708, y: -0.71370876, z: 0}
-  - position: {x: 0.056856368, y: -0.6644641, z: 0}
+  - position: {x: 0.05685635, y: -0.64604586, z: 0}
   - position: {x: -0.28007314, y: -0.6854752, z: 0}
   - position: {x: -0.93634087, y: -0.8771326, z: 0}
   - position: {x: -1.2930439, y: -0.78795683, z: 0}
@@ -492,7 +492,7 @@ MonoBehaviour:
   - position: {x: -0.350486, y: -1.4159753, z: 0}
   - position: {x: -0.39174563, y: -1.0269551, z: 0}
   - position: {x: -0.53320765, y: -0.80886775, z: 0}
-  - position: {x: -0.20902398, y: -0.86781025, z: 0}
+  - position: {x: -0.22744246, y: -0.8401827, z: 0}
   - position: {x: -0.7512948, y: -0.76171374, z: 0}
   - position: {x: -1.0754786, y: -0.7086656, z: 0}
   - position: {x: -1.5470185, y: -0.8442332, z: 0}
@@ -963,7 +963,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 724488073}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.11, y: -2.17, z: 0}
+  m_LocalPosition: {x: -5.17, y: -3.04, z: 0}
   m_LocalScale: {x: 0.30104452, y: 0.3512299, z: 0.5615456}
   m_Children: []
   m_Father: {fileID: 812649168}
@@ -980,7 +980,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f771fd938cb9ac74b91d28e12d61f3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 0}
+  dialog: {fileID: 11400000, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+  pathEvents:
+  - path: {fileID: 114137446141191714, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+    activationEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - path: {fileID: 114424818827685422, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+    activationEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - path: {fileID: 114816004986983826, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+    activationEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - path: {fileID: 114076313165486088, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+    activationEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - path: {fileID: 114711666362722532, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+    activationEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  nodeEvents:
+  - node: {fileID: 114632525775292184, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+    activationEvent:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - node: {fileID: 114202856710620824, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+    activationEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 724488075}
+          m_MethodName: Test
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: test
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - node: {fileID: 114603202329991302, guid: 63db16e7c34d84ddbab7423a73bad8c8, type: 2}
+    activationEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 724488075}
+          m_MethodName: Test
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: lol
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &724488076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1340,6 +1412,8 @@ GameObject:
   - component: {fileID: 822305963}
   - component: {fileID: 822305965}
   - component: {fileID: 822305966}
+  - component: {fileID: 822305967}
+  - component: {fileID: 822305968}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1427,6 +1501,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb5f92c8de1064aacb1aba94556b5850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &822305967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822305959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0ee6a3a16f643b8af29db042464dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &822305968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822305959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a6a1c750cb948af8b4afc04499efed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &850613399
@@ -2206,7 +2302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 25.699951}
+  m_AnchoredPosition: {x: 0, y: 25.700195}
   m_SizeDelta: {x: 0, y: 51.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1738325319

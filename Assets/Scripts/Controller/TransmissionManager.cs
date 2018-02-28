@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using HoloToolkit.Unity;
 using System.Linq;
 
 public class TransmissionManager : Singleton<TransmissionManager>

@@ -1,4 +1,4 @@
-﻿using HoloToolkit.Unity;
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,6 +62,7 @@ public class Inventory : Singleton<Inventory>
     {
         ItemHab hab = GetComponentsInChildren<ItemHab>().Where(h => h.Item == item).ToList()[0];
         hab.Item = null;
+        Destroy(hab.gameObject);
     }
 
 	public void DragItem(ItemVisual visual)

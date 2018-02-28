@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-using HoloToolkit.Unity;
 
 public class StartVisualiser : Singleton <StartVisualiser>
 {

@@ -7,6 +7,7 @@ namespace GraphEditor
     [System.Serializable]
     public class Path : ScriptableObject
     {
+        [SerializeField]
         private Node start;
         public Node Start
         {
@@ -20,6 +21,7 @@ namespace GraphEditor
             }
         }
 
+        [SerializeField]
         private Node end;
         public Node End
         {

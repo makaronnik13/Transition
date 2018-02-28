@@ -3,8 +3,6 @@
 
 using UnityEngine;
 
-namespace HoloToolkit.Unity
-{
     /// <summary>
     /// Singleton behaviour class, used for components that should only have one instance
     /// </summary>
@@ -54,4 +52,3 @@ namespace HoloToolkit.Unity
             }
         }
     }
-}

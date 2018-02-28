@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using HoloToolkit.Unity;
 using System.Linq;
 using System;
 
@@ -64,12 +63,12 @@ public class ParamsManager : Singleton<ParamsManager>
 	{
 		switch (effect.effectType)
 		{
-		case ParamEffect.ParamEffectType.set:
-			SetParam (effect.parameter, effect.value);
-			break;
-		case ParamEffect.ParamEffectType.add:
-			ChangeParam (effect.parameter, effect.value);
-			break;
+		    case ParamEffect.ParamEffectType.set:
+			    SetParam (effect.parameter, effect.value);
+			    break;
+		    case ParamEffect.ParamEffectType.add:
+			    ChangeParam (effect.parameter, effect.value);
+			    break;
 		}
 	}
 

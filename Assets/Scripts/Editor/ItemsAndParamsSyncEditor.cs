@@ -10,9 +10,12 @@ public class ItemsAndParamsSyncEditor : Editor
 
 	private ItemsAndParametersSync sync;
 	private ReorderableList syncList;
+    private ReorderableList list;
 
-	void  OnEnable()
+
+    void OnEnable()
 	{
+        Debug.Log("onEnable");
 		sync = (ItemsAndParametersSync)target;
 		syncList = new ReorderableList(serializedObject,
 			serializedObject.FindProperty("syncList"),
@@ -24,21 +27,20 @@ public class ItemsAndParamsSyncEditor : Editor
 			rect.y+=2;
 
 			EditorGUI.PropertyField(
-				new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
+				new Rect(rect.x, rect.y, rect.width/2, EditorGUIUtility.singleLineHeight),
 				element.FindPropertyRelative("item"), GUIContent.none);
 			EditorGUI.PropertyField(
-				new Rect(rect.x, rect.y+ EditorGUIUtility.singleLineHeight, rect.width, EditorGUIUtility.singleLineHeight*3),
+				new Rect(rect.x+rect.width/2, rect.y, rect.width/2, EditorGUIUtility.singleLineHeight),
 				element.FindPropertyRelative("parameter"), GUIContent.none); 
 
 		};
-
-	}
+    }
 
 
 	public override void OnInspectorGUI()
 	{
 		serializedObject.Update();
-		syncList.DoLayoutList();
-		serializedObject.ApplyModifiedProperties();
+       syncList.DoLayoutList();
+        serializedObject.ApplyModifiedProperties();
 	}
 }

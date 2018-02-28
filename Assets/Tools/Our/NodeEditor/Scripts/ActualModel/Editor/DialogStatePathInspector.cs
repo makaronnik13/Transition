@@ -27,7 +27,13 @@ public class DialogStatePathInspector : Editor
             AssetDatabase.SaveAssets();
         }
 
-		if (((DialogStateNode)state.Start).nodeType != DialogStateNode.StateNodeType.enter) { 
+        if(!state.Start)
+        {
+            return;
+        }
+
+
+        if ( ((DialogStateNode)state.Start).nodeType != DialogStateNode.StateNodeType.enter) { 
 			state.text = EditorGUILayout.TextField ("Text: ", state.text, GUILayout.Height (4 * EditorGUIUtility.singleLineHeight));
 		}
 

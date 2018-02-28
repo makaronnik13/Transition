@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemsAndParametersSync : MonoBehaviour {
 
+    [System.Serializable]
 	public class ParamSyncStruct
 	{
 		public PointAndClickItem item;
@@ -12,12 +13,15 @@ public class ItemsAndParametersSync : MonoBehaviour {
 
 	public List<ParamSyncStruct> syncList = new List<ParamSyncStruct> ();
 
+    private void Awake()
+    {
+        Inventory.Instance.OnRemoveItem += RemoveItem;
+        Inventory.Instance.OnAddItem += AddItem;
+    }
 
-	void Start()
+    void Start()
 	{
 		ParamsManager.Instance.OnParamChanged += ParamChanged;
-		Inventory.Instance.OnRemoveItem += RemoveItem;
-		Inventory.Instance.OnAddItem += AddItem;
 	}
 
 	private void ParamChanged(GameParameter parameter, float value)
@@ -42,21 +46,25 @@ public class ItemsAndParametersSync : MonoBehaviour {
 
 	private void RemoveItem(PointAndClickItem item)
 	{
-		GameParameter param = syncList.Find (p=>p.item == item).parameter;
+        ParamSyncStruct syncStruct = syncList.Find (p=>p.item == item);
 
-		if(param)
-		{
-			ParamsManager.Instance.ApplyEffect (new ParamEffect(param, -1, ParamEffect.ParamEffectType.add));
+        if (syncStruct != null)
+        {
+            GameParameter param = syncStruct.parameter;
+            ParamsManager.Instance.ApplyEffect (new ParamEffect(param, -1, ParamEffect.ParamEffectType.add));
 		}
 	}
 
 	private void AddItem(PointAndClickItem item)
 	{
-		GameParameter param = syncList.Find (p=>p.item == item).parameter;
+        Debug.Log(syncList);
 
-		if(param)
+        ParamSyncStruct syncStruct = syncList.Find(p => p.item == item);
+
+		if(syncStruct!=null)
 		{
-			ParamsManager.Instance.ApplyEffect (new ParamEffect(param, 1, ParamEffect.ParamEffectType.add));
+            GameParameter param = syncStruct.parameter;
+            ParamsManager.Instance.ApplyEffect (new ParamEffect(param, 1, ParamEffect.ParamEffectType.add));
 		}
 	}
 }

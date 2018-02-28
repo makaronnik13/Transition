@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class NetWalker : MonoBehaviour {
 
+	private bool movementEnabled = true;
     public Animator animator;
     public MovementNet net;
     public float speed = 2;
@@ -19,7 +20,19 @@ public class NetWalker : MonoBehaviour {
     private void OnEnable()
     {
         TasksManager.Instance.Listen(this);
+		TransmissionManager.Instance.OnDialogFinished += DialogFinished;
+		TransmissionManager.Instance.OnPersonChanged += DialogStarted;
     }
+
+	private void DialogFinished()
+	{
+		movementEnabled = true;
+	}
+
+	private void DialogStarted(Person person)
+	{
+		movementEnabled = false;
+	}
 
     private void OnDisable()
     {
@@ -42,7 +55,7 @@ public class NetWalker : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && movementEnabled)
         {
             Vector3 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             MoveByPath(net.ShortestPath(transform.position, clickPosition));

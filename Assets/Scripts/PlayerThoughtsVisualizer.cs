@@ -28,7 +28,25 @@ public class PlayerThoughtsVisualizer : MonoBehaviour {
     {
         text1.enabled = false;
         InvestigationManager.Instance.OnInvestigate += ShowFeedback;
+		TransmissionManager.Instance.OnNodeIn += ShowDialogNodeFeedback;
+		TransmissionManager.Instance.OnPathGo += ShowDialogPathFeedback;
     }
+
+	private void ShowDialogNodeFeedback(DialogStateNode node)
+	{
+		if(node.comentary!="")
+		{
+			ShowFeedback (node.comentary);
+		}
+	}
+
+	private void ShowDialogPathFeedback(DialogStatePath path)
+	{
+		if(path.comentary!="")
+		{
+			ShowFeedback (path.comentary);
+		}
+	}
 
     private void ShowFeedback(string description)
     {

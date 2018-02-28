@@ -17,5 +17,11 @@ public class DialogStateNode : Node
 
 	public StateNodeType nodeType = StateNodeType.simple;
 
+	public string comentary;
+
 	public DialogPath exitPath;
+
+	public List<ParamEffect> effects = new List<ParamEffect>();
+
+	public bool withEvent = false;
 }

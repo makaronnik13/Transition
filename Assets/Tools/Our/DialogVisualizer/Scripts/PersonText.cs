@@ -13,17 +13,20 @@ public class PersonText : MonoBehaviour
     public TextMeshProUGUI text1;
     public Transform person;
     public Action OnPhraseFinished = ()=> { };
-
+	public Image Background;
     private Queue<string> phrases = new Queue<string>();
 
     private void Update()
     {
-        RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-        Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(person.position);
-        Vector2 WorldObject_ScreenPosition = new Vector2(
-        ((ViewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
-        ((ViewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
-        GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
+		if (person) {
+			RectTransform canvasRect = GetComponentInParent<Canvas> ().GetComponent<RectTransform> ();
+			Vector2 personSize = person.GetComponent<SpriteRenderer> ().size;
+			Vector2 ViewportPosition = Camera.main.WorldToViewportPoint (person.position+new Vector3(personSize.x, personSize.y, 0));
+			Vector2 WorldObject_ScreenPosition = new Vector2 (
+				                                          ((ViewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+				                                          ((ViewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
+			GetComponent<RectTransform> ().anchoredPosition = WorldObject_ScreenPosition;
+		}
     }
 
     public void Hide()
@@ -31,12 +34,14 @@ public class PersonText : MonoBehaviour
         CancelInvoke("PushTheButton");
         text1.text = "";
         text1.enabled = false;
+		Background.enabled = false;
     }
 
     // Use this for initialization
     void Start()
     {
         text1.enabled = false;
+		Background.enabled = false;
     }
 
     public void ShowFeedback(string description)
@@ -48,6 +53,7 @@ public class PersonText : MonoBehaviour
         {
             phrases.Enqueue(s);
         }
+			
         if (phrases.Count > 0)
         {
             Show(phrases.Dequeue());
@@ -60,6 +66,7 @@ public class PersonText : MonoBehaviour
         CancelInvoke("PushTheButton");
         text1.text = s;
         text1.enabled = true;
+		Background.enabled = true;
         Invoke("PushTheButton", s.Length / 8);
     }
 
@@ -73,7 +80,7 @@ public class PersonText : MonoBehaviour
         else
         {
             OnPhraseFinished.Invoke();
-            text1.enabled = false;
+            //text1.enabled = false;
         }
     }
 }

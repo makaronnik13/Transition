@@ -76,8 +76,7 @@ public class Inventory : Singleton<Inventory>
             Destroy(visual.gameObject);
             visual = null;
         }
-
-        Tooltip.Instance.HideTooltip();
+			
     }
 
     public void DropItem(ItemHab hab)

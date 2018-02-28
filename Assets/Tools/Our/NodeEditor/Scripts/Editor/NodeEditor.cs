@@ -204,10 +204,11 @@ namespace GraphEditor
 
             NodeClickEvent(drawRect, node);
 
-            GUI.backgroundColor = Color.white;
 
 
             DrawNodeButtons(node);
+			GUI.color = Color.white;
+			GUI.backgroundColor = Color.white;
 
         }
 
@@ -220,6 +221,7 @@ namespace GraphEditor
                 DrawPathButton(screenDelta + start + Vector2.up * GetNodeSize(node).y + Vector2.right * (5 + i * (GetNodeSize(node).x / node.pathes.Count)), p);
                 i++;
             }
+
         }
 
         private void NodeClickEvent(Rect drawRect, Node node)

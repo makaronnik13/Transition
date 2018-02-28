@@ -20,6 +20,23 @@ public class TransmissionManager : Singleton<TransmissionManager>
 
     private void RunState(DialogStateNode node)
     {
+		
+		if (node.nodeType == DialogStateNode.StateNodeType.exit)
+		{
+			FinishDialog();
+			return;
+		}
+			
+		foreach(DialogStatePath dsp in node.pathes)
+		{
+			if(dsp.automatic && ParamsManager.Instance.CheckConditions(dsp.conditions))
+			{
+				OnPathGo.Invoke(dsp);
+				RunState ((DialogStateNode)dsp.End);
+				return;
+			}
+		}
+
         OnNodeIn.Invoke(node);
         currentState = node;
     }
@@ -28,26 +45,23 @@ public class TransmissionManager : Singleton<TransmissionManager>
     {
         talkablePerson = person;
         OnPersonChanged.Invoke(talkablePerson);
+
         RunNode(person.CurrentNode);
     }
 
-    public void SelectDialogVariant(int i)
+	public void SelectDialogVariant(DialogStatePath path)
     {
-        DialogStatePath path = (DialogStatePath)currentState.pathes[i];
-
         OnPathGo.Invoke(path);
 
         DialogStateNode aimNode = (DialogStateNode)path.End;
-
-        if (aimNode.nodeType == DialogStateNode.StateNodeType.exit)
-        {
-            FinishDialog();
-        }
         if (aimNode.nodeType == DialogStateNode.StateNodeType.narrativeExit)
         {
             talkablePerson.CurrentNode = (DialogNode)aimNode.exitPath.End;
             RunNode(talkablePerson.CurrentNode);
         }
+		else{
+			RunState (aimNode);
+		}
     }
 
     private void FinishDialog()

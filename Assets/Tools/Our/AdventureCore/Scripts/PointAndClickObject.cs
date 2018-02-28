@@ -17,9 +17,28 @@ public class PointAndClickObject : MonoBehaviour
 
     private bool focused = false;
 
+	private bool interactionEnabled = true;
+
+
+	private void OnEnable()
+	{
+		TransmissionManager.Instance.OnDialogFinished += DialogFinished;
+		TransmissionManager.Instance.OnPersonChanged += DialogStarted;
+	}
+
+	private void DialogFinished()
+	{
+		interactionEnabled = true;
+	}
+
+	private void DialogStarted(Person person)
+	{
+		interactionEnabled = false;
+	}
+
     void OnMouseOver()
     {
-        if (EventSystem.current.IsPointerOverGameObject() || focused)
+		if (EventSystem.current.IsPointerOverGameObject() || focused)
         {
             // we're over a UI element... peace out
             return;
@@ -54,13 +73,13 @@ public class PointAndClickObject : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && interactionEnabled)
         {
             TasksManager.Instance.SetAim(this);
             OnMouseExit();
         }
 
-        if (Input.GetMouseButtonDown(1))
+		if (Input.GetMouseButtonDown(1) && interactionEnabled)
         {
             InvestigationManager.Instance.Invectigate(objectAsset);
             OnMouseExit();

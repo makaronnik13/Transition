@@ -28,14 +28,13 @@ public class DialogEditor : EditorWindow
         {
             if (editingDialogEditor == null || editingDialog!=editingDialogEditor.NodeGraph)
             {
-                Debug.Log(editingDialog);
                 editingDialogEditor = new NodeEditor(editingDialog, this);            
                 editingDialogEditor.OnNodeDraw = (Node node) =>
                 {
                     DialogNode dNode = (DialogNode)node;
                     EditorGUILayout.LabelField(node.name);
 					//dNode.name = EditorGUILayout.TextArea(dNode.name, GUILayout.Height(EditorGUIUtility.singleLineHeight));
-                    if (Selection.activeObject == node)
+					if (Selection.activeObject == node)
                     {
                         dNode.dialogNodeDescription = EditorGUILayout.TextArea(dNode.dialogNodeDescription, GUILayout.Height(EditorGUIUtility.singleLineHeight*3));
                     }
@@ -73,6 +72,7 @@ public class DialogEditor : EditorWindow
 
 					Path newPath1 = (DialogStatePath)ScriptableObjectUtility.CreateAsset<DialogStatePath>(editingDialog);
 					newPath1.Init(startState, middleState);
+					((DialogStatePath)newPath1).automatic = true;
 
 					Path newPath2 = (DialogStatePath)ScriptableObjectUtility.CreateAsset<DialogStatePath>(editingDialog);
 					newPath2.Init(middleState, exitState);
@@ -188,7 +188,7 @@ public class DialogEditor : EditorWindow
 						dNode.name = "To "+dNode.exitPath.End.name;
 					}
                     EditorGUILayout.LabelField(node.name);
-                    if (Selection.activeObject == node)
+					if (Selection.activeObject == node && dNode.nodeType == DialogStateNode.StateNodeType.simple)
                     {
                         dNode.text = EditorGUILayout.TextField(dNode.text, GUILayout.Height(EditorGUIUtility.singleLineHeight * 3));
                     }
@@ -196,7 +196,7 @@ public class DialogEditor : EditorWindow
 
                 editingStateEditor.OnGetSize = (Node node) =>
                 {
-                    if (Selection.activeObject == node)
+					if (Selection.activeObject == node && ((DialogStateNode)node).nodeType == DialogStateNode.StateNodeType.simple)
                     {
                         return new Vector2(150, 20 + EditorGUIUtility.singleLineHeight * 3 + 5);
                     }
@@ -261,14 +261,14 @@ public class DialogEditor : EditorWindow
         {
             if (editingState)
             {
-				EditingStateEditor.Draw(new Rect(new Vector2(0, 20), position.size-Vector2.up*EditorGUIUtility.singleLineHeight*2));
+				EditingStateEditor.Draw(new Rect(new Vector2(200, 20), position.size-Vector2.up*EditorGUIUtility.singleLineHeight*2));
             }
             else
             {
-				EditingDialogEditor.Draw(new Rect(new Vector2(0, 20), position.size-Vector2.up*EditorGUIUtility.singleLineHeight*2));
+				EditingDialogEditor.Draw(new Rect(new Vector2(200, 20), position.size-Vector2.up*EditorGUIUtility.singleLineHeight*2));
             }
 
-			GUILayout.BeginArea (new Rect(Vector2.zero, new Vector2(position.width, EditorGUIUtility.singleLineHeight*2)));
+			GUILayout.BeginArea (new Rect(new Vector2(200, 0), new Vector2(position.width, EditorGUIUtility.singleLineHeight*2)));
 			EditorGUILayout.BeginHorizontal ();
 			if(GUILayout.Button("base layer", GUILayout.Width(100)))
 			{
@@ -278,9 +278,13 @@ public class DialogEditor : EditorWindow
 			{
 				GUILayout.Button (editingNode.name, GUILayout.Width(100));
 			}
+
+
 			EditorGUILayout.EndHorizontal ();
 			GUILayout.EndArea ();
         }       
+
+		ParametersEditor.Draw (new Rect(Vector2.zero, new Vector2(200, position.height)), editingDialog);
     }
 
     private void OnDisable()

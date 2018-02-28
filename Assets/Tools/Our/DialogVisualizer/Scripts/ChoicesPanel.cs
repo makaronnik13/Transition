@@ -17,30 +17,25 @@ public class ChoicesPanel : MonoBehaviour {
 
         foreach (DialogStatePath path in node.pathes)
         {
-            AddChoice(path.text);
+			AddChoice(path, ParamsManager.Instance.CheckConditions(path.conditions));
         }
     }
 
-    private void AddChoice(string text)
+	private void AddChoice(DialogStatePath path, bool enabled = true)
     {
         GameObject choiceGo = Instantiate(choicePrefab);
         choiceGo.transform.SetParent(transform);
         choiceGo.transform.localScale = Vector3.one;
-        choiceGo.GetComponent<ChoiceButton>().Init(text);
+		choiceGo.GetComponent<ChoiceButton>().Init(path);
+		choiceGo.SetActive (enabled);
     }
 
-    public void ApplyChoice(ChoiceButton choiceButton)
+	public void ApplyChoice(DialogStatePath path)
     {
-        int i = 0;
-        foreach (ChoiceButton cb in GetComponentsInChildren<ChoiceButton>())
-        {
-            if (cb == choiceButton)
-            {
-                TransmissionManager.Instance.SelectDialogVariant(i);
+
+				TransmissionManager.Instance.SelectDialogVariant(path);
                 Hide();
-            }
-            i++;
-        }
+
     }
 
     public void Hide()

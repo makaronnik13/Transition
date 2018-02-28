@@ -7,9 +7,10 @@ using TMPro;
 
 public class ChoiceButton : MonoBehaviour
 {
-    public void Init(string text)
+	
+	public void Init(DialogStatePath path)
     {
-        GetComponent<Button>().onClick.AddListener(() => { GetComponentInParent<ChoicesPanel>().ApplyChoice(this); });
-        GetComponent<TextMeshProUGUI>().text = text;
+		GetComponent<Button>().onClick.AddListener(() => { GetComponentInParent<ChoicesPanel>().ApplyChoice(path); });
+		GetComponentInChildren<TextMeshProUGUI>().text = path.text;
     }
 }

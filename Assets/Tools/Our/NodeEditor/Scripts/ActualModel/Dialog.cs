@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Model/Dialog")]
 public class Dialog : NodeGraph
 {
-
+	public ParamCollection paramCollection;
 }

@@ -31,9 +31,28 @@ public class ItemVisual : MonoBehaviour
 
     private bool focused = false;
 
+	private bool interactionEnabled = true;
+
+
+	private void OnEnable()
+	{
+		TransmissionManager.Instance.OnDialogFinished += DialogFinished;
+		TransmissionManager.Instance.OnPersonChanged += DialogStarted;
+	}
+
+	private void DialogFinished()
+	{
+		interactionEnabled = true;
+	}
+
+	private void DialogStarted(Person person)
+	{
+		interactionEnabled = false;
+	}
+
     public void OnMouseOver()
     {
-        if (focused || !item)
+		if (focused || !item)
         {
             // we're over a UI element... peace out
             return;
@@ -68,7 +87,7 @@ public class ItemVisual : MonoBehaviour
 
     public void Click()
     {
-        if (item)
+		if (item && interactionEnabled)
         {
             InvestigationManager.Instance.Invectigate(item);
             OnMouseExit();
@@ -77,6 +96,10 @@ public class ItemVisual : MonoBehaviour
 
 	public void BeginDrag()
 	{
+		if(!interactionEnabled)
+		{
+			return;
+		}
 		GetComponentInParent<Inventory> ().DragItem (this);
 		GetComponent<Image> ().raycastTarget = false;
 	}

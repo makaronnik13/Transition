@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class NetWalker : MonoBehaviour {
 
@@ -47,14 +48,23 @@ public class NetWalker : MonoBehaviour {
         MoveByPath(net.ShortestPath(transform.position, t.position));
     }
 
-    void Awake()
+	public void SetNet(MovementNet net)
     {
-        currentAimPoint = net.GetNodeWorldPosition(net.GetNearestPoint(transform.position));
-        lastAimPoint = currentAimPoint;
+		this.net = net;
+		if(net)
+		{
+        	currentAimPoint = net.GetNodeWorldPosition(net.GetNearestPoint(transform.position));
+        	lastAimPoint = currentAimPoint;
+		}
     }
 
     private void Update()
     {
+		if(!net)
+		{
+			return;
+		}
+
 		if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && movementEnabled)
         {
             Vector3 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

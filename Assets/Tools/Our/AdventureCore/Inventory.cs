@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Inventory : Singleton<Inventory>
 {
@@ -33,7 +34,22 @@ public class Inventory : Singleton<Inventory>
         {
             AddItemToPlayer(item);
         }
+		SceneManager.sceneLoaded += SceneLoaded;
+		SceneLoaded (SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
+
+	private void SceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		Debug.Log (GameScenesManager.Instance.GetSceneType);
+
+		if (GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.Location || GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.MiniLocation) 
+		{
+			transform.GetChild (0).gameObject.SetActive (true);
+		} else 
+		{
+			transform.GetChild (0).gameObject.SetActive (false);
+		}
+	}
 
 	public void AddItemToPlayer(PointAndClickItem item)
 	{
@@ -52,7 +68,7 @@ public class Inventory : Singleton<Inventory>
     {
         if (GetComponentsInChildren<ItemHab>().Where(h => h.Item == null).ToList().Count == 0)
         {
-            Instantiate(habPrefab, transform, false);
+			Instantiate(habPrefab, transform.GetChild(0), false);
         }
 
         GetComponentsInChildren<ItemHab>().Where(h=>h.Item == null).ToList()[0].Item = item;

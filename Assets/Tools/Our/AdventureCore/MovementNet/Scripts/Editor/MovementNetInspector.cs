@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CustomEditor(typeof(MovementNet))]
 public class MovementNetInspector : Editor
@@ -47,6 +48,16 @@ public class MovementNetInspector : Editor
             Repaint();
             SceneView.RepaintAll();
         }
+
+		if(selectedNode!=null)
+		{
+			string sceneName  = EditorGUILayout.TextField ("scene",selectedNode.scene);
+			if(selectedNode.scene!= sceneName)
+			{
+				selectedNode.scene = sceneName;
+				SceneView.RepaintAll();
+			}
+		}
     }
 
     void OnSceneGUI()
@@ -60,6 +71,7 @@ public class MovementNetInspector : Editor
                 SceneView.RepaintAll();
             }
         }
+			
 
         if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.N)
         {
@@ -92,6 +104,20 @@ public class MovementNetInspector : Editor
             } 
         }
 
+		foreach(NetNode node in net.nodes)
+		{
+			if (node.scene!="")
+			{
+				Vector2 np = Camera.current.WorldToScreenPoint (net.transform.position+node.position);
+
+				GUILayout.BeginArea (new Rect(np, new Vector2(100, 20)));
+				//EditorGUILayout.TextArea (node.scene);
+				//Handles.DrawSolidRectangleWithOutline(new Rect(node.position-1*Vector3.up, new Vector2(4f, 1f)), Color.gray, Color.white);
+				EditorGUILayout.LabelField( node.scene);
+				GUILayout.EndArea();
+			}
+		}
+
         foreach (NetNode node in net.nodes)
         {
             Handles.color = Color.black;
@@ -104,6 +130,14 @@ public class MovementNetInspector : Editor
                 Handles.color = Color.green;
 
             }
+				
+			if (node.scene!="")
+			{
+				actualSize *= 1.2f;
+				Handles.color = Color.magenta;
+			}
+
+
 
             MyHandles.DragHandleResult result;
 
@@ -111,6 +145,7 @@ public class MovementNetInspector : Editor
 
             if (node.position!=np)
             {
+				selectedNode = node;
                 node.position = np;
                 net.RecalculatePathesForNode(node);
             }
@@ -119,8 +154,9 @@ public class MovementNetInspector : Editor
 
             switch (result)
             {
-                case MyHandles.DragHandleResult.LMBClick:
-                    selectedNode = node;
+			case MyHandles.DragHandleResult.LMBClick:
+				selectedNode = node;
+				Repaint ();
                     SceneView.RepaintAll();
                     break;
             }

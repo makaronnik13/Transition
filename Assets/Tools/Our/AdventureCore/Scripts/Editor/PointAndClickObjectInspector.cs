@@ -46,7 +46,7 @@ public class PointAndClickObjectInspector : Editor
         item.interactable = EditorGUILayout.Toggle("Interactable", item.interactable);
         if (item.objType == InteractableObject.InteractableObjectType.MoveTrigger)
         {
-            item.sceneId = EditorGUILayout.IntField("Scene Id", item.sceneId);
+			item.sceneName = EditorGUILayout.TextField("Scene name", item.sceneName);
         }
 
         serializedObject.Update();

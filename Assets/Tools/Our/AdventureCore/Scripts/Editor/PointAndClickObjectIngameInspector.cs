@@ -45,6 +45,8 @@ public class PointAndClickObjectIngameInspector : Editor
         }
     }
 
+
+
     public override void OnInspectorGUI()
     {
         InteractableObject  newItem = (InteractableObject)EditorGUILayout.ObjectField("Asset", item.objectAsset, typeof(InteractableObject), false);

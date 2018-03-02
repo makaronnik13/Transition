@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class NetNode
 {
     public Vector3 position;
-
+	public string scene = "";
     private Dictionary<NetNode, float> pathes = new Dictionary<NetNode, float>();
 
     public float Path(NetNode node)

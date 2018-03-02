@@ -6,8 +6,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerThoughtsVisualizer : MonoBehaviour {
-
+public class PlayerThoughtsVisualizer : MonoBehaviour 
+{
     public TextMeshProUGUI text1;
     public Transform player;
 
@@ -15,12 +15,15 @@ public class PlayerThoughtsVisualizer : MonoBehaviour {
 
     private void Update()
     {
-        RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-        Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(player.position);
-        Vector2 WorldObject_ScreenPosition = new Vector2(
-        ((ViewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
-        ((ViewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
-        GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
+		if(player)
+		{
+	        RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+	        Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(player.position);
+	        Vector2 WorldObject_ScreenPosition = new Vector2(
+	        ((ViewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
+	        ((ViewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
+	        GetComponent<RectTransform>().anchoredPosition = WorldObject_ScreenPosition;
+		}
     }
 
     // Use this for initialization

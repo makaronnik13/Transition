@@ -50,7 +50,10 @@ public class DialogVisualizer : Singleton<DialogVisualizer>
 
     private void ShowNode(DialogStateNode obj)
     {
-        node = obj;
-        PersonTextVisualizer.ShowFeedback(obj.text);
+		if(GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.Location)
+		{
+        	node = obj;
+        	PersonTextVisualizer.ShowFeedback(obj.text);
+		}
     }
 }

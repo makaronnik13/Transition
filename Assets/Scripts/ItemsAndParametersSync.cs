@@ -57,8 +57,6 @@ public class ItemsAndParametersSync : MonoBehaviour {
 
 	private void AddItem(PointAndClickItem item)
 	{
-        Debug.Log(syncList);
-
         ParamSyncStruct syncStruct = syncList.Find(p => p.item == item);
 
 		if(syncStruct!=null)

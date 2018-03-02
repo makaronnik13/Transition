@@ -1,0 +1,268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5af819f3d22d14fa3f8beb945f0b8a, type: 3}
+  m_Name: FirstSceneLoading
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114662389104889894}
+  paramCollection: {fileID: 0}
+--- !u!114 &114041798548625910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: Enter state
+  m_EditorClassIdentifier: 
+  m_Position: {x: 419.5, y: 74}
+  pathes:
+  - {fileID: 114720581692622040}
+  text: 
+  nodeType: 1
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
+--- !u!114 &114066753900187324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: New DialogStateNode
+  m_EditorClassIdentifier: 
+  m_Position: {x: 416.5, y: 131}
+  pathes:
+  - {fileID: 114876330505678716}
+  text: "\u041A\u043E\u0440\u043E\u0447\u0435 \u044D\u0442\u043E \u043D\u0430\u0447\u0430\u043B\u044C\u043D\u0430\u044F
+    \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0430"
+  nodeType: 0
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
+--- !u!114 &114202453016627414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: New DialogStateNode
+  m_EditorClassIdentifier: 
+  m_Position: {x: 420.5, y: 288}
+  pathes:
+  - {fileID: 114446640540259772}
+  text: "\u042F \u0440\u0435\u0448\u0438\u043B \u0441\u0434\u0435\u043B\u0430\u0442\u044C
+    \u0437\u0430\u0441\u0442\u0430\u0432\u043A\u0438 \u0438 \u0441\u0438\u043D\u0435\u043C\u0430\u0442\u0438\u043A\u0438
+    \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u044F \u0434\u0438\u0430\u043B\u043E\u0433\u043E\u0432\u044B\u0439
+    \u044D\u0434\u0438\u0442\u043E\u0440"
+  nodeType: 0
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
+--- !u!114 &114260109643830274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbd9c5c64f7b46c1b3c90e10016baf3, type: 3}
+  m_Name: end
+  m_EditorClassIdentifier: 
+  start: {fileID: 114482145845945216}
+  end: {fileID: 114788936925977120}
+  text: 4
+  comentary: 
+  automatic: 0
+  conditions: []
+  effects: []
+  withEvent: 1
+--- !u!114 &114439047165920598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: New DialogStateNode
+  m_EditorClassIdentifier: 
+  m_Position: {x: 416.5, y: 231}
+  pathes:
+  - {fileID: 114888515856385158}
+  text: "\u0427\u0442\u043E \u0442\u0443\u0442 \u0435\u0449\u0435 \u0441\u043A\u0430\u0437\u0430\u0442\u044C"
+  nodeType: 0
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
+--- !u!114 &114446640540259772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbd9c5c64f7b46c1b3c90e10016baf3, type: 3}
+  m_Name: New DialogStatePath
+  m_EditorClassIdentifier: 
+  start: {fileID: 114202453016627414}
+  end: {fileID: 114482145845945216}
+  text: 3
+  comentary: 
+  automatic: 0
+  conditions: []
+  effects: []
+  withEvent: 1
+--- !u!114 &114482145845945216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: New DialogStateNode
+  m_EditorClassIdentifier: 
+  m_Position: {x: 418.5, y: 395}
+  pathes:
+  - {fileID: 114260109643830274}
+  text: "\u0410 \u0441\u043E\u0431\u0441\u0442\u0432\u0435\u043D\u043D\u043E, \u043F\u043E\u0447\u0435\u043C\u0443
+    \u0431\u044B \u0438 \u043D\u0435\u0442?"
+  nodeType: 0
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
+--- !u!114 &114662389104889894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708c59ceffbc1cd47ae64835e95e30a3, type: 3}
+  m_Name: New DialogNode
+  m_EditorClassIdentifier: 
+  m_Position: {x: 444, y: 161}
+  pathes: []
+  dialogNodeDescription: 
+  dialogState: {fileID: 114972102791268706}
+--- !u!114 &114720581692622040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbd9c5c64f7b46c1b3c90e10016baf3, type: 3}
+  m_Name: New DialogStatePath
+  m_EditorClassIdentifier: 
+  start: {fileID: 114041798548625910}
+  end: {fileID: 114066753900187324}
+  text: 
+  comentary: 
+  automatic: 1
+  conditions: []
+  effects: []
+  withEvent: 0
+--- !u!114 &114788936925977120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: Exit state
+  m_EditorClassIdentifier: 
+  m_Position: {x: 411.5, y: 506}
+  pathes: []
+  text: 
+  nodeType: 2
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
+--- !u!114 &114876330505678716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbd9c5c64f7b46c1b3c90e10016baf3, type: 3}
+  m_Name: New DialogStatePath
+  m_EditorClassIdentifier: 
+  start: {fileID: 114066753900187324}
+  end: {fileID: 114439047165920598}
+  text: 1
+  comentary: 
+  automatic: 0
+  conditions: []
+  effects: []
+  withEvent: 1
+--- !u!114 &114888515856385158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbd9c5c64f7b46c1b3c90e10016baf3, type: 3}
+  m_Name: New DialogStatePath
+  m_EditorClassIdentifier: 
+  start: {fileID: 114439047165920598}
+  end: {fileID: 114202453016627414}
+  text: 2
+  comentary: 
+  automatic: 0
+  conditions: []
+  effects: []
+  withEvent: 1
+--- !u!114 &114972102791268706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edf81870855a794497b535f06a56225, type: 3}
+  m_Name: New DialogState
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114041798548625910}
+  - {fileID: 114788936925977120}
+  - {fileID: 114066753900187324}
+  - {fileID: 114439047165920598}
+  - {fileID: 114202453016627414}
+  - {fileID: 114482145845945216}

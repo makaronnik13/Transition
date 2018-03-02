@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(PolygonCollider2D))]
 public class PointAndClickObject : MonoBehaviour
@@ -91,7 +92,7 @@ public class PointAndClickObject : MonoBehaviour
         onActivation.Invoke();
         if (objectAsset.objType == InteractableObject.InteractableObjectType.MoveTrigger)
         {
-            ScenesLoader.Instance.LoadScene(objectAsset.sceneId);
+            SceneManager.LoadScene(objectAsset.sceneName);
         }
 
         if (objectAsset.objType == InteractableObject.InteractableObjectType.Person)

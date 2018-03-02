@@ -16,10 +16,9 @@ MonoBehaviour:
   objectName: "\u0411\u043E\u0447\u043A\u0430 \u0441\u043E\u0434\u044B"
   descripion: "\u041B\u0443\u0447\u0448\u0435 \u043A \u043D\u0435\u0439 \u043D\u0435
     \u043F\u0440\u0438\u0431\u043B\u0438\u0436\u0430\u0442\u044C\u0441\u044F."
-  combinqations:
-  - item: {fileID: 11400000, guid: c5211ee317b646647be86b4110946b86, type: 2}
-    combinationDescription: "\u0411\u043E\u0447\u043A\u0430 \u0432 \u0448\u043B\u044F\u043F\u0435?
-      \u041E\u0447\u0435\u043D\u044C \u0441\u043C\u0435\u0448\u043D\u043E."
+  combinations:
+  - item: {fileID: 11400000, guid: dd666b6fc5f22c24eb69b6e70d3ef3b8, type: 2}
+    combinationDescription: lol kek
     destroyItemAfterCombination: 1
     withEvent: 1
   sceneId: 0

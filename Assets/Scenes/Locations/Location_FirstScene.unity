@@ -255,17 +255,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cbad57205cb1b4fbe528ff306fedd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 1
+  minDistance: 0.29
   nodes:
-  - position: {x: 1.2673813, y: -0.702618, z: 0}
+  - position: {x: 0.046754915, y: -0.1452732, z: -0}
     scene: 
-  - position: {x: 1.7254175, y: 0.0044470355, z: 0}
-    scene: lol
-  - position: {x: 0.64925516, y: -0.66704243, z: 0}
+  - position: {x: 0.050573498, y: 0.45416635, z: 0}
+    scene: 
+  - position: {x: -0.33505362, y: 0.20217268, z: 0}
+    scene: 
+  - position: {x: -0.12981544, y: -0.29017457, z: 0}
+    scene: 
+  - position: {x: -0.2319531, y: 0.3587142, z: 0}
+    scene: 
+  - position: {x: -0.54844385, y: 0.07341814, z: 0}
     scene: 
   - position: {x: 0, y: 0, z: 0}
     scene: 
-  - position: {x: 0, y: 0, z: 0}
+  - position: {x: -0.123327516, y: 0.14703944, z: 0}
+    scene: 
+  - position: {x: -0.27222008, y: -0.052694157, z: 0}
+    scene: 
+  - position: {x: -0.043434188, y: 0.42666656, z: 0}
+    scene: 
+  - position: {x: -0.50463694, y: -0.17979734, z: 0}
+    scene: 
+  - position: {x: -0.3630075, y: -0.22700715, z: 0}
+    scene: 
+  - position: {x: -0.9987879, y: 0.2998079, z: 0}
+    scene: Location_secon
+  - position: {x: -0.7400529, y: 0.1864399, z: 0}
+    scene: 
+  - position: {x: -0.9799123, y: 0.11375518, z: 0}
     scene: 
   minSize: 0.3
   maxSize: 2
@@ -276,7 +296,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 450506505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: 0.22, z: 0}
+  m_LocalPosition: {x: -24.12, y: 0.22, z: 0}
   m_LocalScale: {x: 3.0189238, y: 3.0189238, z: 0}
   m_Children: []
   m_Father: {fileID: 0}

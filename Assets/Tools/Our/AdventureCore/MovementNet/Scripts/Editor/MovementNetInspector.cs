@@ -39,30 +39,11 @@ public class MovementNetInspector : Editor
             }
             SceneView.RepaintAll();
         }
-
-        if (GUILayout.Button("new node"))
-        {
-            NetNode newNode = new NetNode();
-            net.nodes.Add(newNode);
-            net.RecalculatePathesForNode(newNode);
-            Repaint();
-            SceneView.RepaintAll();
-        }
-
-		if(selectedNode!=null)
-		{
-			string sceneName  = EditorGUILayout.TextField ("scene",selectedNode.scene);
-			if(selectedNode.scene!= sceneName)
-			{
-				selectedNode.scene = sceneName;
-				SceneView.RepaintAll();
-			}
-		}
     }
 
     void OnSceneGUI()
     {
-        if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.D)
+        if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.D && Event.current.control)
         {
             if(selectedNode != null)
             {
@@ -73,21 +54,15 @@ public class MovementNetInspector : Editor
         }
 			
 
-        if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.N)
-        {
-            Debug.Log("!");
-           
+        if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.N && Event.current.control)
+        {  
             Vector3 mousePosition = Event.current.mousePosition;
             float mult = EditorGUIUtility.pixelsPerPoint;
             mousePosition.y = Camera.current.pixelHeight - mousePosition.y * mult;
             mousePosition.x *= mult;    
             Ray ray = Camera.current.ScreenPointToRay(mousePosition);
-            Plane plane = new Plane((Camera.current.transform.position-net.transform.position).normalized, net.transform.position);
-
-          
-
+            Plane plane = new Plane((Camera.current.transform.position-net.transform.position).normalized, net.transform.position);     
             float enter = 0;
-
             if (plane.Raycast(ray, out enter))
             {
                 Debug.Log("!!");
@@ -108,13 +83,7 @@ public class MovementNetInspector : Editor
 		{
 			if (node.scene!="")
 			{
-				Vector2 np = Camera.current.WorldToScreenPoint (net.transform.position+node.position);
-
-				GUILayout.BeginArea (new Rect(np, new Vector2(100, 20)));
-				//EditorGUILayout.TextArea (node.scene);
-				//Handles.DrawSolidRectangleWithOutline(new Rect(node.position-1*Vector3.up, new Vector2(4f, 1f)), Color.gray, Color.white);
-				EditorGUILayout.LabelField( node.scene);
-				GUILayout.EndArea();
+                Handles.Label(net.transform.TransformPoint(node.position),node.scene);
 			}
 		}
 
@@ -175,6 +144,36 @@ public class MovementNetInspector : Editor
             }
             Handles.color = Color.black;
         }
+
+        Handles.BeginGUI();
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("+", GUILayout.Width(30)))
+        {
+            NetNode newNode = new NetNode();
+            net.nodes.Add(newNode);
+            net.RecalculatePathesForNode(newNode);
+            Repaint();
+            SceneView.RepaintAll();
+        }
+        if (selectedNode!=null)
+        {
+            if (GUILayout.Button("-", GUILayout.Width(30)))
+            {
+                net.RemoveNode(selectedNode);
+                net.nodes.Remove(selectedNode);
+                SceneView.RepaintAll();
+            }
+
+            string sceneName = EditorGUILayout.TextField(selectedNode.scene, GUILayout.Width(150));
+            if (selectedNode.scene != sceneName)
+            {
+                 selectedNode.scene = sceneName;
+                 SceneView.RepaintAll();
+            }
+        }
+
+        EditorGUILayout.EndHorizontal();
+        Handles.EndGUI();
     }
 
     

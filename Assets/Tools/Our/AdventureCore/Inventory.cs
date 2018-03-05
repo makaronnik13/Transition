@@ -40,8 +40,6 @@ public class Inventory : Singleton<Inventory>
 
 	private void SceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		Debug.Log (GameScenesManager.Instance.GetSceneType);
-
 		if (GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.Location || GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.MiniLocation) 
 		{
 			transform.GetChild (0).gameObject.SetActive (true);

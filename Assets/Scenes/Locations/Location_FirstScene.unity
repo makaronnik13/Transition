@@ -281,11 +281,285 @@ MonoBehaviour:
     scene: 
   - position: {x: -0.3630075, y: -0.22700715, z: 0}
     scene: 
-  - position: {x: -0.9987879, y: 0.2998079, z: 0}
-    scene: Location_secon
-  - position: {x: -0.7400529, y: 0.1864399, z: 0}
+  - position: {x: -1.0641284, y: 0.3379233, z: 0}
+    scene: Location_SecondScene
+  - position: {x: -0.7563877, y: 0.17282727, z: 0}
     scene: 
   - position: {x: -0.9799123, y: 0.11375518, z: 0}
+    scene: 
+  - position: {x: -0.73576015, y: -0.12187027, z: -0}
+    scene: 
+  - position: {x: -0.87188643, y: -0.012969066, z: -0}
+    scene: 
+  - position: {x: -0.9807875, y: -0.18176578, z: -0}
+    scene: 
+  - position: {x: -1.1604742, y: 0.014256196, z: -0}
+    scene: 
+  - position: {x: -1.3020457, y: -0.15454052, z: -0}
+    scene: 
+  - position: {x: -1.155029, y: -0.37778777, z: -0}
+    scene: 
+  - position: {x: -0.811991, y: -0.5030239, z: -0}
+    scene: 
+  - position: {x: -0.77932036, y: -0.31244725, z: -0}
+    scene: 
+  - position: {x: -1.0025676, y: -0.4649087, z: -0}
+    scene: 
+  - position: {x: -0.57240856, y: -0.3505625, z: -0}
+    scene: 
+  - position: {x: -0.36005148, y: -0.4921338, z: -0}
+    scene: 
+  - position: {x: -0.12591417, y: -0.38323274, z: -0}
+    scene: 
+  - position: {x: 0.211679, y: 0.08504184, z: 0}
+    scene: 
+  - position: {x: 0.09188792, y: 0.22116816, z: 0}
+    scene: 
+  - position: {x: 0.36958566, y: 0.26472858, z: 0}
+    scene: 
+  - position: {x: 0.5928327, y: 0.35184935, z: 0}
+    scene: 
+  - position: {x: 0.7725195, y: 0.32462412, z: 0}
+    scene: 
+  - position: {x: 1.0284369, y: 0.38451973, z: 0}
+    scene: 
+  - position: {x: 1.2680191, y: 0.4607504, z: 0}
+    scene: 
+  - position: {x: 1.5076015, y: 0.6132119, z: 0}
+    scene: 
+  - position: {x: 1.5511619, y: 0.8636843, z: 0}
+    scene: 
+  - position: {x: 1.5293819, y: 0.9834754, z: 0}
+    scene: 
+  - position: {x: 1.4313706, y: 1.1304917, z: 0}
+    scene: 
+  - position: {x: 1.5076015, y: 0.4008549, z: 0}
+    scene: 
+  - position: {x: 1.665508, y: 0.24839342, z: 0}
+    scene: 
+  - position: {x: 1.8942003, y: 0.18305276, z: 0}
+    scene: 
+  - position: {x: 2.1446726, y: 0.12860224, z: 0}
+    scene: 
+  - position: {x: 2.4550407, y: 0.07415171, z: 0}
+    scene: 
+  - position: {x: 2.7109582, y: 0.10137697, z: 0}
+    scene: 
+  - position: {x: 2.269909, y: -0.09464485, z: 0}
+    scene: 
+  - position: {x: 1.9922113, y: -0.19810091, z: 0}
+    scene: 
+  - position: {x: 2.3243594, y: 0.09048683, z: 0}
+    scene: 
+  - position: {x: 2.0412166, y: -0.02930435, z: 0}
+    scene: 
+  - position: {x: 1.7145134, y: -0.31789225, z: 0}
+    scene: 
+  - position: {x: 2.1936781, y: -0.21988103, z: 0}
+    scene: 
+  - position: {x: 1.8669748, y: -0.33422738, z: 0}
+    scene: 
+  - position: {x: 1.4858212, y: -0.44312844, z: 0}
+    scene: 
+  - position: {x: 1.2326264, y: -0.5111915, z: 0}
+    scene: 
+  - position: {x: 1.0284369, y: -0.51663667, z: 0}
+    scene: 
+  - position: {x: 0.8378602, y: -0.5356942, z: -0}
+    scene: 
+  - position: {x: 0.630948, y: -0.54113936, z: -0}
+    scene: 
+  - position: {x: 0.34508276, y: -0.55747443, z: 0}
+    scene: 
+  - position: {x: 0.11366808, y: -0.5356942, z: -0}
+    scene: 
+  - position: {x: 0.33147022, y: -0.41590315, z: -0}
+    scene: 
+  - position: {x: 0.67450863, y: -0.3886779, z: 0}
+    scene: 
+  - position: {x: 0.54927236, y: -0.33967254, z: -0}
+    scene: 
+  - position: {x: 0.6853985, y: -0.21988103, z: 0}
+    scene: 
+  - position: {x: 0.6527283, y: -0.0619746, z: 0}
+    scene: 
+  - position: {x: 0.57105255, y: 0.046926446, z: 0}
+    scene: 
+  - position: {x: 0.6200581, y: 0.1503825, z: 0}
+    scene: 
+  - position: {x: 0.8487502, y: 0.19938788, z: 0}
+    scene: 
+  - position: {x: 1.0502173, y: 0.2592835, z: 0}
+    scene: 
+  - position: {x: 1.2625743, y: 0.28650877, z: 0}
+    scene: 
+  - position: {x: 1.4640412, y: 0.21027802, z: 0}
+    scene: 
+  - position: {x: 1.6110575, y: 0.046926446, z: 0}
+    scene: 
+  - position: {x: 1.7798543, y: -0.007524077, z: 0}
+    scene: 
+  - position: {x: 1.6981783, y: -0.15998551, z: 0}
+    scene: 
+  - position: {x: 1.5076015, y: -0.25799674, z: 0}
+    scene: 
+  - position: {x: 1.3006895, y: -0.3505625, z: 0}
+    scene: 
+  - position: {x: 1.0229919, y: -0.35600767, z: 0}
+    scene: 
+  - position: {x: 0.84330505, y: -0.30155712, z: 0}
+    scene: 
+  - position: {x: 0.8378602, y: -0.105534986, z: 0}
+    scene: 
+  - position: {x: 0.95765126, y: 0.0414813, z: 0}
+    scene: 
+  - position: {x: 1.2353488, y: 0.057816584, z: 0}
+    scene: 
+  - position: {x: 1.3660303, y: -0.03474934, z: 0}
+    scene: 
+  - position: {x: 1.2299038, y: -0.18176578, z: 0}
+    scene: 
+  - position: {x: 1.0284369, y: -0.12187027, z: 0}
+    scene: 
+  - position: {x: 0.7616294, y: 0.0414813, z: 0}
+    scene: 
+  - position: {x: -0.5778535, y: -0.51391405, z: -0}
+    scene: 
+  - position: {x: -0.1422493, y: -0.54113936, z: -0}
+    scene: 
+  - position: {x: 0.09188792, y: -0.3505625, z: -0}
+    scene: 
+  - position: {x: -0.41994706, y: 0.0033660594, z: -0}
+    scene: 
+  - position: {x: -0.55062824, y: 0.23205814, z: -0}
+    scene: 
+  - position: {x: -0.77387553, y: 0.29195377, z: -0}
+    scene: 
+  - position: {x: -1.1386939, y: 0.22116816, z: -0}
+    scene: 
+  - position: {x: -1.3183808, y: 0.046926446, z: -0}
+    scene: 
+  - position: {x: -1.1386939, y: -0.14909537, z: -0}
+    scene: 
+  - position: {x: -1.3946116, y: -0.32878223, z: -0}
+    scene: 
+  - position: {x: -1.438172, y: -0.14365038, z: -0}
+    scene: 
+  - position: {x: -1.236705, y: -0.5356942, z: -0}
+    scene: 
+  - position: {x: -1.046128, y: -0.58469975, z: -0}
+    scene: 
+  - position: {x: -0.88822144, y: -0.57380956, z: -0}
+    scene: 
+  - position: {x: -0.6486393, y: -0.57380956, z: -0}
+    scene: 
+  - position: {x: -0.37638667, y: -0.5629196, z: -0}
+    scene: 
+  - position: {x: 1.4640412, y: -0.5465845, z: 0}
+    scene: 
+  - position: {x: 1.3279147, y: -0.45946357, z: 0}
+    scene: 
+  - position: {x: 1.1863434, y: -0.41045803, z: 0}
+    scene: 
+  - position: {x: 1.1318929, y: -0.30155712, z: 0}
+    scene: 
+  - position: {x: 1.0066566, y: -0.23077132, z: 0}
+    scene: 
+  - position: {x: 1.1645632, y: -0.09464485, z: 0}
+    scene: 
+  - position: {x: 1.033882, y: 0.0033660594, z: 0}
+    scene: 
+  - position: {x: 1.1318929, y: 0.12315724, z: 0}
+    scene: 
+  - position: {x: 1.3170248, y: 0.17760777, z: 0}
+    scene: 
+  - position: {x: 1.5021565, y: 0.09048683, z: 0}
+    scene: 
+  - position: {x: 1.3987005, y: 0.32462412, z: 0}
+    scene: 
+  - position: {x: 1.4313706, y: 0.48253068, z: 0}
+    scene: 
+  - position: {x: 1.5892774, y: 0.3736296, z: 0}
+    scene: 
+  - position: {x: 1.5783873, y: 0.27561873, z: 0}
+    scene: 
+  - position: {x: 1.6763982, y: 0.10682212, z: 0}
+    scene: 
+  - position: {x: 1.7852992, y: 0.1503825, z: 0}
+    scene: 
+  - position: {x: 1.747184, y: 0.3028439, z: 0}
+    scene: 
+  - position: {x: 1.8887553, y: 0.08504184, z: 0}
+    scene: 
+  - position: {x: 1.5674971, y: -0.07830973, z: 0}
+    scene: 
+  - position: {x: 1.3823653, y: -0.15454052, z: 0}
+    scene: 
+  - position: {x: 1.8070793, y: -0.18176578, z: 0}
+    scene: 
+  - position: {x: 2.1011124, y: -0.13276026, z: 0}
+    scene: 
+  - position: {x: 2.0466619, y: 0.07415171, z: 0}
+    scene: 
+  - position: {x: 2.2317936, y: 0.03603631, z: 0}
+    scene: 
+  - position: {x: 2.4332607, y: -0.02930435, z: 0}
+    scene: 
+  - position: {x: 2.36792, y: -0.13276026, z: 0}
+    scene: 
+  - position: {x: 2.5584967, y: 0.025146173, z: 0}
+    scene: 
+  - position: {x: 2.553052, y: 0.15582749, z: 0}
+    scene: 
+  - position: {x: 2.3570297, y: 0.18849775, z: 0}
+    scene: 
+  - position: {x: 2.0902221, y: 0.22661315, z: 0}
+    scene: 
+  - position: {x: 1.954096, y: 0.29195377, z: 0}
+    scene: 
+  - position: {x: -0.10957912, y: -0.13276026, z: -0}
+    scene: 
+  - position: {x: -0.14769436, y: 0.052371595, z: -0}
+    scene: 
+  - position: {x: -0.67586446, y: -0.051084306, z: 0}
+    scene: 
+  - position: {x: -0.68130964, y: 0.06326173, z: -0}
+    scene: 
+  - position: {x: -1.035238, y: -0.08919986, z: -0}
+    scene: 
+  - position: {x: -0.83921605, y: -0.21443604, z: -0}
+    scene: 
+  - position: {x: -0.93178195, y: -0.30155712, z: -0}
+    scene: 
+  - position: {x: -1.2203697, y: -0.26888672, z: -0}
+    scene: 
+  - position: {x: -1.2802653, y: -0.3886779, z: -0}
+    scene: 
+  - position: {x: -0.61596894, y: -0.24710645, z: -0}
+    scene: 
+  - position: {x: -0.2783756, y: -0.37778777, z: -0}
+    scene: 
+  - position: {x: -0.40361193, y: -0.36145264, z: -0}
+    scene: 
+  - position: {x: -0.30015597, y: 0.09048683, z: -0}
+    scene: 
+  - position: {x: -0.09868891, y: 0.27561873, z: 0}
+    scene: 
+  - position: {x: 0.18445373, y: 0.3355142, z: 0}
+    scene: 
+  - position: {x: 0.46215147, y: 0.3790747, z: 0}
+    scene: 
+  - position: {x: 0.38047567, y: 0.13949236, z: 0}
+    scene: 
+  - position: {x: 0.7561843, y: 0.23750328, z: 0}
+    scene: 
+  - position: {x: 0.609168, y: 0.24839342, z: 0}
+    scene: 
+  - position: {x: 0.50571185, y: 0.25383857, z: 0}
+    scene: 
+  - position: {x: 0.9630962, y: 0.30828896, z: 0}
+    scene: 
+  - position: {x: 1.1318929, y: 0.3572945, z: 0}
     scene: 
   minSize: 0.3
   maxSize: 2
@@ -296,7 +570,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 450506505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.12, y: 0.22, z: 0}
+  m_LocalPosition: {x: -0.64, y: -2.77, z: 0}
   m_LocalScale: {x: 3.0189238, y: 3.0189238, z: 0}
   m_Children: []
   m_Father: {fileID: 0}

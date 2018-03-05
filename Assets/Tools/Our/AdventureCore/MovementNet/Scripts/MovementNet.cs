@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class MovementNet : MonoBehaviour {
-  
+public class MovementNet : MonoBehaviour 
+{  
     public float minDistance = 1;
     public List<NetNode> nodes = new List<NetNode>();
     public float minSize = 0.3f;
@@ -19,6 +19,35 @@ public class MovementNet : MonoBehaviour {
         }
     }
 
+	public NetNode GetNearestPointWithName(Vector3 position)
+	{
+		NetNode nearestPoint = GetNearestPoint (position);
+		NetNode resultPoint = null;
+		float minPath = Mathf.Infinity;
+
+		foreach(NetNode node in nodes)
+		{
+			if(node.val!=0)
+			{
+				if(Vector3.Distance(node.position, position)<minPath)
+				{
+					minPath = Vector3.Distance (node.position, position);
+					resultPoint = node;
+				}
+			}
+		}
+
+		if(resultPoint == null)
+		{
+			nearestPoint = resultPoint;
+		}
+		return resultPoint;
+	}
+
+	public NetNode GetPointWithName(string s)
+	{
+		return nodes.Find (n=>n.val == 0);
+	}
 
     public NetNode GetNearestPoint(Vector3 position)
     {

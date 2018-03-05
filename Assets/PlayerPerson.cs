@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerPerson : MonoBehaviour {
 
+	private string fromScene;
+
 	void Awake()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
+		SceneManager.sceneUnloaded += OnSceneUnloaded;
+
 		OnSceneLoaded (SceneManager.GetActiveScene(), LoadSceneMode.Single);
 	}
 
@@ -17,6 +21,25 @@ public class PlayerPerson : MonoBehaviour {
 		GetComponentInChildren<SpriteRenderer> ().enabled = (net != null);
 		GetComponentInChildren<PolygonCollider2D> ().enabled = (net != null);
 		GetComponent<NetWalker> ().SetNet (net);
+		MovePlayer ();
+	}
 
+	void OnSceneUnloaded(Scene scene)
+	{
+		fromScene = scene.name;
+	}
+
+	private void MovePlayer()
+	{
+		Debug.Log (fromScene);
+
+		if(GetComponent<NetWalker> ().net)
+		{
+			NetNode node = GetComponent<NetWalker> ().net.GetPointWithName (fromScene);	
+			if(node!=null)
+			{
+				GetComponent<NetWalker> ().transform.position = GetComponent<NetWalker> ().net.GetNodeWorldPosition (node);
+			}
+		}
 	}
 }

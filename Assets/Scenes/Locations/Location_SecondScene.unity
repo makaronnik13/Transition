@@ -169,47 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cbad57205cb1b4fbe528ff306fedd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 1.7
-  nodes:
-  - position: {x: -5.428095, y: -2.0979671, z: 0}
-  - position: {x: -2.1542199, y: -3.1105616, z: 0}
-  - position: {x: -2.808459, y: -3.2023842, z: 0}
-  - position: {x: -5.574628, y: -2.674402, z: 0}
-  - position: {x: -5.0581226, y: -3.1679506, z: 0}
-  - position: {x: -3.6692998, y: -3.259774, z: 0}
-  - position: {x: -3.3593967, y: -2.6514459, z: 0}
-  - position: {x: -3.8873794, y: -2.3759773, z: 0}
-  - position: {x: -4.2891054, y: -2.8924816, z: 0}
-  - position: {x: -4.8056097, y: -2.5481448, z: 0}
-  - position: {x: -2.7206395, y: -2.383779, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -5.4764643, y: 3.7634175, z: 0}
-  - position: {x: -2.2429395, y: -3.898631, z: 0}
-  - position: {x: -1.5575728, y: -3.5647345, z: 0}
-  - position: {x: -3.0132225, y: -3.803707, z: 0}
-  - position: {x: -2.0125606, y: -2.3614268, z: 0}
-  - position: {x: 0.20341921, y: -4.1436753, z: -0.59648514}
-  - position: {x: -0.44516468, y: -2.3252983, z: -0.59648514}
-  - position: {x: -1.1836338, y: -2.935338, z: -0.59648514}
-  - position: {x: 0.21509707, y: -1.7969356, z: 1.0734329}
-  - position: {x: -0.7690201, y: -3.9760509, z: 1.0734329}
-  - position: {x: 1.2860599, y: -4.7597847, z: 2.454342}
-  - position: {x: -0.17125034, y: -4.624391, z: 2.454342}
-  - position: {x: -0.6400423, y: -3.2494435, z: 0}
-  - position: {x: -1.2308497, y: -2.1909127, z: 0}
-  - position: {x: -1.4893279, y: -4.271049, z: 0}
-  - position: {x: -0.9108286, y: -4.8249316, z: 0}
-  - position: {x: 2.0062847, y: -4.566453, z: 0}
-  - position: {x: 0.9108286, y: -3.9141026, z: 0}
-  - position: {x: -5.8383694, y: -1.5162332, z: 0}
+  minDistance: 5
+  nodes: []
   minSize: 0.3
   maxSize: 2
 --- !u!4 &450506507
@@ -219,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 450506505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

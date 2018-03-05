@@ -20,5 +20,5 @@ public class InteractableObject : ScriptableObject {
     public string descripion;
 
     public Combinations[] combinations;
-    public string sceneName;
+	public string sceneName = string.Empty;
 }

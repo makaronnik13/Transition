@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public class NetNode
 {
+	[SerializeField]
+	public int val;
     public Vector3 position;
-	public string scene = "";
     private Dictionary<NetNode, float> pathes = new Dictionary<NetNode, float>();
 
     public float Path(NetNode node)

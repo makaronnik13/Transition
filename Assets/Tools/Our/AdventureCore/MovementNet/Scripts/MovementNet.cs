@@ -27,7 +27,7 @@ public class MovementNet : MonoBehaviour
 
 		foreach(NetNode node in nodes)
 		{
-			if(node.val!=0)
+			if(node.nodeName!=string.Empty)
 			{
 				if(Vector3.Distance(node.position, position)<minPath)
 				{
@@ -46,7 +46,7 @@ public class MovementNet : MonoBehaviour
 
 	public NetNode GetPointWithName(string s)
 	{
-		return nodes.Find (n=>n.val == 0);
+		return nodes.Find (n=>n.nodeName == s);
 	}
 
     public NetNode GetNearestPoint(Vector3 position)

@@ -132,4 +132,16 @@ public class Inventory : Singleton<Inventory>
             DropItem();
         }
 	}
+
+    public List<PointAndClickItem> Items()
+    {
+        List<PointAndClickItem> items = new List<PointAndClickItem>();
+
+        foreach (ItemVisual itemVisual in GetComponentsInChildren<ItemVisual>())
+        {
+            items.Add(itemVisual.Item);
+        }
+
+        return items; 
+    }
 }

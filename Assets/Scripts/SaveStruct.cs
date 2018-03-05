@@ -9,7 +9,7 @@ public class SaveStruct
 	public DateTime date;
 	public string sceneName;
 	public Dictionary<GameParameter, float> savedParameters = new Dictionary<GameParameter, float>();
-	public Dictionary<PointAndClickItem, float> savedItems = new Dictionary<PointAndClickItem, float>();
+	public List<PointAndClickItem> savedItems = new List<PointAndClickItem>();
 	public Vector3 playerPosition;
 
 	public SaveStruct(string sceneName)

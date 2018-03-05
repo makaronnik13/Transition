@@ -92,15 +92,12 @@ public class PointAndClickObject : MonoBehaviour
         onActivation.Invoke();
         if (objectAsset.objType == InteractableObject.InteractableObjectType.MoveTrigger)
         {
-			Debug.Log (objectAsset.sceneName);
-			Debug.Log (objectAsset.sceneName == string.Empty);
-			Debug.Log (objectAsset.sceneName == "");
 			if (objectAsset.sceneName != string.Empty) 
 			{
 				SceneManager.LoadScene (objectAsset.sceneName);
 			} else 
 			{
-				SceneManager.LoadScene (FindObjectOfType<MovementNet>().GetNearestPointWithName(FindObjectOfType<PlayerPerson>().transform.position).val.ToString());
+				SceneManager.LoadScene (FindObjectOfType<MovementNet>().GetNearestPointWithName(FindObjectOfType<PlayerPerson>().transform.position).nodeName.ToString());
 			}
         }
 

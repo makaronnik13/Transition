@@ -31,7 +31,6 @@ public class PlayerPerson : MonoBehaviour {
 
 	private void MovePlayer()
 	{
-		Debug.Log (fromScene);
 
 		if(GetComponent<NetWalker> ().net)
 		{

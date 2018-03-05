@@ -10,7 +10,16 @@ public class ParamsManager : Singleton<ParamsManager>
 
 	private Dictionary<GameParameter, float> paramsValues = new Dictionary<GameParameter, float>();
 
-	private void Start()
+    public Dictionary<GameParameter, float> Params
+    {
+        get
+        {
+            return paramsValues;
+        }
+    }
+
+
+    private void Start()
 	{
 		TransmissionManager.Instance.OnPathGo += PathGo;
 		TransmissionManager.Instance.OnNodeIn += NodeIn;

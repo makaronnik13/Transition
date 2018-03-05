@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//[CustomEditor(typeof(MovementNet))]
+[CustomEditor(typeof(MovementNet))]
 public class MovementNetInspector : Editor
 {
 	private MovementNet net;
@@ -22,6 +22,8 @@ public class MovementNetInspector : Editor
 
 	public override void OnInspectorGUI()
 	{
+        Undo.RecordObject(net, "movement net");
+
 		float dist = EditorGUILayout.Slider("connection disctance", net.minDistance, 0, 10);
 
 		net.minSize = EditorGUILayout.Slider("minAgentSize", net.minSize, 0, 1);
@@ -37,20 +39,13 @@ public class MovementNetInspector : Editor
 			}
 			SceneView.RepaintAll();
 		}
-
-		if (selectedNode!=null) {
-			selectedNode.val = EditorGUILayout.IntField(selectedNode.val, GUILayout.Width (150));
-		
-		}
-
-		serializedObject.ApplyModifiedProperties ();
-
 	}
 
 	void OnSceneGUI()
 	{
+        Undo.RecordObject(net, "movement net");
 
-		if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.D && Event.current.control)
+        if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.D && Event.current.shift)
 		{
 			if(selectedNode != null)
 			{
@@ -61,7 +56,7 @@ public class MovementNetInspector : Editor
 		}
 
 
-		if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.N && Event.current.control)
+		if (Event.current.type == EventType.KeyDown && Event.current.keyCode == KeyCode.N && Event.current.shift)
 		{  
 			Vector3 mousePosition = Event.current.mousePosition;
 			float mult = EditorGUIUtility.pixelsPerPoint;
@@ -88,9 +83,9 @@ public class MovementNetInspector : Editor
 
 		foreach(NetNode node in net.nodes)
 		{
-			if (node.val!=0)
+			if (node.nodeName!=string.Empty)
 			{
-				Handles.Label(net.transform.TransformPoint(node.position),node.val.ToString());
+				Handles.Label(net.transform.TransformPoint(node.position),node.nodeName.ToString());
 			}
 		}
 
@@ -107,7 +102,7 @@ public class MovementNetInspector : Editor
 
 			}
 
-			if (node.val!=0)
+			if (node.nodeName!=string.Empty)
 			{
 				actualSize *= 1.2f;
 				Handles.color = Color.magenta;
@@ -173,8 +168,15 @@ public class MovementNetInspector : Editor
                 SceneView.RepaintAll();
             }
 
-
+    
+            string newName = EditorGUILayout.TextField(selectedNode.nodeName, GUILayout.Width(150));
+            if (newName!=selectedNode.nodeName)
+            {
+                selectedNode.nodeName = newName;
+                SceneView.RepaintAll();
+            }
         }
+
 
         EditorGUILayout.EndHorizontal();
         Handles.EndGUI();

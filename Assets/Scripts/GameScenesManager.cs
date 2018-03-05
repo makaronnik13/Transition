@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -88,6 +89,22 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 
 	public void Save(int i)
 	{
-		//save
+        SaveStruct saveStruct = new SaveStruct(SceneManager.GetActiveScene().name);
+
+        saveStruct.date = DateTime.Now;
+        saveStruct.playerPosition = FindObjectOfType<PlayerPerson>().transform.position;
+        saveStruct.savedItems = Inventory.Instance.Items();
+        saveStruct.savedParameters = ParamsManager.Instance.Params;
+        
+        Texture2D picture = ScreenshotCamera.Instance.TakePic();
+
+
+
+		//save position
+        //save scene
+        //make screenshot
+        //save params
+        //save dictionary !!!
+        //save items
 	}
 }

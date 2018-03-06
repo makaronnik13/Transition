@@ -1337,7 +1337,7 @@ PolygonCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 240983820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1460,7 +1460,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 240983820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1985,6 +1985,7 @@ GameObject:
   - component: {fileID: 333433079}
   - component: {fileID: 333433081}
   - component: {fileID: 333433080}
+  - component: {fileID: 333433082}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -2035,6 +2036,21 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333433078}
+--- !u!114 &333433082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333433078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a6a1c750cb948af8b4afc04499efed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncList:
+  - item: {fileID: 11400000, guid: c5211ee317b646647be86b4110946b86, type: 2}
+    parameter: {fileID: 114196381234872906, guid: 775dd73061f974fc79e12b7d85783189,
+      type: 2}
 --- !u!1 &334668632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,7 +3606,6 @@ GameObject:
   - component: {fileID: 770290443}
   - component: {fileID: 770290442}
   - component: {fileID: 770290441}
-  - component: {fileID: 770290440}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3612,22 +3627,6 @@ Transform:
   m_Father: {fileID: 1561799863}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &770290440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114042236822385862, guid: 372283a68460cdb4bb1a7dafd0827efc,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 770290438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a6a1c750cb948af8b4afc04499efed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncList:
-  - item: {fileID: 11400000, guid: c5211ee317b646647be86b4110946b86, type: 2}
-    parameter: {fileID: 114196381234872906, guid: 775dd73061f974fc79e12b7d85783189,
-      type: 2}
 --- !u!114 &770290441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3640,7 +3639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0ee6a3a16f643b8af29db042464dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackingDialogs: []
+  trackingDialogs:
+  - {fileID: 11400000, guid: 210815a64cf6b394d95764b14eb1f459, type: 2}
+  - {fileID: 11400000, guid: 0818e479936724010bcd1db57b5e43d7, type: 2}
 --- !u!114 &770290442
 MonoBehaviour:
   m_ObjectHideFlags: 0

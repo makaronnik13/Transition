@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,15 +8,20 @@ public class PlayerPerson : MonoBehaviour {
 
 	private string fromScene;
 
-	void Awake()
+	void Start()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
 		SceneManager.sceneUnloaded += OnSceneUnloaded;
-
+        GameScenesManager.Instance.OnSaveLoaded += SaveLoaded;
 		OnSceneLoaded (SceneManager.GetActiveScene(), LoadSceneMode.Single);
 	}
+    
+    private void SaveLoaded(SaveStruct obj)
+    {
+        transform.position = obj.playerPosition;
+    }
 
-	void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		MovementNet net = FindObjectOfType<MovementNet> ();
 		GetComponentInChildren<SpriteRenderer> ().enabled = (net != null);

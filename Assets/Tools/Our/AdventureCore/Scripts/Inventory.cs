@@ -11,9 +11,9 @@ public class Inventory : Singleton<Inventory>
 
 	public Action<PointAndClickItem> OnAddItem = (PointAndClickItem i)=>{};
 	public Action<PointAndClickItem> OnRemoveItem = (PointAndClickItem i)=>{};
-
+    private List<PointAndClickItem> allItems = new List<PointAndClickItem>();
     public PointAndClickItem[] startingItems;
-
+    private List<PointAndClickItem> items = new List<PointAndClickItem>();
     public GameObject habPrefab;
 
 	public PointAndClickItem DraggingItem { get
@@ -30,20 +30,57 @@ public class Inventory : Singleton<Inventory>
 
     void Start()
     {
-        foreach (PointAndClickItem item in startingItems)
-        {
-            AddItemToPlayer(item);
-        }
+        GameScenesManager.Instance.OnSaveLoaded += SaveLoaded;
 		SceneManager.sceneLoaded += SceneLoaded;
 		SceneLoaded (SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
 
-	private void SceneLoaded(Scene scene, LoadSceneMode mode)
+    private void SaveLoaded(SaveStruct obj)
+    {
+        Debug.Log("scene loaded items");
+        foreach (string item in obj.savedItems)
+        {
+            foreach (PointAndClickItem i in allItems)
+            {
+                if (i.itemName == item)
+                {
+                    AddItem(i);
+                }
+            }
+        }
+
+        if (obj.savedItems.Count == 0)
+        {
+            foreach (PointAndClickItem item in Resources.LoadAll<PointAndClickItem>("Items"))
+            {
+                allItems.Add(item);
+            }
+
+            foreach (PointAndClickItem item in startingItems)
+            {
+                AddItemToPlayer(item);
+            }
+        }
+    }
+
+    private void SceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		if (GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.Location || GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.MiniLocation) 
 		{
 			transform.GetChild (0).gameObject.SetActive (true);
-		} else 
+            foreach(Transform t in transform.GetChild(0))
+            {
+                Destroy(t.gameObject);
+            }
+            foreach (PointAndClickItem item in items)
+            {
+                if (GetComponentsInChildren<ItemHab>().Where(h => h.Item == null).ToList().Count == 0)
+                {
+                    Instantiate(habPrefab, transform.GetChild(0), false);
+                }
+                GetComponentsInChildren<ItemHab>().Where(h => h.Item == null).ToList()[0].Item = item;
+            }
+        } else 
 		{
 			transform.GetChild (0).gameObject.SetActive (false);
 		}
@@ -64,16 +101,22 @@ public class Inventory : Singleton<Inventory>
 
 	public void AddItem(PointAndClickItem item)
     {
-        if (GetComponentsInChildren<ItemHab>().Where(h => h.Item == null).ToList().Count == 0)
-        {
-			Instantiate(habPrefab, transform.GetChild(0), false);
-        }
+        items.Add(item);
 
-        GetComponentsInChildren<ItemHab>().Where(h=>h.Item == null).ToList()[0].Item = item;
+        if (GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.Location || GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.MiniLocation)
+        {
+            if (GetComponentsInChildren<ItemHab>().Where(h => h.Item == null).ToList().Count == 0)
+            {
+                Instantiate(habPrefab, transform.GetChild(0), false);
+            }
+            GetComponentsInChildren<ItemHab>().Where(h => h.Item == null).ToList()[0].Item = item;
+        }  
     }
 
 	public void RemoveItem(PointAndClickItem item)
     {
+        items.Remove(item);
+
         ItemHab hab = GetComponentsInChildren<ItemHab>().Where(h => h.Item == item).ToList()[0];
         hab.Item = null;
         Destroy(hab.gameObject);

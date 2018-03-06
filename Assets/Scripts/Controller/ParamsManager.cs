@@ -6,6 +6,8 @@ using System;
 
 public class ParamsManager : Singleton<ParamsManager>
 {
+    public Dialog[] trackingDialogs;
+
 	public Action<GameParameter, float> OnParamChanged = (GameParameter a, float b)=>{};
 
 	private Dictionary<GameParameter, float> paramsValues = new Dictionary<GameParameter, float>();
@@ -31,13 +33,33 @@ public class ParamsManager : Singleton<ParamsManager>
 		}
 	}
 
+
     private void Start()
 	{
 		TransmissionManager.Instance.OnPathGo += PathGo;
 		TransmissionManager.Instance.OnNodeIn += NodeIn;
-	}
+        GameScenesManager.Instance.OnSaveLoaded += SaveLoaded;
+    }
 
-	private void PathGo(DialogStatePath path)
+    private void SaveLoaded(SaveStruct obj)
+    {
+        Debug.Log("scene loaded params");
+        foreach (KeyValuePair<string, float> pair in obj.savedParameters)
+        {
+            foreach(Dialog dialog in trackingDialogs)
+            {
+                foreach (GameParameter param in dialog.paramCollection.Parameters)
+                {
+                    if (param.name == pair.Key)
+                    {
+                        SetParam(param, pair.Value);
+                    }
+                }
+            }
+        }
+    }
+
+    private void PathGo(DialogStatePath path)
 	{
 		foreach(ParamEffect pe in path.effects)
 		{

@@ -8,13 +8,12 @@ public class ScreenshotCamera : Singleton<ScreenshotCamera> {
     private RenderTexture renderTexture;
     private Texture2D screenShot;
     private Rect rect;
-    private int counter;
 
     private void Start()
     {
-        rect = new Rect(0, 0, Screen.width, Screen.height);
-        renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
-        screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        rect = new Rect(0, 0, 800, 600);
+        renderTexture = new RenderTexture(800, 600, 24);
+        screenShot = new Texture2D(800, 600, TextureFormat.RGB24, false);
     }
 
     public Texture2D TakePic()

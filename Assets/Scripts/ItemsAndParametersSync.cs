@@ -13,16 +13,14 @@ public class ItemsAndParametersSync : MonoBehaviour {
 
 	public List<ParamSyncStruct> syncList = new List<ParamSyncStruct> ();
 
-    private void Awake()
-    {
-        Inventory.Instance.OnRemoveItem += RemoveItem;
-        Inventory.Instance.OnAddItem += AddItem;
-    }
 
     void Start()
 	{
+        Debug.Log("start");
 		ParamsManager.Instance.OnParamChanged += ParamChanged;
-	}
+        Inventory.Instance.OnRemoveItem += RemoveItem;
+        Inventory.Instance.OnAddItem += AddItem;
+    }
 
 	private void ParamChanged(GameParameter parameter, float value)
 	{

@@ -7,7 +7,7 @@ public class ItemHab : MonoBehaviour {
 
     public GameObject itemPrefab;
 
-    private PointAndClickItem item;
+    public PointAndClickItem item;
     public PointAndClickItem Item
     {
         get

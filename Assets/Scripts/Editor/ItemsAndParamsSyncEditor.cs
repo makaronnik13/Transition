@@ -10,12 +10,9 @@ public class ItemsAndParamsSyncEditor : Editor
 
 	private ItemsAndParametersSync sync;
 	private ReorderableList syncList;
-    private ReorderableList list;
-
 
     void OnEnable()
 	{
-        Debug.Log("onEnable");
 		sync = (ItemsAndParametersSync)target;
 		syncList = new ReorderableList(serializedObject,
 			serializedObject.FindProperty("syncList"),

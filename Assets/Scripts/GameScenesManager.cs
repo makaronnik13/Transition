@@ -10,8 +10,9 @@ using System.IO.Compression;
 public class GameScenesManager : Singleton<GameScenesManager> {
 
 	private SaveStruct currentStruct;
+    public Action<SaveStruct> OnSaveLoaded = (SaveStruct) => { };
 
-	public enum SceneType
+    public enum SceneType
 	{
 		Default,
 		MainMenu,
@@ -49,7 +50,42 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 		get
 		{
 			List<SaveStruct> saves = new List<SaveStruct> ();
-			//load saves
+            //load saves
+
+            string path = Path.Combine(Application.persistentDataPath, "Saves");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            foreach (string savePath in Directory.GetFiles(path))
+            {
+                byte[] saveBytes = File.ReadAllBytes(savePath);
+
+                byte[] saveLength = new byte[4];
+                Array.Copy(saveBytes, 0, saveLength, 0, 4);
+                int saveSize = BitConverter.ToInt32(saveLength,0);
+                byte[] save = new byte[saveSize];
+                Array.Copy(saveBytes, 4, save, 0, saveSize);
+
+                string json = System.Text.Encoding.UTF8.GetString(save);
+
+                SaveStruct ss = JsonUtility.FromJson<SaveStruct>(json);
+                byte[] picLength = new byte[4];
+                Array.Copy(saveBytes, 4+saveSize, picLength, 0, 4);
+                int picSize = BitConverter.ToInt32(picLength, 0);
+                byte[] pic = new byte[picSize];
+
+                Array.Copy(saveBytes, 8+saveSize, pic, 0, picSize);
+                Texture2D tex = new Texture2D(800, 600, TextureFormat.RGB24, false);
+
+                tex.LoadRawTextureData(pic);
+                tex.Apply();
+
+                ss.SetPicture(tex);
+                saves.Add(ss);
+            }
+
 			while(saves.Count<8)
 			{
 				saves.Add (new SaveStruct("CinematicScene1"));
@@ -77,11 +113,9 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 
 	private void LoadScene(SaveStruct saveStruct)
 	{
-		if(!GameObject.Find("AdventureCore"))
-		{
-			SceneManager.LoadSceneAsync ("CoreScene");
-		}
-		currentStruct = saveStruct;
+   
+        OnSaveLoaded.Invoke(saveStruct);
+        currentStruct = saveStruct;
 		SceneManager.LoadScene (currentStruct.sceneName);
 	}
 
@@ -100,27 +134,31 @@ public class GameScenesManager : Singleton<GameScenesManager> {
         
         Texture2D picture = ScreenshotCamera.Instance.TakePic();
 
-		Debug.Log (Application.persistentDataPath);
-
 		string json = JsonUtility.ToJson(saveStruct);
-		string path = Path.Combine(Application.dataPath, "Saves");
+		string path = Path.Combine(Application.persistentDataPath, "Saves");
 		if(!Directory.Exists(path))
 		{
 			Directory.CreateDirectory(path);
 		}
 
-		string tempPath = Path.Combine(path, "Temp");
-		if(!Directory.Exists(tempPath))
-		{
-			Directory.CreateDirectory(tempPath);
-		}
-		StreamWriter writer = new StreamWriter(Path.Combine(tempPath, "Save"));
-		writer.Write(json);
-		writer.Close();
-		byte[] picBytes = picture.EncodeToPNG();
-		File.WriteAllBytes(Path.Combine(tempPath,"screen.png"), picBytes);
 
-	    
+		
+		byte[] picBytes = picture.GetRawTextureData();
+        byte[] saveBytes = System.Text.Encoding.UTF8.GetBytes(json);
+        byte[] saveSize = new Byte[4];
+        byte[] picSize = new Byte[4];
+        saveSize = System.BitConverter.GetBytes(saveBytes.Length);
+        picSize = System.BitConverter.GetBytes(picBytes.Length);
+
+        byte[] save = new byte[saveSize.Length+saveBytes.Length+picSize.Length+picBytes.Length];
+        Array.Copy(saveSize, 0, save, 0, saveSize.Length);
+        Array.Copy(saveBytes, 0, save, 4, saveBytes.Length);
+        Array.Copy(picSize, 0, save, 4 + saveBytes.Length, picSize.Length);
+        Array.Copy(picBytes, 0, save, 8 + saveBytes.Length, picBytes.Length);
+
+        File.WriteAllBytes(Path.Combine(path,"save"+i+".save"), save);
+        
+
 		//save position
         //save scene
         //make screenshot
@@ -128,4 +166,6 @@ public class GameScenesManager : Singleton<GameScenesManager> {
         //save dictionary !!!
         //save items
 	}
+
+    
 }

@@ -24,10 +24,19 @@ public class SaveLoadPanel : MonoBehaviour {
 		int i = 0;
 		foreach(SaveButton panel in GetComponentsInChildren<SaveButton>())
 		{
-			panel.Init ("", emptySprite);
+            if (GameScenesManager.Instance.Saves.Count>i)
+            {
+                panel.Init(GameScenesManager.Instance.Saves[i].date, GameScenesManager.Instance.Saves[i].GetPicture());
+            }
+            else
+            {
+                panel.Init("", emptySprite);
+            }
+			
 			i++;
 		}
 	}
+
 
 	public void ClickButton (Transform buttonTransform)
 	{

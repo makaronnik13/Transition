@@ -18,6 +18,18 @@ public class ParamsManager : Singleton<ParamsManager>
         }
     }
 
+	public Dictionary<string, float> ParamsStrings
+	{
+		get
+		{
+			Dictionary<string, float> result = new Dictionary<string, float> ();
+			foreach(KeyValuePair<GameParameter, float> pair in Params)
+			{
+				result.Add (pair.Key.name, pair.Value);
+			}
+			return result;
+		}
+	}
 
     private void Start()
 	{

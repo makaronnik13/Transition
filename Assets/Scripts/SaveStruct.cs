@@ -6,10 +6,10 @@ using System;
 [System.Serializable]
 public class SaveStruct 
 {
-	public DateTime date;
+	public string date;
 	public string sceneName;
-	public Dictionary<GameParameter, float> savedParameters = new Dictionary<GameParameter, float>();
-	public List<PointAndClickItem> savedItems = new List<PointAndClickItem>();
+	public Dictionary<string, float> savedParameters = new Dictionary<string, float>();
+	public List<string> savedItems = new List<string>();
 	public Vector3 playerPosition;
 
 	public SaveStruct(string sceneName)

@@ -105,6 +105,5 @@ public class NetWalker : MonoBehaviour {
         moving = true;
         OnStartedPath.Invoke();
         movementPath = new Queue<Vector3>(list);
-        currentAimPoint = movementPath.Dequeue();
     }
 }

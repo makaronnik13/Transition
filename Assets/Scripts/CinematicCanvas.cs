@@ -15,7 +15,7 @@ public class CinematicCanvas : MonoBehaviour {
 		text1.enabled = false;
 		TransmissionManager.Instance.OnNodeIn += ShowDialogNodeFeedback;
 		TransmissionManager.Instance.OnPathGo += ShowDialogPathFeedback;
-		GetComponentInChildren<Person> ().Talk ();	
+		GetComponentInChildren<Person> ().Talk ();
 	}
 
 	public void OnDestroy()

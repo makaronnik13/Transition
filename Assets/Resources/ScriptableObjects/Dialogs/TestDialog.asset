@@ -257,9 +257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 114898412557627626}
   end: {fileID: 114760697343873388}
-  text: "\u041E\u043A"
+  text: 
   comentary: 
-  automatic: 0
+  automatic: 1
   conditions: []
   effects: []
   withEvent: 0

@@ -34,8 +34,15 @@ public class DialogVisualizer : Singleton<DialogVisualizer>
 
     private void HideDialog()
     {
+        GetComponentInChildren<PersonText>().OnPhraseFinished += Hide;
+    }
+
+    private void Hide()
+    {
+        Debug.Log("Hide");
         ChoiceVariantsVisualizer.Hide();
         PersonTextVisualizer.Hide();
+        GetComponentInChildren<PersonText>().OnPhraseFinished -= Hide;
     }
 
     private void PhraseFinished()
@@ -53,6 +60,7 @@ public class DialogVisualizer : Singleton<DialogVisualizer>
 		if(GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.Location)
 		{
         	node = obj;
+        
         	PersonTextVisualizer.ShowFeedback(obj.text);
 		}
     }

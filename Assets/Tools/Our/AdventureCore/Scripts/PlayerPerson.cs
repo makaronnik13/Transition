@@ -27,24 +27,27 @@ public class PlayerPerson : MonoBehaviour {
 		GetComponentInChildren<SpriteRenderer> ().enabled = (net != null);
 		GetComponentInChildren<PolygonCollider2D> ().enabled = (net != null);
 		GetComponent<NetWalker> ().SetNet (net);
-		MovePlayer ();
-	}
+        MovePlayer();
+    }
 
 	void OnSceneUnloaded(Scene scene)
 	{
-		fromScene = scene.name;
+		fromScene = scene.name;   
 	}
 
 	private void MovePlayer()
 	{
-
 		if(GetComponent<NetWalker> ().net)
 		{
 			NetNode node = GetComponent<NetWalker> ().net.GetPointWithName (fromScene);	
 			if(node!=null)
 			{
-				GetComponent<NetWalker> ().transform.position = GetComponent<NetWalker> ().net.GetNodeWorldPosition (node);
-			}
+                GetComponent<NetWalker>().SetPoint(node);
+            }
+            else
+            {
+                GetComponent<NetWalker>().SetPoint(GetComponent<NetWalker>().net.GetNearestPoint(transform.position));
+            }
 		}
 	}
 }

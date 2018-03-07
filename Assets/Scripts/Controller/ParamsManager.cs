@@ -43,16 +43,18 @@ public class ParamsManager : Singleton<ParamsManager>
 
     private void SaveLoaded(SaveStruct obj)
     {
-        Debug.Log("scene loaded params");
-        foreach (KeyValuePair<string, float> pair in obj.savedParameters)
+        foreach (SaveStruct.StringPair pair in obj.savedParameters)
         {
             foreach(Dialog dialog in trackingDialogs)
             {
-                foreach (GameParameter param in dialog.paramCollection.Parameters)
+                if (dialog.paramCollection)
                 {
-                    if (param.name == pair.Key)
+                    foreach (GameParameter param in dialog.paramCollection.Parameters)
                     {
-                        SetParam(param, pair.Value);
+                        if (param.name == pair.S)
+                        {
+                            SetParam(param, pair.V);
+                        }
                     }
                 }
             }

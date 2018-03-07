@@ -64,6 +64,15 @@ public class Person : MonoBehaviour
         TransmissionManager.Instance.SetTalkablePerson(this);
     }
 
+    public void TalkAbout(string nodeName)
+    {
+        DialogNode node = (DialogNode)dialog.nodes.Find(n => n.name == nodeName);
+        if (node)
+        {
+            TransmissionManager.Instance.TalkAbout(this, node);
+        }
+    }
+
 	public void Test(string s)
 	{
 		Debug.Log (s);

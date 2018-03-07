@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using System.IO;
 using System.IO.Compression;
+using static SaveStruct;
 
 public class GameScenesManager : Singleton<GameScenesManager> {
 
@@ -45,52 +46,56 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 		}
 	}
 
+    private List<SaveStruct> saves = new List<SaveStruct>();
+
 	public List<SaveStruct> Saves
 	{
 		get
 		{
-			List<SaveStruct> saves = new List<SaveStruct> ();
-            //load saves
-
-            string path = Path.Combine(Application.persistentDataPath, "Saves");
-            if (!Directory.Exists(path))
+            if (saves.Count == 0)
             {
-                Directory.CreateDirectory(path);
+                //load saves
+
+                string path = Path.Combine(Application.persistentDataPath, "Saves");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                foreach (string savePath in Directory.GetFiles(path))
+                {
+                    byte[] saveBytes = File.ReadAllBytes(savePath);
+
+                    byte[] saveLength = new byte[4];
+                    Array.Copy(saveBytes, 0, saveLength, 0, 4);
+                    int saveSize = BitConverter.ToInt32(saveLength, 0);
+                    byte[] save = new byte[saveSize];
+                    Array.Copy(saveBytes, 4, save, 0, saveSize);
+
+                    string json = System.Text.Encoding.UTF8.GetString(save);
+
+                    SaveStruct ss = JsonUtility.FromJson<SaveStruct>(json);
+
+                    byte[] picLength = new byte[4];
+                    Array.Copy(saveBytes, 4 + saveSize, picLength, 0, 4);
+                    int picSize = BitConverter.ToInt32(picLength, 0);
+                    byte[] pic = new byte[picSize];
+
+                    Array.Copy(saveBytes, 8 + saveSize, pic, 0, picSize);
+                    Texture2D tex = new Texture2D(800, 600, TextureFormat.RGB24, false);
+
+                    tex.LoadRawTextureData(pic);
+                    tex.Apply();
+
+                    ss.SetPicture(tex);
+                    saves.Add(ss);
+                }
+
+                while (saves.Count < 10)
+                {
+                    saves.Add(new SaveStruct("CinematicScene1"));
+                }
             }
-
-            foreach (string savePath in Directory.GetFiles(path))
-            {
-                byte[] saveBytes = File.ReadAllBytes(savePath);
-
-                byte[] saveLength = new byte[4];
-                Array.Copy(saveBytes, 0, saveLength, 0, 4);
-                int saveSize = BitConverter.ToInt32(saveLength,0);
-                byte[] save = new byte[saveSize];
-                Array.Copy(saveBytes, 4, save, 0, saveSize);
-
-                string json = System.Text.Encoding.UTF8.GetString(save);
-
-                SaveStruct ss = JsonUtility.FromJson<SaveStruct>(json);
-                byte[] picLength = new byte[4];
-                Array.Copy(saveBytes, 4+saveSize, picLength, 0, 4);
-                int picSize = BitConverter.ToInt32(picLength, 0);
-                byte[] pic = new byte[picSize];
-
-                Array.Copy(saveBytes, 8+saveSize, pic, 0, picSize);
-                Texture2D tex = new Texture2D(800, 600, TextureFormat.RGB24, false);
-
-                tex.LoadRawTextureData(pic);
-                tex.Apply();
-
-                ss.SetPicture(tex);
-                saves.Add(ss);
-            }
-
-			while(saves.Count<8)
-			{
-				saves.Add (new SaveStruct("CinematicScene1"));
-			}
-
 			return saves;
 		}
 	}
@@ -108,7 +113,7 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 
 	private void SaveScene()
 	{
-		currentStruct.sceneName = SceneManager.GetActiveScene ().name;
+        Save(Saves.IndexOf(currentStruct));
 	}
 
 	private void LoadScene(SaveStruct saveStruct)
@@ -120,7 +125,7 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 	}
 
 	public void LoadSafe(int i)
-	{
+	{  
 		LoadScene (Saves [i]);
 	}
 
@@ -130,12 +135,27 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 		saveStruct.date = DateTime.Now.ToShortDateString()+" "+DateTime.Now.ToShortTimeString();
         saveStruct.playerPosition = FindObjectOfType<PlayerPerson>().transform.position;
 		saveStruct.savedItems = Inventory.Instance.Items().Select(item=>item.itemName).Distinct().ToList();
-		saveStruct.savedParameters = ParamsManager.Instance.ParamsStrings;
-        
+
+
+
+        saveStruct.savedParameters = new List<StringPair>();
+
+            foreach (KeyValuePair<string, float> pair in ParamsManager.Instance.ParamsStrings)
+            {
+            saveStruct.savedParameters.Add(new StringPair(pair.Key, pair.Value));
+            }
+
+
+
+
         Texture2D picture = ScreenshotCamera.Instance.TakePic();
+        saveStruct.SetPicture(picture);
 
 		string json = JsonUtility.ToJson(saveStruct);
-		string path = Path.Combine(Application.persistentDataPath, "Saves");
+
+        Debug.Log(json);
+
+        string path = Path.Combine(Application.persistentDataPath, "Saves");
 		if(!Directory.Exists(path))
 		{
 			Directory.CreateDirectory(path);
@@ -157,8 +177,8 @@ public class GameScenesManager : Singleton<GameScenesManager> {
         Array.Copy(picBytes, 0, save, 8 + saveBytes.Length, picBytes.Length);
 
         File.WriteAllBytes(Path.Combine(path,"save"+i+".save"), save);
-        
 
+        saves[i] = saveStruct;
 		//save position
         //save scene
         //make screenshot
@@ -167,5 +187,8 @@ public class GameScenesManager : Singleton<GameScenesManager> {
         //save items
 	}
 
-    
+    private void Start()
+    {
+        saves = Saves;
+    }
 }

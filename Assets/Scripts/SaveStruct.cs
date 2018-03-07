@@ -4,11 +4,27 @@ using UnityEngine;
 using System;
 
 [System.Serializable]
-public class SaveStruct 
+public class SaveStruct
 {
+    [System.Serializable]
+    public class StringPair
+    {
+        public string S;
+        public float V;
+
+        public StringPair(string s, float v)
+        {
+            S = s;
+            V = v;
+        }
+    }
+
+
 	public string date;
 	public string sceneName;
-	public Dictionary<string, float> savedParameters = new Dictionary<string, float>();
+    public List<StringPair> savedParameters = new List<StringPair>();
+
+
 	public List<string> savedItems = new List<string>();
 	public Vector3 playerPosition;
 

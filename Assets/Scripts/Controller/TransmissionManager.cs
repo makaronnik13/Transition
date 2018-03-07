@@ -25,8 +25,8 @@ public class TransmissionManager : Singleton<TransmissionManager>
 			FinishDialog();
 			return;
 		}
-			
-		foreach(DialogStatePath dsp in node.pathes)
+
+        foreach (DialogStatePath dsp in node.pathes)
 		{
 			if(dsp.automatic && ParamsManager.Instance.CheckConditions(dsp.conditions))
 			{
@@ -44,8 +44,14 @@ public class TransmissionManager : Singleton<TransmissionManager>
     {
         talkablePerson = person;
         OnPersonChanged.Invoke(talkablePerson);
-
         RunNode(person.CurrentNode);
+    }
+
+    public void TalkAbout(Person person, DialogNode node)
+    {
+        talkablePerson = person;
+        OnPersonChanged.Invoke(talkablePerson);
+        RunNode(node);
     }
 
 	public void SelectDialogVariant(DialogStatePath path)

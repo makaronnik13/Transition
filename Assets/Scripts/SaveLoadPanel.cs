@@ -50,7 +50,9 @@ public class SaveLoadPanel : MonoBehaviour {
 				} else 
 				{
 					GameScenesManager.Instance.Save (i);
-				}
+                    GetComponentInParent<MainMenuController>().HideMenu();
+
+                }
 			}
 			i++;
 		}

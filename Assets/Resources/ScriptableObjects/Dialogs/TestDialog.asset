@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 114087589248814014}
+  - {fileID: 114179026592827594}
   paramCollection: {fileID: 11400000, guid: 775dd73061f974fc79e12b7d85783189, type: 2}
 --- !u!114 &114087589248814014
 MonoBehaviour:
@@ -25,10 +26,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708c59ceffbc1cd47ae64835e95e30a3, type: 3}
   m_Name: New DialogNode
   m_EditorClassIdentifier: 
-  m_Position: {x: 393, y: 190}
+  m_Position: {x: 614, y: 163}
   pathes: []
   dialogNodeDescription: 
   dialogState: {fileID: 114298740952545206}
+--- !u!114 &114179026592827594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708c59ceffbc1cd47ae64835e95e30a3, type: 3}
+  m_Name: "\u0428\u043B\u044F\u043F\u0430"
+  m_EditorClassIdentifier: 
+  m_Position: {x: 335, y: 201}
+  pathes: []
+  dialogNodeDescription: 
+  dialogState: {fileID: 114731635670156300}
+--- !u!114 &114209275860275326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: Enter state
+  m_EditorClassIdentifier: 
+  m_Position: {x: 540.5, y: 198}
+  pathes:
+  - {fileID: 114749959054516492}
+  text: 
+  nodeType: 1
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
 --- !u!114 &114298740952545206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +224,98 @@ MonoBehaviour:
   - {fileID: 114452259853407818}
   - {fileID: 114564193424695338}
   text: "\u044F\u0431\u043B\u043E\u043A\u0438"
+  nodeType: 0
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
+--- !u!114 &114731635670156300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edf81870855a794497b535f06a56225, type: 3}
+  m_Name: New DialogState
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 114209275860275326}
+  - {fileID: 114760697343873388}
+  - {fileID: 114898412557627626}
+--- !u!114 &114745047987894328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbd9c5c64f7b46c1b3c90e10016baf3, type: 3}
+  m_Name: New DialogStatePath
+  m_EditorClassIdentifier: 
+  start: {fileID: 114898412557627626}
+  end: {fileID: 114760697343873388}
+  text: "\u041E\u043A"
+  comentary: 
+  automatic: 0
+  conditions: []
+  effects: []
+  withEvent: 0
+--- !u!114 &114749959054516492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbd9c5c64f7b46c1b3c90e10016baf3, type: 3}
+  m_Name: New DialogStatePath
+  m_EditorClassIdentifier: 
+  start: {fileID: 114209275860275326}
+  end: {fileID: 114898412557627626}
+  text: 
+  comentary: 
+  automatic: 1
+  conditions: []
+  effects: []
+  withEvent: 0
+--- !u!114 &114760697343873388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: Exit state
+  m_EditorClassIdentifier: 
+  m_Position: {x: 540.5, y: 398}
+  pathes: []
+  text: 
+  nodeType: 2
+  comentary: 
+  exitPath: {fileID: 0}
+  effects: []
+  withEvent: 0
+--- !u!114 &114898412557627626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682afcaa75d541259d507a6cb41ed37, type: 3}
+  m_Name: New DialogStateNode
+  m_EditorClassIdentifier: 
+  m_Position: {x: 540.5, y: 298}
+  pathes:
+  - {fileID: 114745047987894328}
+  text: "\u042D\u0442\u043E \u0448\u043B\u044F\u043F\u0430"
   nodeType: 0
   comentary: 
   exitPath: {fileID: 0}

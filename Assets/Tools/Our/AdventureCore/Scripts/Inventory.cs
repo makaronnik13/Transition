@@ -37,7 +37,10 @@ public class Inventory : Singleton<Inventory>
 
     private void SaveLoaded(SaveStruct obj)
     {
-        Debug.Log("scene loaded items");
+        Debug.Log("save loaded");
+
+        Debug.Log(obj.savedItems.Count);
+
         foreach (string item in obj.savedItems)
         {
             foreach (PointAndClickItem i in allItems)

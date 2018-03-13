@@ -32,10 +32,8 @@ public class ChoicesPanel : MonoBehaviour {
 
 	public void ApplyChoice(DialogStatePath path)
     {
-
-				TransmissionManager.Instance.SelectDialogVariant(path);
+		GetComponentInParent<DialogVisualizer> ().ApplyChoice (path);
                 Hide();
-
     }
 
     public void Hide()

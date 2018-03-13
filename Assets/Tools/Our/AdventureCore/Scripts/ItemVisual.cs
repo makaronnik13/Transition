@@ -33,6 +33,10 @@ public class ItemVisual : MonoBehaviour
 
 	private bool interactionEnabled = true;
 
+	public void Start()
+	{
+		interactionEnabled = TransmissionManager.Instance.InDialog;
+	}
 
 	private void OnEnable()
 	{
@@ -52,7 +56,7 @@ public class ItemVisual : MonoBehaviour
 
     public void OnMouseOver()
     {
-		if (focused || !item)
+		if (focused || !item || !interactionEnabled)
         {
             // we're over a UI element... peace out
             return;

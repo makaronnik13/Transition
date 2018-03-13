@@ -17,7 +17,6 @@ public class PointAndClickObject : MonoBehaviour
     public List<ItemEvent> itemsEvents = new List<ItemEvent>();
 
     private bool focused = false;
-
 	private bool interactionEnabled = true;
 
 
@@ -39,7 +38,7 @@ public class PointAndClickObject : MonoBehaviour
 
     void OnMouseOver()
     {
-		if (EventSystem.current.IsPointerOverGameObject() || focused)
+		if (EventSystem.current.IsPointerOverGameObject() || focused || !interactionEnabled)
         {
             // we're over a UI element... peace out
             return;
@@ -99,11 +98,6 @@ public class PointAndClickObject : MonoBehaviour
 			{
 				SceneManager.LoadScene (FindObjectOfType<MovementNet>().GetNearestPointWithName(FindObjectOfType<PlayerPerson>().transform.position).nodeName.ToString());
 			}
-        }
-
-        if (objectAsset.objType == InteractableObject.InteractableObjectType.Person)
-        {
-            GetComponent<Person>().Talk();
         }
     }
 

@@ -16,7 +16,6 @@ public class ItemsAndParametersSync : MonoBehaviour {
 
     void Start()
 	{
-        Debug.Log("start");
 		ParamsManager.Instance.OnParamChanged += ParamChanged;
         Inventory.Instance.OnRemoveItem += RemoveItem;
         Inventory.Instance.OnAddItem += AddItem;

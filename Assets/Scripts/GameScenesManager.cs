@@ -56,6 +56,7 @@ public class GameScenesManager : Singleton<GameScenesManager> {
             {
                 //load saves
 
+				Debug.Log (Application.persistentDataPath);
                 string path = Path.Combine(Application.persistentDataPath, "Saves");
                 if (!Directory.Exists(path))
                 {

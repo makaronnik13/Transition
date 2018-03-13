@@ -34,17 +34,11 @@ public class DialogVisualizer : Singleton<DialogVisualizer>
 
     private void HideDialog()
     {
-        GetComponentInChildren<PersonText>().OnPhraseFinished += Hide;
+			
+		ChoiceVariantsVisualizer.Hide ();
+		PersonTextVisualizer.Hide ();
     }
-
-    private void Hide()
-    {
-        Debug.Log("Hide");
-        ChoiceVariantsVisualizer.Hide();
-        PersonTextVisualizer.Hide();
-        GetComponentInChildren<PersonText>().OnPhraseFinished -= Hide;
-    }
-
+		
     private void PhraseFinished()
     {
         ChoiceVariantsVisualizer.ShowVariants(node);
@@ -57,6 +51,7 @@ public class DialogVisualizer : Singleton<DialogVisualizer>
 
     private void ShowNode(DialogStateNode obj)
     {
+		
 		if(GameScenesManager.Instance.GetSceneType == GameScenesManager.SceneType.Location)
 		{
         	node = obj;
@@ -64,4 +59,9 @@ public class DialogVisualizer : Singleton<DialogVisualizer>
         	PersonTextVisualizer.ShowFeedback(obj.text);
 		}
     }
+
+	public void ApplyChoice(DialogStatePath path)
+	{
+		TransmissionManager.Instance.SelectDialogVariant(path);
+	}
 }

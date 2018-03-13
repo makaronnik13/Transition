@@ -5,12 +5,24 @@ using System.Linq;
 
 public class TransmissionManager : Singleton<TransmissionManager>
 {
+	public bool InDialog = false;
     public Action OnDialogFinished = () => { };
     public Action<DialogStateNode> OnNodeIn = (DialogStateNode node) => { };
     public Action<DialogStatePath> OnPathGo = (DialogStatePath path) => { };
     public Action<Person> OnPersonChanged = (Person person) => { };
     private DialogStateNode currentState;
     private Person talkablePerson;
+
+	void Start()
+	{
+		OnDialogFinished += () => 
+		{
+			InDialog = true;
+		};
+		OnPersonChanged += (Person person) => {
+			InDialog = false;
+		};
+	}
 
     public void RunNode (DialogNode node)
     {
@@ -19,7 +31,6 @@ public class TransmissionManager : Singleton<TransmissionManager>
 
     private void RunState(DialogStateNode node)
     {
-		
 		if (node.nodeType == DialogStateNode.StateNodeType.exit)
 		{
 			FinishDialog();

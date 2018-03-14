@@ -20,7 +20,7 @@ public class SceneCreator : EditorWindow
     private string sceneName;
     private SceneType sceneType = SceneType.Location;
     private List<Sprite> backgrounds = new List<Sprite>();
-
+    private AudioClip soundClip;
     private bool close = false;
     private ReorderableList list;
 
@@ -78,6 +78,7 @@ public class SceneCreator : EditorWindow
         EditorGUILayout.BeginVertical(GUILayout.Width(300));
         sceneName = EditorGUILayout.TextField("Scene name", sceneName);
         sceneType = (SceneType)EditorGUILayout.EnumPopup("Type", sceneType);
+        soundClip = (AudioClip)EditorGUILayout.ObjectField("Music", soundClip, typeof(AudioClip), false);
         if (GUILayout.Button("Generate"))
         {
             GenerateScene();
@@ -131,10 +132,55 @@ public class SceneCreator : EditorWindow
 
         currentPath =  Path.Combine(currentPath, sceneType.ToString() + "_" + sceneName+".unity");
 
+        CreateContent();
+
         EditorSceneManager.SaveScene(newScene, currentPath);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         close = true;
         //EditorSceneManager.OpenScene(currentPath);
+    }
+
+    private void CreateContent()
+    {
+        GameObject movementNet = new GameObject();
+        movementNet.transform.position = Vector3.zero;
+        movementNet.transform.rotation = Quaternion.identity;
+        movementNet.transform.localScale = Vector3.one;
+        movementNet.name = "MovementNet";
+        MovementNet net = movementNet.AddComponent<MovementNet>();
+
+        for (int i =0;i<3;i++)
+        {
+            NetNode newNode = new NetNode();
+            newNode.position = new Vector3(i*0.5f, 0, 0);
+            net.nodes.Add(newNode);
+            net.RecalculatePathesForNode(newNode);
+        }
+
+        GameObject objects = new GameObject();
+        objects.name = "InteractiveObjects";
+
+        GameObject background = new GameObject();
+        background.name = "Background";
+
+        for (int i = 0; i< backgrounds.Count; i++)
+        {
+            GameObject newBackground = new GameObject();
+            newBackground.transform.SetParent(background.transform);
+            newBackground.transform.localRotation = Quaternion.identity;
+            newBackground.name = backgrounds[i].name;
+            newBackground.transform.localPosition = Vector3.zero;
+            newBackground.transform.localScale = Vector3.one;
+
+            SpriteRenderer renderer = newBackground.AddComponent<SpriteRenderer>();
+            renderer.sprite = backgrounds[i];
+            renderer.sortingOrder = -100 + i;
+            CamerFakeParalax paralax = newBackground.AddComponent<CamerFakeParalax>();
+            paralax.force = i * 0.02f;
+        }
+
+        GameObject sceneSound = new GameObject("SceneSound");
+        sceneSound.AddComponent<SceneSound>().clip = soundClip;
     }
 }

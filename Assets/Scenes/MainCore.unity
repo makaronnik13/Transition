@@ -261,10 +261,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.73059, y: -243.49997}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17280458
 MonoBehaviour:
@@ -401,7 +401,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 33049814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -466,10 +466,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.73059, y: -93.5}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &38282973
 MonoBehaviour:
@@ -670,10 +670,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 593.7306, y: -93.5}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &142688878
 MonoBehaviour:
@@ -1254,7 +1254,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 229710049}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -2329,10 +2329,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.73059, y: -393.49997}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &356274721
 MonoBehaviour:
@@ -2871,10 +2871,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 363.7306, y: -93.49994}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459573687
 MonoBehaviour:
@@ -3652,6 +3652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5f92c8de1064aacb1aba94556b5850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InDialog: 0
 --- !u!114 &770290443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4011,7 +4012,6 @@ GameObject:
   - component: {fileID: 815201929}
   - component: {fileID: 815201931}
   - component: {fileID: 815201930}
-  - component: {fileID: 815201932}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -4135,11 +4135,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4160,19 +4160,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 815201928}
---- !u!114 &815201932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 815201928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &829397318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,7 +4551,6 @@ GameObject:
   - component: {fileID: 856193306}
   - component: {fileID: 856193308}
   - component: {fileID: 856193307}
-  - component: {fileID: 856193309}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -4688,11 +4674,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4713,19 +4699,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856193305}
---- !u!114 &856193309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856193305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &856592392
 GameObject:
   m_ObjectHideFlags: 0
@@ -4737,7 +4710,6 @@ GameObject:
   - component: {fileID: 856592393}
   - component: {fileID: 856592395}
   - component: {fileID: 856592394}
-  - component: {fileID: 856592396}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -4861,11 +4833,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4886,19 +4858,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856592392}
---- !u!114 &856592396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 856592392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &861331745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4935,10 +4894,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 593.7306, y: -243.49997}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861331747
 MonoBehaviour:
@@ -5184,7 +5143,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 928466393}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -5833,7 +5792,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1030118629}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -6180,7 +6139,6 @@ GameObject:
   - component: {fileID: 1109250129}
   - component: {fileID: 1109250131}
   - component: {fileID: 1109250130}
-  - component: {fileID: 1109250132}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -6304,11 +6262,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -6329,19 +6287,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1109250128}
---- !u!114 &1109250132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1109250128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &1187152469
 GameObject:
   m_ObjectHideFlags: 0
@@ -6416,7 +6361,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1193223078}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -6788,7 +6733,6 @@ GameObject:
   - component: {fileID: 1273946665}
   - component: {fileID: 1273946667}
   - component: {fileID: 1273946666}
-  - component: {fileID: 1273946668}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -6912,11 +6856,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -6937,19 +6881,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1273946664}
---- !u!114 &1273946668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1273946664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &1288556197
 GameObject:
   m_ObjectHideFlags: 0
@@ -7036,10 +6967,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 593.7306, y: -393.49997}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304933023
 MonoBehaviour:
@@ -7302,7 +7233,6 @@ GameObject:
   - component: {fileID: 1342836401}
   - component: {fileID: 1342836403}
   - component: {fileID: 1342836402}
-  - component: {fileID: 1342836404}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -7426,11 +7356,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -7451,19 +7381,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1342836400}
---- !u!114 &1342836404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1342836400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &1351038170
 GameObject:
   m_ObjectHideFlags: 0
@@ -7633,7 +7550,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1383407200}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -7698,10 +7615,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 363.7306, y: -243.49997}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384586205
 MonoBehaviour:
@@ -7830,10 +7747,10 @@ RectTransform:
   m_Father: {fileID: 1049324313}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 363.7306, y: -393.49997}
-  m_SizeDelta: {x: 200, y: 120}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1400667887
 MonoBehaviour:
@@ -8057,7 +7974,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1419356340}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -9054,7 +8971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1695736795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9332,7 +9249,6 @@ GameObject:
   - component: {fileID: 1785379949}
   - component: {fileID: 1785379951}
   - component: {fileID: 1785379950}
-  - component: {fileID: 1785379952}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -9456,11 +9372,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9481,19 +9397,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1785379948}
---- !u!114 &1785379952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1785379948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &1815812073
 GameObject:
   m_ObjectHideFlags: 0
@@ -9903,7 +9806,6 @@ GameObject:
   - component: {fileID: 1926474670}
   - component: {fileID: 1926474672}
   - component: {fileID: 1926474671}
-  - component: {fileID: 1926474673}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -10027,11 +9929,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10052,19 +9954,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1926474669}
---- !u!114 &1926474673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1926474669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &1928461973
 GameObject:
   m_ObjectHideFlags: 0
@@ -10109,7 +9998,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1928461973}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -10254,7 +10143,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2016486100}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1908110080, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: 
@@ -10773,7 +10662,6 @@ GameObject:
   - component: {fileID: 2129742213}
   - component: {fileID: 2129742215}
   - component: {fileID: 2129742214}
-  - component: {fileID: 2129742216}
   m_Layer: 5
   m_Name: TextMeshPro Text
   m_TagString: Untagged
@@ -10897,11 +10785,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10922,19 +10810,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129742212}
---- !u!114 &2129742216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2129742212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dace9b003dc49468028ba8939e53bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 0}
-  pos: {x: 0, y: 0}
 --- !u!1 &2141034279
 GameObject:
   m_ObjectHideFlags: 0

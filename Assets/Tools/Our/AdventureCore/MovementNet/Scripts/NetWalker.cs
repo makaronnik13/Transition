@@ -57,8 +57,8 @@ public class NetWalker : MonoBehaviour {
 		this.net = net;
 		if(net)
 		{
-            transform.position = net.GetNodeWorldPosition(net.GetNearestPoint(transform.position));
-            StartCoroutine(MoveFromTo(transform, transform.position, transform.position, speed));
+            //transform.position = net.GetNodeWorldPosition(net.GetNearestPoint(transform.position));
+            //StartCoroutine(MoveFromTo(transform, transform.position, transform.position, speed));
         }
     }
 

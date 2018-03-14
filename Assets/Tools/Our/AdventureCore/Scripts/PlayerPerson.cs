@@ -39,15 +39,22 @@ public class PlayerPerson : MonoBehaviour {
 	{
 		if(GetComponent<NetWalker> ().net)
 		{
+			Debug.Log (GetComponent<NetWalker> ().net.gameObject);
+
+
 			NetNode node = GetComponent<NetWalker> ().net.GetPointWithName (fromScene);	
 			if(node!=null)
 			{
-                GetComponent<NetWalker>().SetPoint(node);
-            }
+				GetComponent<NetWalker> ().StopCoroutine("MoveFromTo");
+				GetComponent<NetWalker>().transform.position = GetComponent<NetWalker> ().net.GetNodeWorldPosition(node);
+				GetComponent<NetWalker> ().StopCoroutine("MoveFromTo");
+			}
             else
             {
-                GetComponent<NetWalker>().SetPoint(GetComponent<NetWalker>().net.GetNearestPoint(transform.position));
-            }
+				GetComponent<NetWalker> ().StopCoroutine("MoveFromTo");
+                //GetComponent<NetWalker>().SetPoint(GetComponent<NetWalker>().net.GetNearestPoint(transform.position));
+				GetComponent<NetWalker> ().StopCoroutine("MoveFromTo");
+			}
 		}
 	}
 }

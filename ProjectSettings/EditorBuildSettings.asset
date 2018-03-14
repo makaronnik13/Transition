@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OtherScenes/MainMenuScene.unity
     guid: ba0c32517a9fd4a7fa6c0d8d5ad8dd66
-  - enabled: 1
-    path: Assets/Scenes/OtherScenes/CoreScene.unity
-    guid: 7023ada0f29984ec3bd4fa4db206ae73
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Cinematics/CinematicScene1.unity
     guid: dcee96877de23429497d82d6fb0bdbd8

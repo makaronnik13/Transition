@@ -19,9 +19,9 @@ public class SaveStruct
         }
     }
 
-
-	public string date;
-	public string sceneName;
+	public int id;
+	public string date = "";
+	public string sceneName = "";
     public List<StringPair> savedParameters = new List<StringPair>();
 
 

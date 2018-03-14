@@ -20,8 +20,11 @@ public class CinematicCanvas : MonoBehaviour {
 
 	public void OnDestroy()
 	{
-		TransmissionManager.Instance.OnNodeIn -= ShowDialogNodeFeedback;
-		TransmissionManager.Instance.OnPathGo -= ShowDialogPathFeedback;
+		if (TransmissionManager.Instance) 
+		{
+			TransmissionManager.Instance.OnNodeIn -= ShowDialogNodeFeedback;
+			TransmissionManager.Instance.OnPathGo -= ShowDialogPathFeedback;
+		}
 	}
 
 	void Update()

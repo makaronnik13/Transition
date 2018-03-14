@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 450506507}
   - component: {fileID: 450506506}
   m_Layer: 0
-  m_Name: Net
+  m_Name: Net2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

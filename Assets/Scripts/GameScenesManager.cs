@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using System.IO;
 using System.IO.Compression;
-using static SaveStruct;
 
 public class GameScenesManager : Singleton<GameScenesManager> {
 
@@ -55,8 +54,6 @@ public class GameScenesManager : Singleton<GameScenesManager> {
             if (saves.Count == 0)
             {
                 //load saves
-
-				Debug.Log (Application.persistentDataPath);
                 string path = Path.Combine(Application.persistentDataPath, "Saves");
                 if (!Directory.Exists(path))
                 {
@@ -92,12 +89,16 @@ public class GameScenesManager : Singleton<GameScenesManager> {
                     saves.Add(ss);
                 }
 
-                while (saves.Count < 10)
+				while(saves.Count<9)
                 {
-                    saves.Add(new SaveStruct("CinematicScene1"));
+
+						saves.Add(new SaveStruct("CinematicScene1"));
                 }
+					
             }
-			return saves;
+
+
+			return saves.OrderByDescending(s=>s.date).ToList();
 		}
 	}
 
@@ -139,23 +140,23 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 
 
 
-        saveStruct.savedParameters = new List<StringPair>();
+		saveStruct.savedParameters = new List<SaveStruct.StringPair>();
 
             foreach (KeyValuePair<string, float> pair in ParamsManager.Instance.ParamsStrings)
             {
-            saveStruct.savedParameters.Add(new StringPair(pair.Key, pair.Value));
+			saveStruct.savedParameters.Add(new SaveStruct.StringPair(pair.Key, pair.Value));
             }
 
 
 
 
         Texture2D picture = ScreenshotCamera.Instance.TakePic();
+
+
+
         saveStruct.SetPicture(picture);
 
 		string json = JsonUtility.ToJson(saveStruct);
-
-        Debug.Log(json);
-
         string path = Path.Combine(Application.persistentDataPath, "Saves");
 		if(!Directory.Exists(path))
 		{

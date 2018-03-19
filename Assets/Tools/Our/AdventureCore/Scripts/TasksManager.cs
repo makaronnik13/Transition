@@ -19,7 +19,7 @@ public class TasksManager : Singleton<TasksManager> {
         activeAim = pointAndClickObject;
     }
 
-    public void Listen(NetWalker walker)
+	public void Listen(NetWalkerPolyNav walker)
     {
         walker.OnStartedPath += ClearObject;
         walker.OnFinishedPath += ActivateObject;
@@ -49,7 +49,7 @@ public class TasksManager : Singleton<TasksManager> {
         activeItem = null;
     }
 
-    public void StopListen(NetWalker netWalker)
+	public void StopListen(NetWalkerPolyNav netWalker)
     {
         netWalker.OnStartedPath -= ClearObject;
         netWalker.OnFinishedPath -= ActivateObject;

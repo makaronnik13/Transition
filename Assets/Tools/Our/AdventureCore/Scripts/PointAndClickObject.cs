@@ -117,4 +117,9 @@ public class PointAndClickObject : MonoBehaviour
 
     }
 
+	public void AddItem(PointAndClickItem item)
+	{
+		Inventory.Instance.AddItemToPlayer (item);
+	}
+
 }

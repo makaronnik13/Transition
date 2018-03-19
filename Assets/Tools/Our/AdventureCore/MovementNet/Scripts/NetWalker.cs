@@ -14,10 +14,11 @@ public class NetWalker : MonoBehaviour {
     private Queue<Vector3> movementPath = new Queue<Vector3>();
     public Action OnFinishedPath = () => { };
     public Action OnStartedPath = () => { };
+	private bool stoping = false;
 
     private void OnEnable()
     {
-        TasksManager.Instance.Listen(this);
+        //TasksManager.Instance.Listen(this);
 		TransmissionManager.Instance.OnDialogFinished += DialogFinished;
 		TransmissionManager.Instance.OnPersonChanged += DialogStarted;
     }
@@ -36,7 +37,7 @@ public class NetWalker : MonoBehaviour {
     {
         if (TasksManager.Instance)
         {
-            TasksManager.Instance.StopListen(this);
+            //TasksManager.Instance.StopListen(this);
         }
     }
 
@@ -45,21 +46,23 @@ public class NetWalker : MonoBehaviour {
         MoveByPath(net.ShortestPath(transform.position, t.position));
     }
 
-    public void SetPoint(NetNode node)
-    {
-        transform.position = net.GetNodeWorldPosition(node);
-        StartCoroutine(MoveFromTo(transform, transform.position, transform.position+Vector3.up*0.01f, speed));
-        transform.localScale = net.GetScale(transform.position, transform.position, transform.position);
-    }
+	public void Stop()
+	{
+		stoping = true;
+		GetComponent<NetWalker> ().StopCoroutine ("MoveFromTo");
+	}
+
+	public void Stop(Vector3 position)
+	{
+		Stop ();
+		transform.position = position;
+		transform.localScale = Vector3.Lerp(transform.localScale, net.GetScale(transform.position, transform.position, transform.position), Time.deltaTime*2);
+	}
+
 
     public void SetNet(MovementNet net)
     {
 		this.net = net;
-		if(net)
-		{
-            //transform.position = net.GetNodeWorldPosition(net.GetNearestPoint(transform.position));
-            //StartCoroutine(MoveFromTo(transform, transform.position, transform.position, speed));
-        }
     }
 
     private void Update()
@@ -94,24 +97,31 @@ public class NetWalker : MonoBehaviour {
         animator.SetFloat("X", delta.x);
         animator.SetFloat("Y", delta.y);
 
-        while (t <= 1.0f)
+		while (t <= 1.0f && !stoping)
         {
             animator.SetFloat("Speed", 1);
             t += step; // Goes from 0 to 1, incrementing by step each time
-            objectToMove.localScale = Vector3.Lerp(transform.localScale, net.GetScale(b, a, transform.position), Time.deltaTime*2);
-            objectToMove.position = Vector3.Lerp(a, b, t); // Move objectToMove closer to b
-            yield return new WaitForFixedUpdate();         // Leave the routine and return here in the next frame
+			if(net)
+			{
+				objectToMove.localScale = Vector3.Lerp(transform.localScale, net.GetScale(b, a, transform.position), Time.deltaTime*2);
+			}
+			objectToMove.position = Vector3.Lerp(a, b, t); // Move objectToMove closer to b
+			yield return new WaitForFixedUpdate();         // Leave the routine and return here in the next frame
         }
-        objectToMove.position = b;
-        animator.SetFloat("Speed", 0);
+			
+		animator.SetFloat("Speed", 0);
 
-        if (movementPath.Count > 0)
-        {
-            StartCoroutine(MoveFromTo(transform, transform.position, movementPath.Dequeue(), speed));
-        }
-        else
-        {
-            OnFinishedPath.Invoke();
-        }
+
+		if (stoping) {
+			stoping = false;
+		} else {
+			
+			objectToMove.position = b;
+			if (movementPath.Count > 0) {
+				StartCoroutine (MoveFromTo (transform, transform.position, movementPath.Dequeue (), speed));
+			} else {
+				OnFinishedPath.Invoke ();
+			}
+		}
     }
 }

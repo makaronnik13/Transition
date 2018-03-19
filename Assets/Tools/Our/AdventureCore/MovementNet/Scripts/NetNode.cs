@@ -9,8 +9,11 @@ public class NetNode
 {
 	[SerializeField]
 	public string nodeName = string.Empty;
+	[SerializeField]
+	public float scale = 1;
     public Vector3 position;
     private Dictionary<NetNode, float> pathes = new Dictionary<NetNode, float>();
+
 
     public float Path(NetNode node)
     {

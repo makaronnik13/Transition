@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveLoadPanel : MonoBehaviour {
-	
-	public Sprite emptySprite;
-
+public class SaveLoadPanel : MonoBehaviour 
+{
 	public enum SaveLoadPanelType
 	{
 		Save,
@@ -22,17 +20,20 @@ public class SaveLoadPanel : MonoBehaviour {
 	void OnEnable()
 	{
 		int i = 0;
+		bool createPlus = true;
+
 		foreach(SaveButton panel in GetComponentsInChildren<SaveButton>())
 		{
-            if (GameScenesManager.Instance.Saves.Count>i)
-            {
-                panel.Init(GameScenesManager.Instance.Saves[i].date, GameScenesManager.Instance.Saves[i].GetPicture());
-            }
-            else
-            {
-                panel.Init("", emptySprite);
-            }
-			
+			if (GameScenesManager.Instance.Saves.Count > i) 
+			{
+				SaveStruct ss = GameScenesManager.Instance.Saves [i];
+				panel.Init (GameScenesManager.Instance.Saves [i].date, ss.GetPicture ());	
+			} else 
+			{
+
+					panel.Init("", null, createPlus);
+					createPlus = false;
+			}
 			i++;
 		}
 	}
@@ -56,6 +57,21 @@ public class SaveLoadPanel : MonoBehaviour {
 			}
 			i++;
 		}
+	}
+
+	public void DeleteSave (Transform buttonTransform)
+	{
+		int i = 0;
+		foreach (SaveButton panel in GetComponentsInChildren<SaveButton>()) 
+		{
+			if(panel.transform == buttonTransform)
+			{
+				GameScenesManager.Instance.DestroySave (i);
+			}
+			i++;
+		}
+
+		OnEnable ();
 	}
 
 	private void TryToLoadScene(int i)

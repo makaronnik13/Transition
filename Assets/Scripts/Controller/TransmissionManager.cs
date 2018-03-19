@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class TransmissionManager : Singleton<TransmissionManager>
 {
@@ -15,6 +16,7 @@ public class TransmissionManager : Singleton<TransmissionManager>
 
 	void Start()
 	{
+		SceneManager.sceneLoaded += SceneLoaded;
 		OnDialogFinished += () => 
 		{
 			InDialog = true;
@@ -22,6 +24,11 @@ public class TransmissionManager : Singleton<TransmissionManager>
 		OnPersonChanged += (Person person) => {
 			InDialog = false;
 		};
+	}
+
+	private void SceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		FinishDialog ();
 	}
 
     public void RunNode (DialogNode node)

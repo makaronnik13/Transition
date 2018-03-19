@@ -23,7 +23,7 @@ public class SaveStruct
 	public string date = "";
 	public string sceneName = "";
     public List<StringPair> savedParameters = new List<StringPair>();
-
+	public string filePath = "";
 
 	public List<string> savedItems = new List<string>();
 	public Vector3 playerPosition;

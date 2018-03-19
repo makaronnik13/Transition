@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogVisualizer : Singleton<DialogVisualizer>
 {
@@ -31,10 +32,9 @@ public class DialogVisualizer : Singleton<DialogVisualizer>
         TransmissionManager.Instance.OnDialogFinished += HideDialog;
         PersonTextVisualizer.OnPhraseFinished += PhraseFinished;
     }
-
+		
     private void HideDialog()
     {
-			
 		ChoiceVariantsVisualizer.Hide ();
 		PersonTextVisualizer.Hide ();
     }

@@ -31,7 +31,7 @@ public class PersonText : MonoBehaviour
 
     public void Hide()
     {
-		if (IsInvoking("PushTheButton")) 
+		if (!IsInvoking("PushTheButton")) 
 		{
 			HideAbsolutly ();
 		} else 
@@ -84,7 +84,6 @@ public class PersonText : MonoBehaviour
 
     private void PushTheButton()
     {
-		Debug.Log ("push the button");
         if (phrases.Count > 0)
         {
             text1.text = phrases.Dequeue();
@@ -92,7 +91,6 @@ public class PersonText : MonoBehaviour
         }
         else
         {
-			Debug.Log ("Phrase finished");
 			CancelInvoke("PushTheButton");
             OnPhraseFinished.Invoke();
             //text1.enabled = false;

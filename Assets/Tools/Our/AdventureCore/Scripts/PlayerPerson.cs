@@ -23,11 +23,18 @@ public class PlayerPerson : MonoBehaviour {
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		MovementNet net = FindObjectOfType<MovementNet> ();
+		Debug.Log ("scene loaded");
+		PolyNav2D net = FindObjectOfType<PolyNav2D> ();
 		GetComponentInChildren<SpriteRenderer> ().enabled = (net != null);
 		GetComponentInChildren<PolygonCollider2D> ().enabled = (net != null);
-		GetComponent<NetWalker> ().SetNet (net);
-        MovePlayer();
+
+		Debug.Log (net);
+		if(net)
+		{
+			Vector2 point = net.GetComponent<PolygonCollider2D> ().Distance(GetComponentInChildren<PolygonCollider2D>()).pointA;
+			transform.position = new Vector3 (point.x, point.y, transform.position.z);
+		}
+        //MovePlayer();
     }
 
 	void OnSceneUnloaded(Scene scene)
@@ -35,26 +42,22 @@ public class PlayerPerson : MonoBehaviour {
 		fromScene = scene.name;   
 	}
 
+	/*
 	private void MovePlayer()
 	{
 		if(GetComponent<NetWalker> ().net)
 		{
-			Debug.Log (GetComponent<NetWalker> ().net.gameObject);
-
-
 			NetNode node = GetComponent<NetWalker> ().net.GetPointWithName (fromScene);	
 			if(node!=null)
 			{
-				GetComponent<NetWalker> ().StopCoroutine("MoveFromTo");
-				GetComponent<NetWalker>().transform.position = GetComponent<NetWalker> ().net.GetNodeWorldPosition(node);
-				GetComponent<NetWalker> ().StopCoroutine("MoveFromTo");
+				Vector3 point = GetComponent<NetWalker> ().net.GetNodeWorldPosition(node);
+				GetComponent<NetWalker> ().Stop(point);
 			}
             else
             {
-				GetComponent<NetWalker> ().StopCoroutine("MoveFromTo");
-                //GetComponent<NetWalker>().SetPoint(GetComponent<NetWalker>().net.GetNearestPoint(transform.position));
-				GetComponent<NetWalker> ().StopCoroutine("MoveFromTo");
+				Vector3 point = GetComponent<NetWalker> ().net.GetNodeWorldPosition (GetComponent<NetWalker> ().net.GetNearestPoint (transform.position));
+				GetComponent<NetWalker> ().Stop(point);
 			}
 		}
-	}
+	}*/
 }

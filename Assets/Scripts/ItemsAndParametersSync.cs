@@ -23,10 +23,13 @@ public class ItemsAndParametersSync : MonoBehaviour {
 
 	private void ParamChanged(GameParameter parameter, float value)
 	{
+		
 		PointAndClickItem item = syncList.Find (p=>p.parameter == parameter).item;
 
+ 		
 		if(item)
 		{
+			
 			for(int i = 0; i<Mathf.Abs(Mathf.RoundToInt(value));i++)
 			{
 				if(value>0)

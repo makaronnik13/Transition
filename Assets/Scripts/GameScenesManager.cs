@@ -9,6 +9,7 @@ using System.IO.Compression;
 
 public class GameScenesManager : Singleton<GameScenesManager> {
 
+	public string FirstScene;
 	private SaveStruct currentStruct;
     public Action<SaveStruct> OnSaveLoaded = (SaveStruct) => { };
 
@@ -86,19 +87,19 @@ public class GameScenesManager : Singleton<GameScenesManager> {
                     tex.Apply();
 
                     ss.SetPicture(tex);
+					ss.filePath = savePath;
                     saves.Add(ss);
                 }
-
-				while(saves.Count<9)
-                {
-
-						saves.Add(new SaveStruct("CinematicScene1"));
-                }
-					
             }
 
+			saves = saves.OrderByDescending (s => s.date).ToList ();
 
-			return saves.OrderByDescending(s=>s.date).ToList();
+			for(int i = 0; i< saves.Count;i++)
+			{
+				saves [i].id = i;
+			}
+
+			return saves;
 		}
 	}
 
@@ -120,73 +121,102 @@ public class GameScenesManager : Singleton<GameScenesManager> {
 
 	private void LoadScene(SaveStruct saveStruct)
 	{
-   
-        OnSaveLoaded.Invoke(saveStruct);
-        currentStruct = saveStruct;
-		SceneManager.LoadScene (currentStruct.sceneName);
+		if (saveStruct.date != "") {
+			OnSaveLoaded.Invoke (saveStruct);
+		} else 
+		{
+			saveStruct.sceneName = FirstScene;
+		}
+			currentStruct = saveStruct;
+			SceneManager.LoadScene (currentStruct.sceneName);
 	}
 
 	public void LoadSafe(int i)
 	{  
-		LoadScene (Saves [i]);
+		if (i >= Saves.Count) 
+		{
+			SaveStruct ss = new SaveStruct ("");
+			ss.id = i;
+			LoadScene (ss);
+		} else 
+		{
+			LoadScene (Saves [i]);
+		}
+	}
+
+	public void Autosafe()
+	{
+		Save (currentStruct.id);
+	}
+
+	public void DestroySave(int id)
+	{
+		string path = Path.Combine(Application.persistentDataPath, "Saves");
+		SaveStruct ss = saves.Where (s => s.id == id).ToList () [0];
+		File.Delete (ss.filePath);
+		saves.Remove(ss);
 	}
 
 	public void Save(int i)
 	{
-        SaveStruct saveStruct = new SaveStruct(SceneManager.GetActiveScene().name);
-		saveStruct.date = DateTime.Now.ToShortDateString()+" "+DateTime.Now.ToShortTimeString();
-        saveStruct.playerPosition = FindObjectOfType<PlayerPerson>().transform.position;
-		saveStruct.savedItems = Inventory.Instance.Items().Select(item=>item.itemName).Distinct().ToList();
-
-
-
-		saveStruct.savedParameters = new List<SaveStruct.StringPair>();
-
-            foreach (KeyValuePair<string, float> pair in ParamsManager.Instance.ParamsStrings)
-            {
-			saveStruct.savedParameters.Add(new SaveStruct.StringPair(pair.Key, pair.Value));
-            }
-
-
-
-
-        Texture2D picture = ScreenshotCamera.Instance.TakePic();
-
-
-
-        saveStruct.SetPicture(picture);
-
-		string json = JsonUtility.ToJson(saveStruct);
-        string path = Path.Combine(Application.persistentDataPath, "Saves");
-		if(!Directory.Exists(path))
-		{
-			Directory.CreateDirectory(path);
-		}
-
-
-		
-		byte[] picBytes = picture.GetRawTextureData();
-        byte[] saveBytes = System.Text.Encoding.UTF8.GetBytes(json);
-        byte[] saveSize = new Byte[4];
-        byte[] picSize = new Byte[4];
-        saveSize = System.BitConverter.GetBytes(saveBytes.Length);
-        picSize = System.BitConverter.GetBytes(picBytes.Length);
-
-        byte[] save = new byte[saveSize.Length+saveBytes.Length+picSize.Length+picBytes.Length];
-        Array.Copy(saveSize, 0, save, 0, saveSize.Length);
-        Array.Copy(saveBytes, 0, save, 4, saveBytes.Length);
-        Array.Copy(picSize, 0, save, 4 + saveBytes.Length, picSize.Length);
-        Array.Copy(picBytes, 0, save, 8 + saveBytes.Length, picBytes.Length);
-
-        File.WriteAllBytes(Path.Combine(path,"save"+i+".save"), save);
-
-        saves[i] = saveStruct;
+		SaveStruct saveStruct = CreateSaveStruct (i);
+		SaveToFile (saveStruct);
 		//save position
         //save scene
         //make screenshot
         //save params
         //save dictionary !!!
         //save items
+	}
+
+	private void SaveToFile(SaveStruct saveStruct)
+	{
+		string json = JsonUtility.ToJson(saveStruct);
+		string path = Path.Combine(Application.persistentDataPath, "Saves");
+		if(!Directory.Exists(path))
+		{
+			Directory.CreateDirectory(path);
+		}
+
+		byte[] picBytes = saveStruct.GetPicture().texture.GetRawTextureData();
+		byte[] saveBytes = System.Text.Encoding.UTF8.GetBytes(json);
+		byte[] saveSize = new Byte[4];
+		byte[] picSize = new Byte[4];
+		saveSize = System.BitConverter.GetBytes(saveBytes.Length);
+		picSize = System.BitConverter.GetBytes(picBytes.Length);
+
+		byte[] save = new byte[saveSize.Length+saveBytes.Length+picSize.Length+picBytes.Length];
+		Array.Copy(saveSize, 0, save, 0, saveSize.Length);
+		Array.Copy(saveBytes, 0, save, 4, saveBytes.Length);
+		Array.Copy(picSize, 0, save, 4 + saveBytes.Length, picSize.Length);
+		Array.Copy(picBytes, 0, save, 8 + saveBytes.Length, picBytes.Length);
+
+		File.WriteAllBytes(Path.Combine(path,"save"+(saveStruct.id+1)+".save"), save);
+
+		if(saveStruct.id>=Saves.Count)
+		{
+			Saves.Add (saveStruct);
+		}
+		saveStruct.filePath = Path.Combine(path,"save"+(saveStruct.id+1)+".save");
+		Saves[saveStruct.id] = saveStruct;
+	}
+
+	private SaveStruct CreateSaveStruct(int id)
+	{
+		SaveStruct saveStruct = new SaveStruct(SceneManager.GetActiveScene().name);
+		saveStruct.date = DateTime.Now.ToShortDateString()+" "+DateTime.Now.ToShortTimeString();
+		saveStruct.playerPosition = FindObjectOfType<PlayerPerson>().transform.position;
+		saveStruct.savedItems = Inventory.Instance.Items().Select(item=>item.itemName).ToList();
+		saveStruct.savedParameters = new List<SaveStruct.StringPair>();
+		saveStruct.id = id;
+		foreach (KeyValuePair<string, float> pair in ParamsManager.Instance.ParamsStrings)
+		{
+			saveStruct.savedParameters.Add(new SaveStruct.StringPair(pair.Key, pair.Value));
+		}
+		Texture2D picture = ScreenshotCamera.Instance.TakePic();
+		saveStruct.SetPicture(picture);
+
+		return saveStruct;
 	}
 
     private void Start()

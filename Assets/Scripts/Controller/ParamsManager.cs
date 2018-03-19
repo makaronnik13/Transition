@@ -43,6 +43,7 @@ public class ParamsManager : Singleton<ParamsManager>
 
     private void SaveLoaded(SaveStruct obj)
     {
+		paramsValues.Clear ();
         foreach (SaveStruct.StringPair pair in obj.savedParameters)
         {
             foreach(Dialog dialog in trackingDialogs)
@@ -91,6 +92,11 @@ public class ParamsManager : Singleton<ParamsManager>
 		}
 
 		OnParamChanged.Invoke (param, value-paramsValues [param]);
+
+		if(!paramsValues.ContainsKey(param))
+		{
+			paramsValues.Add (param, param.defaultValue);
+		}
 
 		paramsValues [param] = Mathf.Clamp(value, param.minValue, param.maxValue);
 	}

@@ -11,6 +11,9 @@ public class MovementNet : MonoBehaviour
     public float minSize = 0.3f;
     public float maxSize = 2f;
 
+	//[HideInInspector]
+	public Sprite testTexture;
+
     private void Awake()
     {
         foreach (NetNode nn in nodes)

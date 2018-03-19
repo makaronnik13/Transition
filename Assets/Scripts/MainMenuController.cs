@@ -65,7 +65,7 @@ public class MainMenuController : MonoBehaviour {
 
 	public void ReturnToMainMenu()
 	{
-		Debug.LogWarning ("save");
+		GameScenesManager.Instance.Autosafe ();
 		SceneManager.LoadScene ("MainMenuScene");
 	}
 }
